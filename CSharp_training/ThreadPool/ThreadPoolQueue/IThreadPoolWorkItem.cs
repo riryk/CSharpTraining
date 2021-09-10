@@ -2,7 +2,7 @@
 
 namespace CSharp_training.ThreadPool.ThreadPoolQueue
 {
-    internal interface IThreadPoolWorkItem
+    public interface IThreadPoolWorkItem
     {
         void ExecuteWorkItem();
         void MarkAborted(ThreadAbortException tae);
