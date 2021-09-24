@@ -4,6 +4,9 @@ using System.Threading;
 
 namespace CSharp_training.ThreadPool.ThreadPoolQueue
 {
+    // https://blog.actorsfit.com/a?ID=00550-5a33a33f-19bd-4252-b980-d819d2443a5d
+    // https://blog.weghos.com/coreclr/CoreCLR/vm/threadpoolrequest.cpp.html
+    // https://www.codeproject.com/Articles/1182012/The-CLR-Thread-Pool-Thread-Injection-Algorithm
     public class ThreadPoolWorkQueue
     {
         internal volatile QueueSegment queueHead;
@@ -174,10 +177,74 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
             {
                 ThreadPoolWorkQueueThreadLocals tl = workQueue.EnsureCurrentThreadHasQueue();
 
+                while ((Environment.TickCount - quantumStartTime) < ThreadPoolGlobals.tpQuantum)
+                {
+                    try { }
+                    finally
+                    {
+                        bool missedSteal = false;
+                        workQueue.Dequeue(tl, out workItem, out missedSteal);
+
+                        if (workItem == null)
+                        {
+                            needAnotherThread = missedSteal;
+                        }
+                        else
+                        {
+                            workQueue.EnsureThreadRequested();
+                        }
+                    }
+
+                    if (workItem == null)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        if (ThreadPoolGlobals.enableWorkerTracking)
+                        {
+                            bool reportedStatus = false;
+                            try
+                            {
+                                try { }
+                                finally
+                                {
+                                    // ThreadPool.ReportThreadStatus(true);
+                                    reportedStatus = true;
+                                }
+                                workItem.ExecuteWorkItem();
+                                workItem = null;
+                            }
+                            finally
+                            {
+                                // if (reportedStatus)
+                                //    ThreadPool.ReportThreadStatus(false);
+                            }
+                        }
+                        else
+                        {
+                            workItem.ExecuteWorkItem();
+                            workItem = null;
+                        }
+
+                        // if (!ThreadPool.NotifyWorkItemComplete())
+                        //    return false;
+                    }
+                }
+
+                return true;
             }
-            catch (Exception ex)
+            catch (ThreadAbortException tae)
             {
-                throw;
+                if (workItem != null)
+                    workItem.MarkAborted(tae);
+
+                needAnotherThread = false;
+            }
+            finally
+            {
+                if (needAnotherThread)
+                    workQueue.EnsureThreadRequested();
             }
 
             return true;
