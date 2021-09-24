@@ -83,5 +83,13 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
                 }
             }
         }
+
+        public bool IsUsedUp()
+        {
+            int upper, lower;
+            GetIndexes(out upper, out lower);
+            return (upper == nodes.Length) &&
+                   (lower == nodes.Length);
+        }
     }
 }
