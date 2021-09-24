@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Security;
-using System.Text;
 using System.Threading;
 
 namespace CSharp_training.ThreadPool.ThreadPoolQueue
@@ -10,7 +8,7 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
     {
         internal volatile QueueSegment queueHead;
         internal volatile QueueSegment queueTail;
-        internal static SparseArray<WorkStealingQueue> allThreadQueues = new SparseArray<WorkStealingQueue>(16); //
+        internal static SparseArray<WorkStealingQueue> allThreadQueues = new SparseArray<WorkStealingQueue>(16);
 
         private volatile int numOutstandingThreadRequests = 0;
 
@@ -33,6 +31,29 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
                 }
                 count = prev;
             }
+        }
+
+        [SecurityCritical]
+        internal void MarkThreadRequestSatisfied()
+        {
+            int count = numOutstandingThreadRequests;
+            while (count > 0)
+            {
+                int prev = Interlocked.CompareExchange(ref numOutstandingThreadRequests, count - 1, count);
+                if (prev == count)
+                {
+                    break;
+                }
+                count = prev;
+            }
+        }
+
+        [SecurityCritical]
+        public ThreadPoolWorkQueueThreadLocals EnsureCurrentThreadHasQueue()
+        {
+            if (null == ThreadPoolWorkQueueThreadLocals.threadLocals)
+                ThreadPoolWorkQueueThreadLocals.threadLocals = new ThreadPoolWorkQueueThreadLocals(this);
+            return ThreadPoolWorkQueueThreadLocals.threadLocals;
         }
 
         public void Enqueue(IThreadPoolWorkItem callback, bool forceGlobal)
@@ -137,6 +158,29 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
                     c--;
                 }
             }
+        }
+
+        [SecurityCritical]
+        static internal bool Dispatch()
+        {
+            var workQueue = ThreadPoolGlobals.workQueue;
+            int quantumStartTime = Environment.TickCount;
+
+            workQueue.MarkThreadRequestSatisfied();
+
+            bool needAnotherThread = true;
+            IThreadPoolWorkItem workItem = null;
+            try
+            {
+                ThreadPoolWorkQueueThreadLocals tl = workQueue.EnsureCurrentThreadHasQueue();
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            return true;
         }
     }
 }

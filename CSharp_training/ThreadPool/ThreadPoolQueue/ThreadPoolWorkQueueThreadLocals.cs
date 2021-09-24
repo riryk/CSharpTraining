@@ -14,6 +14,11 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
         public readonly WorkStealingQueue workStealingQueue;
         public readonly Random random = new Random(Thread.CurrentThread.ManagedThreadId);
 
-
+        public ThreadPoolWorkQueueThreadLocals(ThreadPoolWorkQueue tpq)
+        {
+            workQueue = tpq;
+            workStealingQueue = new WorkStealingQueue();
+            ThreadPoolWorkQueue.allThreadQueues.Add(workStealingQueue);
+        }
     }
 }
