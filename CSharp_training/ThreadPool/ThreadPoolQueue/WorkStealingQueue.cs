@@ -9,7 +9,7 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
     public class WorkStealingQueue
     {
         private const int INITIAL_SIZE = 32;
-        private volatile IThreadPoolWorkItem[] m_array = new IThreadPoolWorkItem[INITIAL_SIZE];
+        internal volatile IThreadPoolWorkItem[] m_array = new IThreadPoolWorkItem[INITIAL_SIZE];
         private volatile int m_mask = INITIAL_SIZE - 1;
 
         private const int START_INDEX = 0;
