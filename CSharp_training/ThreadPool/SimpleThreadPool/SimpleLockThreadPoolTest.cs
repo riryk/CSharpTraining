@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 
 namespace CSharp_training.ThreadPool.SimpleThreadPool
@@ -37,27 +38,60 @@ namespace CSharp_training.ThreadPool.SimpleThreadPool
                         itp.QueueUserWorkItem(wc, null);
                     }
                 }
-            }
 
-            // Now do the real thing:
-            int g0collects = GC.CollectionCount(0);
-            int g1collects = GC.CollectionCount(1);
-            int g2collects = GC.CollectionCount(2);
+                // Now do the real thing:
+                int g0collects = GC.CollectionCount(0);
+                int g1collects = GC.CollectionCount(1);
+                int g2collects = GC.CollectionCount(2);
 
-            using (CountdownEvent cev = new CountdownEvent(realRunsPerThreadPool))
-            {
-                using (ManualResetEvent gun = new ManualResetEvent(false))
+                using (CountdownEvent cev = new CountdownEvent(realRunsPerThreadPool))
                 {
-                    WaitCallback wc = delegate 
+                    using (ManualResetEvent gun = new ManualResetEvent(false))
                     {
-                        if (separateQueueFromDrain) 
-                        { 
-                            gun.WaitOne(); 
+                        WaitCallback wc = delegate
+                        {
+                            if (separateQueueFromDrain)
+                            {
+                                gun.WaitOne();
+                            }
+
+                            cev.AddCount(-1);
+                        };
+
+                        Stopwatch sw = Stopwatch.StartNew();
+
+                        for (int j = 0; j < realRunsPerThreadPool; j++)
+                            itp.QueueUserWorkItem(wc, null);
+
+                        queueCost[i] = sw.ElapsedTicks;
+
+                        if (separateQueueFromDrain)
+                        {
+                            gun.Set();
                         }
 
-                        cev.AddCount(-1);
-                    };
+                        cev.Wait();
+
+                        drainCost[i] = sw.ElapsedTicks;
+                    }
                 }
+
+                g0collects = GC.CollectionCount(0) - g0collects;
+                g1collects = GC.CollectionCount(1) - g1collects;
+                g2collects = GC.CollectionCount(2) - g2collects;
+
+                Console.WriteLine("q: {0}, d: {1}, t: {2} (collects: 0={3},1={4},2={5})",
+                    queueCost[i].ToString("#,##0"),
+                    drainCost[i].ToString("#,##0"),
+                    (queueCost[i] + drainCost[i]).ToString("#,##0"),
+                    g0collects,
+                    g1collects,
+                    g2collects
+                );
+
+                // itp.Dispose();
+                GC.Collect(2);
+                GC.WaitForPendingFinalizers();
             }
         }
     }

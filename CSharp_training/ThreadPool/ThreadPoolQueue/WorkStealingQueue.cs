@@ -6,6 +6,7 @@ namespace CSharp_training.ThreadPool.ThreadPoolQueue
     // http://joeduffyblog.com/2008/07/29/building-a-custom-thread-pool-series-part-1/
     // http://www.cs.tau.ac.il/~shanir/multiprocessor-synch-2003/steal/notes/steal.pdf
     // http://supertech.csail.mit.edu/papers/steal.pdf
+    // http://supertech.csail.mit.edu/papers/steal.pdf
     public class WorkStealingQueue
     {
         private const int INITIAL_SIZE = 32;
