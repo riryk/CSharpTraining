@@ -1,0 +1,96 @@
+﻿
+Two primary things contribute heavily to whether the global lock becomes a limiting factor for a particular workload’s throughput:
+
+- As the size of work items become smaller, the frequency at which the pool’s threads must acquire the global lock increases. 
+  Moving forward, we expect the granularity of latent parallelism to become smaller 
+  such that programs can scale as more processors are added.
+
+- As more processors are added, the arrival rate at the lock will increase when compared to the same workload run with fewer processors. 
+  This inherently limits the ability to “get more work through” that single straw that is the global queue.
+
+For coarse-grained work items, and for small numbers of processors, these problems simply aren’t too great. 
+That has been the CLR ThreadPool’s forte for quite some time; 
+most work items range in the 1,000s to 10,000s (or more) of CPU cycles, 
+and 8-processors was considered pushing the limits. 
+Clearly the direction the whole industry is headed in exposes these fundamental flaws very quickly. 
+We’d like to enable work items with 100s and 1,000s of cycles and must scale well beyond 4, 8, 16, 32, 64, … processors.
+
+Decentralized scheduling techniques can be used to combat this problem. 
+In other words, if we give different components their own work queues, we can eliminate the central bottleneck. 
+This approach works to a degree but becomes complicated very quickly because clearly 
+we don’t want each such queue to have its own pool of dedicated threads. 
+So we’d need some way of multiplexing a very dynamic and comparatively 
+large number of work pools onto a mostly-fixed and comparatively small number of OS threads.
+
+Introducing work stealing
+
+Another technique – and the main subject of this blog post – is to use a so-called work stealing queue (WSQ). 
+A WSQ is a special kind of queue in that it has two ends, and allows lock-free pushes and pops from one end (“private”), 
+but requires synchronization from the other end (“public”). 
+When the queue is sufficiently small that private and public operations could conflict, 
+synchronization is necessary. 
+It is array-based and can grow dynamically. 
+This data structure was made famous in the 90’s when much work on dynamic work scheduling was done in the research community.
+
+In the context of a thread pool, the WSQ can augment the traditional global queue to enable more efficient private queuing and dequeuing. 
+I't works roughly as follows:
+
+- We still have a global queue protected by a global lock.
+
+- (We can of course consider the ability to have separate pools to reduce pressure on this.)
+
+- Each thread in the pool has its own private WSQ.
+
+- When work is queued from a pool thread, the work goes into the WSQ, avoiding all locking.
+
+- When work is queued from a non-pool thread, it goes into the global queue.
+
+- When threads are looking for work, they can have a preferred search order:
+
+  - Check the local WSQ. Work here can be dequeued without locks.
+
+  - Check the global queue. Work here must be dequeued using locks.
+
+  - Check other threads’ WSQs. This is called “stealing”, and requires locks.
+
+
+For workloads that recursively queue a lot of work, 
+the use of a per-thread WSQ substantially reduces the synchronization necessary to complete the work, 
+leading to far better throughput. 
+
+There are also fewer cache effects due to sharing of the global queue information. 
+“Stealing” is our last course of action in the abovementioned search logic, 
+because it has the secondary effect of causing another thread to have to visit the global queue (or steal) sooner. 
+In some sense, it is double the cost of merely getting an item from the global queue.
+
+Another (subtle) aspect of WSQs is that they are LIFO for private operations and FIFO for steals. 
+This is inherent in how the WSQ’s synchronization works (and is key to enabling lock-freedom), 
+but has additional rationale:
+
+  1. By executing the work most recently pushed into the queue in LIFO order, 
+     chances are that memory associated with it will still be hot in the cache.
+
+  2. By stealing in FIFO order, chances are that a larger “chunk” of work will be stolen 
+     (possibly reducing the chance of needing additional steals). 
+     The reason for this is that many work stealing workloads are divide-and-conquer in nature; 
+     in such cases, the recursion forms a tree, and the oldest items in the queue lie closer to the root; 
+     hence, stealing one of those implicitly also steals a (potentially) 
+     large subtree of computations that will unfold once that piece of work is stolen and run.
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

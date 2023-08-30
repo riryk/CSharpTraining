@@ -1,0 +1,40 @@
+
+ Title. 
+ 
+ Senior NET Software Engeneer with 10+ years of experience leading and delevoping 
+ complex distributed applications within financial business domain using wide 
+ range of technologies 
+
+ Proven ability to:
+  - Design software architecture 
+  - Design Web APIs
+  - Integrate complex systems 
+  - Migrate on-prem applications to AWS Cloud
+  - set up CI/CD
+  - Work within globally distributed and multi-cultural teams
+  - Teach and develop team members 
+  
+ Key achivements: 
+  - Designed and developed reliable event driven integration with IssueNet 
+    to directly connect BuySide investors with Syndicate banks 
+	which resulted into large number of new investors and banks in the system
+  - Migrated multiple on-prem microservices and BuySide web site to NET Core and AWS Clould
+    which   
+	
+
+•	.NET developer with more than 10 years of IT experience (software design, development, auto-testing and database)
+•   Roles on the project: Key developer
+•   Key business domain: Capital market, Fixed Income Management, Banking
+•	Key languages and technologies: C#, ASP.NET, SQL Server, Postgres
+•	Proven practical experience with .NET development (Back-End, Data Access, Front-End)
+•   Proven success record of migration on-prem .NET 4.8 service to AWS Cloud (.NET Core and deploy to AWS ECS)
+•   Hands on experience in development of scalable, fault-tolerant distributed systems
+•	Worked as a member of globally distributed and cross-functional team
+•   Highly reliable person who always strives for excellence
+•   Experience in teaching, developing, consulting team members
+
+
+- Proven success record of migration on-prem .NET 4.8 service to AWS Cloud (.NET Core and deploy to AWS ECS)
+- Experienced in business domains: Financing, Banking, Capital Markets.
+- Key business domain: Capital market, Fixed Income Management
+- Worked as a member of globally distributed and cross-functional team
