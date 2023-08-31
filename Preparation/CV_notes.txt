@@ -1,9 +1,13 @@
 
- Title. 
+------------------------------------------------------------------
+
+ Title
+ 
+------------------------------------------------------------------
  
  Senior NET Software Engeneer with 10+ years of experience leading and delevoping 
  complex distributed applications within financial business domain using wide 
- range of technologies 
+ range of technologies from legacy ASP WebForms to AWS Cloud
 
  Proven ability to:
   - Design software architecture 
@@ -18,9 +22,10 @@
   - Designed and developed reliable event driven integration with IssueNet 
     to directly connect BuySide investors with Syndicate banks 
 	which resulted into large number of new investors and banks in the system
-  - Migrated multiple on-prem microservices and BuySide web site to NET Core and AWS Clould
-    which   
-	
+  - Migrated on-prem Microservices and BuySide WebSite to NET Core and AWS Cloud
+    which reduced hosting cost on 50%
+  - Designed and developed Equity Deal integration service applying CQRS pattern with NET Core and AWS Lambdas
+    which improved performace and increased availability. 
 
 •	.NET developer with more than 10 years of IT experience (software design, development, auto-testing and database)
 •   Roles on the project: Key developer
@@ -33,8 +38,62 @@
 •   Highly reliable person who always strives for excellence
 •   Experience in teaching, developing, consulting team members
 
-
 - Proven success record of migration on-prem .NET 4.8 service to AWS Cloud (.NET Core and deploy to AWS ECS)
 - Experienced in business domains: Financing, Banking, Capital Markets.
 - Key business domain: Capital market, Fixed Income Management
 - Worked as a member of globally distributed and cross-functional team
+
+-----------------------------------------------------------------
+
+ IHS Markit project 
+
+-----------------------------------------------------------------
+
+
+
+Investor Access platform is suite of solution to provide electronification 
+and automation of the Fixed Income marketplace. 
+It allows investors and syndicate banks to exchange information 
+in real-time electronically which increased market efficiency and reduced operational risk.
+
+
+
+Responsibilities
+
+•	Designed and developed Investor Access Net, 
+    the core service which connects Buy Side investors with syndicate banks.
+	
+•	Designed and developed BuySide portal, the world-class web portal 
+    that allows investors to communicate orders.
+	
+•	Served as first point of contact while resolving production issues with Investor Access Net.
+
+•	Wrote integration, Api and UI tests which significantly reduced bugs.
+
+•	Implemented live updates on BuySide portal using SignalR 
+    which allowed investors to receive order book changes in browser.
+	
+•	Designed and implemented Service-Oriented Asp.Net Core Back-End 
+    for Primary Order Management platform which allows investors to manage orders 
+	and allocations across its account hierarchy. 
+	
+•	Developed UI components using cutting edge Front-End technologies such as Angular, Redux.
+
+•	Developed Integration between Microservices via Kafka and RabbitMQ.
+
+
+Example: 
+
+- Integrated external web service system on HTTPS with 
+  sertificates for both Client and Server 
+- Developed communication between the applications using JMS transport 
+- Analyzed and documented defects using bug tracking tools 
+- Created design artifacts and documented the solution 
+
+
+My responsibilities: 
+
+- Integrated BuySide web platform with IssueNet data hub system on Fixed 
+
+
+

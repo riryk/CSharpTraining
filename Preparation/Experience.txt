@@ -1,0 +1,276 @@
+
+1. IssueNet 
+
+  A unique network of member banks linked by web-based
+  technology that synchronizes deal and orderbook information
+  between syndicate desks
+
+  IssueNet enables the rapid exchange of orders and allocations between banks
+  during the bookbuild phase of the new issue process. 
+  This exchange of information ensures that all banks participating on a deal 
+  see a consolidated and up to date version of the orderbook 
+  and an accurate level of demand at all times. 
+  
+  It is supported by a market-wide investor mapping service which allows IssueNet
+  to automatically reconcile the orderbook, 
+  speeding up deal execution while simultaneously reducing the risk of errors.
+  
+  Banks can seamlessly connect to IssueNet using our IssueBook bookbuild platform.
+  The significant increase in deal volumes in recent years, 
+  along with bigger orderbook sizes and larger syndicate groups, 
+  has increased the pressure on syndicate desks 
+  that still need to launch and price deals same day.
+  
+  IssueNet brings major efficiencies to the new issuance process, 
+  enabling the syndicate to manage and reconcile an orderbook in much shorter time frames 
+  and allowing them to price deals sooner than previously possible. 
+  
+  In addition, errors are greatly reduced due to IssueNet’s automated order 
+  matching capabilities.
+  
+  Automated reconciliation IssueNet’s investor mapping service identifies 
+  and deals with duplicate orders in real time.
+  
+  Manage and reduce errors
+  Orderbook discrepancies are flagged so that syndicate can address appropriately.
+  Shortened reconciliation process 
+  Automated reconciliation means less time spent on manual reconciliation,
+  allowing deals to be priced sooner
+  
+  ----------------------
+  
+  A unique web based issuance platform with technology enhancement
+  that links a network of member banks that synchronizes deal 
+  and orderbook information between syndicate desk.
+
+  IssueNet enables the rapid exchange of orders and allocations 
+  between banks during the bookbuild phase of the new issue process.
+
+  This exchange of information ensures that all banks involved 
+  in a transaction have access to a centralised 
+  and up-to-date version of the orderbook 
+  as well as an accurate level of demand at all times. 
+  It is backed by a market-wide investor mapping service 
+  that helps IssueNet to reconcile the orderbook automatically, 
+  speeding up deal execution while lowering the risk of errors.
+
+  Banks can seamlessly connect to IssueNet using our IssueBook bookbuild platform.
+  The significant increase in deal volumes in recent years, 
+  along with bigger orderbook sizes and larger syndicate groups 
+  has put additional pressure on syndicate desks 
+  that must still launch and price deals the same day.
+  
+2. IssueLaunch
+
+  The IssueLaunch platform consolidates real-time communication of deal terms
+  between banks and all involved parties in an organized and compliant format.
+  Our deal management system is a business communication tool 
+  that allows banks and all parties involved to work together 
+  in real-time to set up deals. 
+  IssueLaunch ensures deal terms are communicated to sales, 
+  other banks and investors in an organized and compliant format.  
+  
+  IssueLaunch is a business communication tool that consolidates 
+  real-time communication of deal terms between 
+  all involved parties in an organized and compliant format.
+
+  It integrates seamlessly with IssueNet and IssueBook to deliver 
+  a full suite of syndication services. 
+  Below are some of the functions and communication tools available in IssueLaunch:
+
+    - Create deals and craft deal terms for distribution 
+	  to the buy-side with deal management and online collaboration tools
+	  
+    - Send messages at all stages of the transaction, z
+	  from mandate announcement to free-to-trade
+	  
+    - Distribute to the buy-side in accordance with the KYC process and protocols, 
+	  as well as the terms of the offering and relevant regulations
+	  
+    - Enable deals through our electronic ordering system 
+	  and allow buy-side to place orders directly 
+	  with sales to syndicate and receive allocations
+	  
+    - Maintain a permanent record of deal terms in a secured document repository
+    - Keep a full audit trail of all created and distributed deal terms
+    - Integration with CUSIP Bureau for automated receipt of security identifiers
+    - Access full suite of syndication services 
+	  via seamless connectivity with IssueNet and IssueBook
+    - Create Business Deals
+
+  Streamline IssueNet deal creation
+     Set up deal terms once and sync them to IssueNet and IssueBook
+     Dynamically generate buy-side distribution list based 
+	 on offering format and selling restrictions.
+     Terms can be sent to the buy-side DealMonitor or taken 
+	 as a direct feed into buy-side systems
+	 
+  Communication
+     Engage in syndicate-to-syndicate collaboration on deal terms in real time
+     Securely publish terms and conditions to internal 
+	 and external DealMonitor users
+     Enable deals for InvestorAccess with one click
+
+3. IssueBook
+
+  From origination through marketing to bookbuild, allocation, and settlement: 
+  IssueBook streamlines and centralizes the fixed income new issue process.
+
+  Primary order management can be complex, especially on multitranche global executions. 
+  Bank salespersons and investors are directly entering orders at a rapid pace. 
+
+  Strict intraday deadlines increase the pressure to aggregate orders and accurately distribute allocations. 
+  From order taking to trade booking and final settlement of fees, 
+  these sensitive workflows must all meet the highest of regulatory and compliance standards.
+
+  IssueBook is an all-in-one solution that allows banks to simplify workflows, 
+  manage multiple and concurrent deals, 
+  and connect all permissioned internal participants in the new issue process. 
+
+  The platform enables users to specify deal terms, 
+  communicate these terms to other participating banks, 
+  bookbuild and allocate order books, automatically book trades, and finally settle transactions. 
+
+  IssueBook can execute multiple deals concurrently, manage duplicate orders, 
+  grant fine-grained user permissions, export order data, and perform order book analysis. 
+
+  It is also seamlessly integrated with IssueNet and IssueLaunch, 
+  allowing for broader communication and cooperation between the entire syndicate, the issuer, and investors globally.
+
+  Bookbuilding
+  
+  With an user-friendly interface, users can enter multiple indications quickly, 
+  upload and distribute documents, instantaneously communicate allocations, 
+  as well as manage multitranche and multi-currency deals in real-time. 
+
+  The flexible coverage model allows banks to grant users from multiple locations 
+  and business lines permission to participate in deals.
+
+  Order Aggregation
+  
+  IssueBook accepts orders from internal syndicate and sales team members as well 
+  as from other deal participants and investors via integrations with IssueNet and InvestorAccess.
+
+  Compliance
+  
+  IssueBook helps banks ensure compliance with key auditing regulations, including MiFID II and GDPR. 
+  In addition, it acts as a central repository for reporting across regions/ investors/ products.
+
+  Straight-through processing
+  IssueBook efficiently processes trades, resulting in fewer broken trades and faster transaction settlement. 
+
+  The platform can also generate trade records and other data needed 
+  for downstream processing as well as allow for bulk updates to fields on multiple orders.
+  
+4. InvestorAccess
+
+  Increase efficiency and reduce operational risk with our platform for all primary market workflows.
+  
+  InvestorAccess increases efficiency and reduces operational risk 
+  for the buyside by providing direct access to hundreds of global banks in the primary market.
+
+  InvestorAccess is the first solution to revolutionize the primary market 
+  by electronically linking sellside and buyside workflows.
+
+  Distribution of consolidated, standardized deal terms and the communication of orders 
+  and allocations in real time are all benefits of the new automated primary workflow.
+
+  InvestorAccess seamlessly connects to our cross-asset bookbuilding suite 
+  and can also integrate with proprietary buyside platforms through our exclusive API connectivity.
+
+  ---------- 
+  
+  A single solution to increase efficiency and reduce operational risk
+  InvestorAccess helps efficiently manage compressed deal timelines and busy new issuance days. 
+  Buyside participants are connected to an inter-dealer network for deal management 
+  and order book synchronization, including access to hundreds of global banks 
+  that use our systems to run syndicated deals. 
+  InvestorAccess integrates all workflows related to deal terms distribution, 
+  and communication of orders and allocations, 
+  whereby both the buyside and all participants benefit throughout the method.
+
+    - Deal information directly from the syndicate desk
+	- Electronically enter orders on new issues
+	- Create and manage orders in a centralized location
+	- Eliminate the need to duplicate updates across multiple counterparts
+	- Utilize laddered, limit, and multiple entity orders
+	- View new issue allocations directly from syndicate banks
+	- Consolidated messaging from all relationships
+	
+  Our end-to-end solution delivers next generation workflow tools for the buyside
+  Our buyside solutions were developed in partnership with market participants 
+  from both the buyside and sell side to add efficiency in how new issues are brought to market. 
+  Our new issuance tools are used by syndicate banks and institutional investors 
+  for the vast majority of new issuance across US equities, US municipals, and global fixed income.
+
+  We offer an integrated set of modules to optimize the new issue process. 
+  Each module may be used individually or in conjunction with other components, 
+  depending on your firm’s objectives.
+  
+5. DealMonitor 
+
+    Consumer deal data & allow order placement
+    Supports Trader, PM, Analyst, Trade Ops, and Compliance
+
+   Managing deal execution for the fixed income primary bond market.
+   As the fixed income markets continue to develop from voice driven communications 
+   and manual operational processes to more streamlined, interoperable platforms, 
+   our fixed income solutions are driving the electronification and automation of the marketplace. 
+   We are committed to providing the fixed income market with open 
+   and interoperable solutions that increase efficiency and reduce operational risk, 
+   allowing deals to execute faster than ever before.
+   
+   Delivering streamlined operations to our customers
+   Our Sellside products facilitate the execution of primary market transactions 
+   from origination to settlement workflows, 
+   allowing efficient collaboration between Issuers, banks and investors. 
+   Our products work seamlessly to provide market participants 
+   with a real-time electronic exchange of information 
+   between traders, investors and syndicate banks, covering the entire new issue life cycle. 
+   And, our data offerings provide intelligence for successful engagement in the secondary markets.
+
+   Our suite of solutions for the Buyside simplifies primary deal management with structured, 
+   easily consumable data, efficient integration, and a comprehensive audit trail to help with regulatory needs. 
+   Traditional market workflow is cumbersome and prone to error with multiple parties involved 
+   and multiple deals running simultaneously, 
+   the new issue process can often be complicated particularly 
+   for buyside traders coordinating the volume of deals, orders, and communications.
+
+   Our solution transforms your Fixed Income Issuance
+     - Connectivity. 
+	     Centralized global fixed income issuance network shared 
+	     deal, order information in real time 
+	 - Efficiency. 
+	     Shared order book with reconciliation process allow banks to 
+		 price delas quickly, efficiently and electronically in real-time
+	 - Risk reduction.
+	     Automated bookbuild process and easier reconcilliation process 
+		 reduce errors and faster execution time
+     - Transparency. 
+	     Detailed audit trail helps banks to comply with regulatory depands.
+     - Integration. 
+	     Api connectivity. Open interoperability allows banks and investors 
+		 to connect to other systems for investor data or trade processing systems. 
+		 
+
+
+
+
+
+  
+	
+
+
+
+  
+
+	 
+
+  
+  
+  
+
+
+  
+
+
