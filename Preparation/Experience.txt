@@ -252,11 +252,105 @@
 	     Api connectivity. Open interoperability allows banks and investors 
 		 to connect to other systems for investor data or trade processing systems. 
 		 
+6. Equity bookbuild 
 
+A comprehensive web-based application, managing all facets of global equity deal execution
+Successful deal execution is reliant upon many critical factors, including precise
+order entry, strict regulatory adherence, unequivocal price discovery, fair allocation practices, and more. 
 
+Through its dynamic design and enriched functionality,
+Equity Bookbuild (EBB) fully accommodates all workflows while empowering
+Equity Capital Markets professionals with advanced intelligence to yield the best outcome for their clients.
+Our software elegantly delivers efficiency, precision, and speed of execution
+through a compelling and differentiated model highlighted below.
 
+Joint Bank Operability
 
+— An extensive global network of
+banks that rely on our industry
+utility to communicate and share
+vital deal information on a
+real-time basis
 
+— Unique reconciliation process to
+identify and marry joint institutional
+orders, a highly taxing and timeconsuming process for Capital
+Markets professionals 
+
+Data Integration
+
+— Seamless integration with our
+complete set of ancillary modules
+(Events, Compliance, Prospectus,
+Issuer Solutions) to analyze investor
+activity and fulfillment alongside
+orders/allocations
+
+— Partners with industry virtual
+roadshow providers to
+integrate investor viewership
+data into order books, bolstering
+allocation practices 
+
+Comprehensive Functionality
+
+— Offers a plethora of functionality,
+from origination through
+post-settlement, while eliciting
+straight-through-processing to
+drive efficiency
+
+— Pioneers the latest innovation
+trends, such as our Wall Crossing
+module to centrally manage all
+confidentially marketed activities
+
+Enriched Analytics
+
+— Extensive amalgamation of
+data sets (e.g. price thresholds,
+drop-off levels, demand build-up,
+hit ratios) to support thoughtful
+allocations and healthy
+aftermarket performance
+
+— Robust historical library of
+customizable reports,
+harnessing deal intelligence
+across all stakeholders 
+
+7. Municipal Bookbuild
+
+Elevated security features and disclosures for the municipal new issue platform
+With advanced, thoroughly tested information security controls, our Municipal
+Bookbuild platform is designed to protect our clients’ data and activity as they
+manage deals and collaborate on new issues. However, some clients may have
+additional security or compliance requirements. We offer a number of enhanced
+options that can satisfy the most demanding security requirements and mitigate
+evolving cyber threats.
+
+Extension of multi-factor authentication
+MFA on privileged activities conducted
+by administrators
+
+Patch reporting
+Detailed reporting on patch
+installations, semi-annual view of
+critical patch history, and 72-hour patch
+plan delivered for all emergencies.
+
+Encryption at rest
+Storage encryption using AES 256 with
+a single, shared key, or using dedicated
+key stored in an IHS Markit HSM;
+field-level encryption of specific
+data attributes.
+
+Static code analysis
+Annual scan of code using industrystandard 
+vendor engines and thirdparty summary report of scan results.
+
+ 
   
 	
 

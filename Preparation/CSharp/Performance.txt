@@ -1,0 +1,149 @@
+
+1. Hewardt, Mario and Patrick Dussud. Advanced .NET Debugging. 
+   Addison-Wesley  Professional, November 2009.
+2  Richter, Jeffrey. CLR via C#, 4th ed. Microsoft Press, November 2012.
+3  Russinovich, Mark and David Solomon, Alex Ionescu. Windows Internals, 6th ed. 
+   Microsoft Press, March 2012.
+4  Rasmussen, Brian. High-Performance Windows Store Apps. Microsoft Press, May 2014.
+5  ECMA C# and CLI Standards: http://www.writinghighperf.net/go/17, Microsoft, 
+   retrieved 7 May 2014
+
+
+
+1. Why Should You Choose Managed Code
+    - Safety—The compiler and runtime can enforce type safety
+	- Automatic memory management
+    - Higher level of abstraction
+	- Advanced language features—Delegates, anonymous methods, and dynamic typing
+    - Huge existing code base—Framework Class Library, Entity Framework, Windows
+	- Easier extensibility—With reflection capabilities, 
+	  it is much easier to dynamically consume late-bound modules, such as in an extension architecture
+	- Phenomenal debugging—Exceptions have a lot of information associated with them. 
+	  All objects have metadata associated with them to allow thorough heap 
+	  and stack analysis in a debugger, often without the need for PDBs (symbol files)
+	  
+2. Is Managed Code Slower Than Native Code.
+
+    - That is, the first time a method is executed, the CLR will invoke the compiler on your IL 
+	  to convert it to assembly code (e.g., x86, x64, ARM). 
+	  Most code optimization happens at this stage. 
+	  There is a definite performance hit on this first run, but after that you will always get the compiled version.
+	  
+	- Memory allocations
+	  There is no contention for memory allocations on the heap, unlike in native applications. 
+	  Some of the saved time is transferred to garbage collection, 
+	  but even this can be mostly erased depending on how you configure your application.
+	  
+	- Fragmentation
+	  Memory fragmentation that steadily gets worse over time is a common problem in large, 
+	  long-running native applications. 
+	  This is less of an issue in .NET applications because garbage collection will compact the heap.
+	
+	- JITted code–Because code is JITted as it is executed, 
+	  its location in memory can be more optimal than that of native code. 
+	  
+3. Measurement Tools.
+
+    - Visual Studio Professional performance wizard
+	- Visual Studio Standalone Profiler
+	- VsPerfCmd.exe
+	- PerformanceMonitor (PerfMon.exe)
+	- PerfView
+	- CLR Profile
+	- Windbg
+	
+	
+4. Windows memory.
+
+   Physical Memory
+     The actual physical memory chips in a computer. 
+	 Only the operating system manages physical memory directly.
+	 
+   Virtual Memory
+     A logical organization of memory in a given process. 
+	 Virtual memory size can be larger than physical memory. 
+	 For example, 32-bit programs have a 4 GB address space, 
+	 even if the computer itself only has 2 GB of RAM
+	 Contiguous blocks of virtual memory may not be contiguous in physical memory. 
+	 All memory addresses in a process are for the virtual memory.
+	 
+   Reserved Memory
+     A region of virtual memory address space that has been reserved 
+     for the process and thus will not be allocated to a future requester.
+	 
+   Committed Memory
+     A region of memory that has a physical backing store. 
+	 This can be RAM or disk.
+	 
+   Page
+     An organizational unit of memory. 
+	 Blocks of memory are allocated in a page, which is usually a few KB in size
+	 
+   Paging
+     The process of transferring pages between regions of virtual memory. 
+	 The page can move to or from another process (soft paging) or the disk (hard paging). 
+	 Soft paging can be accomplished very quickly by mapping 
+	 the existing memory into the current process’s virtual address space. 
+	 Hard paging involves a relatively slow transfer of data to or from disk. 
+	 Your program must avoid this at all costs to maintain good performance
+	
+   Context Switch
+     The process of saving and restoring the state of a thread or process. 
+     Because there are usually more running threads than available processors, 
+	 there are often many context switches per second.
+	 
+   Kernel Mode
+     A mode that allows the OS to modify low-level aspects of the hardware’s state, 
+	 such as modifying certain registers or enabling/disabling interrupts. 
+     Transitioning to Kernel Mode requires an operating system call, 
+	 and can be quite expensive.
+	 
+   User Mode
+     An unprivileged mode of executing instructions. 
+	 There is no ability to modify low-level aspects of the system.
+
+   User Mode
+     An unprivileged mode of executing instructions. 
+	 There is no ability to modify low-level aspects of the system. 
+	 
+ class Program
+ {
+    static List<string> times = new List<string>();
+	
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Press any key to exit");
+        while (!Console.KeyAvailable) 
+        {
+            times.Add(DateTime.Now.ToString());
+            Console.Write('.');
+            Thread.Sleep(1000);
+        }
+    }
+ }
+
+ 5. Garbage Collection
+ 
+ 
+ 
+ 
+ 
+	
+
+
+
+
+	
+
+
+ 
+   
+
+
+
+	  
+
+
+
+
+	

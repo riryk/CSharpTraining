@@ -1,0 +1,4 @@
+
+1. https://stomp.github.io/stomp-specification-1.2.html
+2. https://github.com/Noralogix/genesys-notifications/blob/master/src/Genesys.Client.Notifications/Clients/GenesysWebsocketChannelClient.cs
+

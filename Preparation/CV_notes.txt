@@ -49,38 +49,26 @@
 
 -----------------------------------------------------------------
 
-
-
 Investor Access platform is suite of solution to provide electronification 
 and automation of the Fixed Income marketplace. 
 It allows investors and syndicate banks to exchange information 
 in real-time electronically which increased market efficiency and reduced operational risk.
 
-
-
 Responsibilities
 
 •	Designed and developed Investor Access Net, 
-    the core service which connects Buy Side investors with syndicate banks.
-	
+    the core service which connects Buy Side investors with syndicate banks.	
 •	Designed and developed BuySide portal, the world-class web portal 
     that allows investors to communicate orders.
-	
 •	Served as first point of contact while resolving production issues with Investor Access Net.
-
 •	Wrote integration, Api and UI tests which significantly reduced bugs.
-
 •	Implemented live updates on BuySide portal using SignalR 
     which allowed investors to receive order book changes in browser.
-	
 •	Designed and implemented Service-Oriented Asp.Net Core Back-End 
     for Primary Order Management platform which allows investors to manage orders 
 	and allocations across its account hierarchy. 
-	
 •	Developed UI components using cutting edge Front-End technologies such as Angular, Redux.
-
 •	Developed Integration between Microservices via Kafka and RabbitMQ.
-
 
 Example: 
 
@@ -90,10 +78,84 @@ Example:
 - Analyzed and documented defects using bug tracking tools 
 - Created design artifacts and documented the solution 
 
-
 My responsibilities: 
 
-- Integrated BuySide web platform with IssueNet data hub system on Fixed 
+• Integrated BuySide Web platform with Fixed Income IssueNet information exchange system
+• Designed and developed Microservices for Primary Order Management
+• Implemented Financial Information eXchange protocol for Investors
+• Integrated Investor Access services with Bloomberg vendor
+• Integrated BuySide Web platform with Equity and Muni bookbuild systems
+• Migrated on-prem .NET 4.8 services into Cloud (AWS, .NET Core, ECS, PosgreSQL)
+• Integrated AWS Quicksight Business Intelligence into BuySide
+• Adjusted CI/CD for Microservices
+• Created design artifacts and documented the solutions 
+• Conducted training sessions for colleagues from India 
+
+--------------------------------------------------------------------- 
+  Ukrposhta
+---------------------------------------------------------------------  
+
+  Ukrposhta is a Ukrainian state enterprise acting as the biggest national postal operator on Ukrainian market.
+
+
+Project description
+
+  Mobile Replenishment Service is aimed to provide post clients with ability to replenish mobile phones. 
+  It intergated with GlobalMoney payment system, which worked directly with mobile operators.
+  
+  Post Items Data Warehouse is a centralized countrywide service to store millions of post items 
+  in the database and build business analitical reports.
+  
+  Hybrid post online shop provided customes with ability to order postal items online. 
+  Clients paid online and then items were delivered to recipients.
+  
+  
+Responsibilities
+  •	Designed and developed database to store mobile replenishment data, developed stored procedures, triggers and views.
+  •	Developed Data Access Layer.
+  •	Developed ASP.NET web site to adjust mobile replenishment process and build reports.
+  •	Designed and developed central WCF service across Ukraine to process mobile replenishment 
+    requests and integrate with GlobalMoney service.
+	 
+ •	Designed database to store  post items.
+ •	Wrote stored procedures and triggers to manipulate data in the warehouse.
+ •	Developed Windows multithreaded console application to colelct data from ftp and import it to the data warehouse.
+ •	Wrote SQL queries to analyze data and built reports.
+ •	Developed ASP.NET Web Site to view reports
+ 
+ •	Designed and developed database for Hybrid post web site.
+ •	Developed stored procedures.
+ •	Developed ASP.NET web site to upload letters.
+ •	Implemented integration with one eCommerce provider to allow clients to pay online.
+
+-----------------------------------
+ Ideas 
+-----------------------------------
+1. Add a note for Disater recovery testing scripts. 
+   Ia-Infrastructure and BuySide infrastructure projects 
+2. Add AWS SNS/SQS experience
+3. Add solved .NET performace and memory leak issues. 
+4. Add solved Slow Db queries optimization
+5. Add solved slow Entity Framework queries. 
+6. Examples how we soled db dead locks. 
+7. Add Docker containerization to experience
+8. Add CI/CD examples. Azure Devops, git hub, TeamCity, Sonar Qube
+9. Check experience with GraphQL 
+10. 
+
+
+
+   
+ 
+
+	
+
+
+
+  
+
+
+
 
 
 

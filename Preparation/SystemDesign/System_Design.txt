@@ -1,0 +1,269 @@
+
+https://github.com/checkcheckzz/system-design-interview
+https://www.educative.io/path/scalability-system-design
+https://github.com/Jeevan-kumar-Raj/Grokking-System-Design/blob/master/README.md
+https://leetcode.com/discuss/interview-question/system-design/3616948/Golden-Rules-to-answer-in-a-System-Design-Interview
+https://github.com/checkcheckzz/system-design-interview
+https://github.com/madd86/awesome-system-design
+https://github.com/Jeevan-kumar-Raj/Grokking-System-Design/blob/master/README.md
+
+
+Replication: 
+  https://neil.fraser.name/writing/sync/
+  https://www.youtube.com/watch?v=S2Hp_1jqpY8
+
+Cache: 
+  https://youtu.be/PE4gwstWhmc
+  Tridgell, A., & Mackerras, P. (1996). The rsync algorithm
+
+---------------------------------------------------------
+  
+1. SCALE FROM ZERO TO MILLIONS OF USERS
+
+---------------------------------------------------------
+
+Basics 
+
+---------------------------------
+
+ Non-relational databases might be the right choice if:
+   • Your application requires super-low latency.
+   • Your data are unstructured, or you do not have any relational data.
+   • You only need to serialize and deserialize data (JSON, XML, YAML, etc.).
+   • You need to store a massive amount of data
+   
+ Vertical scaling vs horizontal scaling
+   - Vertical scaling does not have failover and redundancy. 
+     If one server goes down, the website/app goes down with it completely.
+	 
+ 1. Load balancer
+   - A load balancer evenly distributes incoming traffic among web servers 
+     that are defined in a load-balanced set.
+	 
+ 2. Database replication
+ 
+   Advantages of database replication:
+    • Better performance: In the master-slave model, all writes and updates happen in master
+         nodes; whereas, read operations are distributed across slave nodes. This model improves
+         performance because it allows more queries to be processed in parallel.
+    • Reliability: If one of your database servers is destroyed by a natural disaster, such as a
+         typhoon or an earthquake, data is still preserved. You do not need to worry about data loss
+         because data is replicated across multiple locations.
+    • High availability: By replicating data across different locations, your website remains in
+         operation even if a database is offline as you can access data stored in another database server.
+
+ If the master database goes offline, a slave database will be promoted to be the new master. 
+ All the database operations will be temporarily executed on the new master database.		 
+ In production systems, promoting a new master is more complicated as the data in a slave
+ database might not be up to date. 
+ The missing data needs to be updated by running data recovery scripts
+ 
+ Although some other replication methods like multi-masters and circular
+ replication could help, those setups are more complicated; 
+ and their discussions are beyond the scope of this book. 
+ Interested readers should refer to the listed reference materials [4] [5].
+ 
+ щоб не було втрат даних - потрібно - replicated transaction log between 3 instances
+ себто 3 ноди, між якими якими крутиться якийсь Паксос, Рафт або нараняк - 2ФайзКамміт
+ цим протоколом, вони акцептують зміни і записуть в свій локальний транакшн лог, до відповіді клієнту
+ 
+ а от щоб прискорити систему, можна ввести - мастер-слейв
+ щоб клієнти ломились лише до однієї ноди і та нода завжди ініціювала реплікавцію,
+ якщо ж всі ноди будуть приймати запити, тоді розрулення реплікацій буде займати багато часу
+
+ 3. Cache 
+
+  This caching strategy is called a read-through cache.
+  Other caching strategies are available depending on the data type, size, and access patterns. 
+  A previous study explains how different caching strategies work [6]. 
+ 
+ Consistency 
+  
+  This involves keeping the data store and the cache in sync. 
+  Inconsistency can happen because data-modifying operations on the data store 
+  and cache are not in a single transaction. 
+  When scaling across multiple regions, maintaining consistency 
+  between the data store and cache is challenging. 
+  For further details, refer to the paper titled
+  “Scaling Memcache at Facebook” published by Facebook [7].
+  
+ Eviction Policy
+ 
+  Once the cache is full, any requests to add items to the cache might
+  cause existing items to be removed. 
+  This is called cache eviction. 
+  Least-recently-used (LRU) is the most popular cache eviction policy. 
+  Other eviction policies, such as the Least Frequently Used (LFU) or First in First Out (FIFO), 
+  can be adopted to satisfy different use case
+  
+ Here is how CDN works at the high-level: 
+   when a user visits a website, a CDN server closest to the user will deliver static content. 
+   Intuitively, the further users are from CDN servers, 
+   the slower the website loads
+   
+ 4. Considerations of using a CDN
+
+ Cost: 
+    CDNs are run by third-party providers, and you are charged 
+	for data transfers in and out of the CDN. 
+	Caching infrequently used assets provides no significant benefits 
+	so you should consider moving them out of the CDN
+
+ Setting an appropriate cache expiry: 
+    For time-sensitive content, setting a cache expiry time is important. 
+	The cache expiry time should neither be too long nor too short. 
+	If it is too long, the content might no longer be fresh. 
+	If it is too short, it can cause repeat reloading of content from origin servers to the CD
+	
+ CDN fallback: 
+    You should consider how your website/application copes with CDN failure. 
+	If there is a temporary CDN outage, 
+	clients should be able to detect the problem and request resources from the origin.	
+
+ Invalidating files: 
+    You can remove a file from the CDN before it expires by performing one of the following operations:
+      - Invalidate the CDN object using APIs provided by CDN vendors.
+      - Use object versioning to serve a different version of the object. 
+	    To version an object, you can add a parameter to the URL, such as a version number. 
+		For example, version number 2 is added to the query string: image.png?v=2.
+		
+ Stateless web tier:
+    Now it is time to consider scaling the web tier horizontally. 
+	For this, we need to move state (for instance user session data) out of the web tier. 
+	A good practice is to store session data in the persistent storage such as relational database or NoSQL. 
+	Each web server in the cluster can access state data from databases.
+	
+ 5. Stateful architecture
+ 
+    The issue is that every request from the same client must be routed to the same server. 
+	This can be done with sticky sessions in most load balancers [10]; 
+	however, this adds the overhead. 
+	Adding or removing servers is much more difficult with this approach. 
+	It is also challenging to handle server failures.
+
+ 6. Data centers 
+ 
+    In normal operation, users are geoDNS-routed, also known as geo-routed, 
+	to the closest data center, with a split traffic of x% in US-East and (100 – x)% in US-West. 
+	geoDNS is a DNS service that allows domain names to be resolved 
+	to IP addresses based on the location of a user.
+
+ 	Data synchronization: 
+      Users from different regions could use different local databases or caches. 
+	  In failover cases, traffic might be routed to a data center where data is unavailable.
+      A common strategy is to replicate data across multiple data centers. 
+	  A previous study shows how Netflix implements asynchronous multi-data center replication
+	  
+	Test and deployment: 
+	  With multi-data center setup, it is important to test your website/application at different locations. 
+	  Automated deployment tools are vital to keep services consistent through all the data centers
+
+ 7. Web Site components decoupling to scale independently
+
+    To further scale our system, we need to decouple different components of the system so they
+    can be scaled independently. Messaging queue is a key strategy employed by many real 
+	world distributed systems to solve this problem.
+	
+	A message queue is a durable component, stored in memory, 
+	that supports asynchronous communication. 
+	It serves as a buffer and distributes asynchronous requests. 
+	The basic architecture of a message queue is simple. 
+	Input services, called producers/publishers, create messages, and publish them to a message queue.
+	
+	Decoupling makes the message queue a preferred architecture for building a scalable and
+    reliable application. With the message queue, the producer can post a message to the queue
+    when the consumer is unavailable to process it. The consumer can read messages from the
+    queue even when the producer is unavailable.
+	
+	The producer and the consumer can be scaled independently. 
+	When the size of the queue becomes large, more workers are added to reduce the processing time.
+    However, if the queue is empty most of the time, the number of workers can be reduced.
+	
+ 8. Horizontal database scalling. Sharding
+   
+    User data is allocated to a database server based on user IDs. 
+	Anytime you access data, a hash function is used to find the corresponding shard. 
+	In our example, user_id % 4 is used as the hash function.
+	
+	When choosing a sharding key, one of the most important criteria 
+	is to choose a key that can evenly distributed data
+	
+	Sharding challenges:
+	
+	  1. Resharding data: Resharding data is needed when 
+	      1) a single shard could no longer hold more data due to rapid growth. 
+		  2) Certain shards might experience shard exhaustion faster 
+		     than others due to uneven data distribution. 
+			 When shard exhaustion happens, it requires updating the sharding function and moving data around. 
+			 Consistent hashing, which will be discussed in Chapter 5, 
+			 is a commonly used technique to solve this problem.
+		  
+	  2. Celebrity problem: 
+	     This is also called a hotspot key problem. 
+		 Excessive access to a specific shard could cause server overload. 
+		 Imagine data for Katy Perry, Justin Bieber, and Lady Gaga all end up on the same shard. 
+		 For social applications, that shard will be overwhelmed with read operations. 
+		 To solve this problem, we may need to allocate a shard for each celebrity. 
+		 Each shard might even require further partition.	  
+
+     3. Join and de-normalization: 
+	      Once a database has been sharded across multiple servers, 
+		  it is hard to perform join operations across database shards. 
+		  A common workaround is to denormalize the database 
+		  so that queries can be performed in a single table.
+		  
+	 In Figure 1-23, we shard databases to support rapidly increasing data traffic. 
+	 At the same time, some of the non-relational functionalities 
+	 are moved to a NoSQL data store to reduce the database load
+	 
+ 9. Millions of users and beyond	 
+ 
+• Keep web tier stateles
+• Build redundancy at every tier
+• Cache data as much as you can
+• Support multiple data centers
+• Host static assets in CDN
+• Scale your data tier by sharding
+• Split tiers into individual services
+• Monitor your system and use automation tools
+
+
+	 
+
+
+
+
+	
+
+
+
+
+
+
+ 
+	  
+   
+
+
+	
+
+
+
+ 	
+	
+ 
+ 
+
+ 
+  
+
+
+
+
+ 
+ 
+		 
+
+ 
+   
+
