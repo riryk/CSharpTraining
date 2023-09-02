@@ -1,0 +1,152 @@
+
+---------------------------------------
+ "Complex distributed applications"
+---------------------------------------
+
+1. What are distributed systems? 
+
+A distributed system is simply any environment where multiple computers or devices 
+are working on a variety of tasks and components, all spread across a network. 
+Components within distributed systems split up the work,
+coordinating efforts to complete a given job more efficiently than if only a single device ran it.
+Distributed systems are used when a workload is too great for a single computer or device to handle.
+
+Common examples of distributed systems:
+  - Airline and hotel reservation systems
+  - Global, distributed retailers and supply chain management
+  - Client-server systems
+  
+Key characteristics of a distributed system
+ 
+ Scalability. 
+    The ability to grow as the size of the workload increases is an essential feature of distributed systems, 
+	accomplished by adding additional processing units or nodes to the network as needed. 
+ Concurrency. 
+    Distributed system components run simultaneously. 
+ Availability and fault tolerance. 
+    If one node fails, the remaining nodes can continue to operate without disrupting the overall computation.
+	Distributed systems reduce the risks involved with having a single point of failure, 
+	bolstering reliability and fault tolerance.
+ Heterogeneity
+ Replication
+ Transparency. 
+    The end user sees a distributed system as a single computational unit rather than as its underlying parts
+ Reliability.
+    A well-designed distributed system can withstand failures in one or more of its nodes 
+	without severely impacting performance. 
+	In a monolithic system, the entire application goes down if the server goes down.
+ Speed. 
+    Heavy traffic can bog down single servers when traffic gets heavy, 
+	impacting performance for everyone. 
+	The scalability of distributed databases and other distributed systems 
+	makes them easier to maintain and also sustain high-performance levels.
+ Geo-distribution. 
+    Distributed content delivery is both intuitive for any internet user, and vital for global organizations.
+
+Challenges: 
+
+ 1. Increased opportunities for failure.
+      If a system is not carefully designed and a single node crashes, the entire system can go down. 
+ 2. Synchronization process challenges.
+      Require careful programming to ensure that processes are properly synchronized 
+	  to avoid transmission delays that result in errors and data corruption. 
+	  In a complex system — such as a multiplayer video game — synchronization can be challenging, 
+	  especially on a public network that carries data traffic.
+ 3. Imperfect scalability.
+      Architecting an effective distributed system that maximizes scalability 
+	  is a complex undertaking that needs to take into account load balancing, 
+	  bandwidth management and other issues.
+	  
+	  Bandwidth management 
+	    Is the process of measuring and controlling the communications (traffic, packets) on a network link, 
+		to avoid filling the link to capacity or overfilling the link,
+		[1] which would result in network congestion and poor performance of the network. 
+	  
+	  Network congestion. 
+	    Is the reduced quality of service that occurs when a network node or link is carrying more data than it can handle. 
+		Typical effects include queueing delay, packet loss or the blocking of new connections
+
+ 4. More complex security
+ 5. Increased complexity. 
+      Distributed systems are more complex to design, manage 
+	  and understand than traditional computing environments.
+
+Risks: 
+
+ 1. Security. 
+   Distributed systems are as vulnerable to attack as any other system, 
+   but their distributed nature creates a much larger attack surface 
+   that exposes organizations to threats.
+
+ 2. Risk of network failure. 
+   Distributed systems are beholden to public networks to transmit and receive data. 
+   If one segment of the internet becomes unavailable or overloaded, distributed system performance may decline.
+
+ 3. Governance and control issues. 
+   Distributed systems lack the governability of monolithic, single-server-based systems, 
+   creating auditing and adherence issues around data privacy laws. 
+   Globally distributed environments are challenging when it comes to providing certain 
+   levels of assurance and understanding exactly where data resides.
+
+ 4. Cost control. 
+   Unlike centralized systems, the scalability of distributed systems allows administrators
+   to easily add additional capacity as needed, which can also increase costs. 
+   Pricing for cloud-based distributed computing systems are based on usage 
+   (such as the number of memory resources and CPU power consumed over time). 
+   If demand suddenly spikes, you might face a massive bill.
+   
+2. Describe DB Cluester. 
+  This currently uses a forked version of the OCTO Aurora Terraform module.
+  
+   
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+	  
+	  
+ 
+ 
+
+
+
+
+
+1. What are complex distributed systems?
+
+
+
+1. Describe release processes. Release cycle 
+     2 sprints of the release cycle
+     each sprint is 2 weeks long
+     end of sprint: 
+	   - regression testing. e2e automated regression, manual regression
+	   - system performance testing
+	   - releases pushed to Staging, then to UAT for release rediness testing and once per month to Prod 
+	   
+ 
+Provide examples of those applications 
+
+-------------------------
+SaaS   
+-------------------------
+
+Software-as-a-Service (SaaS), is a cloud based software delivery model that allows 
+end users to access software applications over the internet. 
+With a SaaS model, the software is hosted on remote servers, 
+maintained and updated by the service provider, and made available to customers via web browsers, mobile apps and APIs. 
+SaaS provides a number of user benefits over traditional software delivery models, 
+including reduced upfront costs, scalability, flexibility, and accessibility. 
+As the software is hosted on the service provider's servers, 
+there is no need for users to invest in expensive infrastructure in order to use the software. 
+Instead, the end users pay a subscription fee to access the software as on-demand service.
+
+
+
+
+
+  

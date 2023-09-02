@@ -1,0 +1,41 @@
+
+1. What is Amazon Aurora?
+2. Amazon Aurora storage and reliability
+
+- A cluster volume consists of copies of the data across three Availability Zones in a single AWS Region.
+Because the data is automatically replicated across Availability Zones, 
+your data is highly durable with less possibility of data loss. 
+This replication also ensures that your database is more available during a failover
+
+- Storage auto-repair
+Because Aurora maintains multiple copies of your data in three Availability Zones, 
+the chance of losing data as a result of a disk failure is greatly minimized. 
+Aurora automatically detects failures in the disk volumes that make up the cluster volume. 
+When a segment of a disk volume fails, Aurora immediately repairs the segment. 
+When Aurora repairs the disk segment, it uses the data in the other volumes 
+that make up the cluster volume to ensure that the data in the repaired segment is current.
+As a result, Aurora avoids data loss and reduces the need t
+o perform a point-in-time restore to recover from a disk failure
+
+- Survivable page cache
+In Aurora, each DB instance's page cache is managed in a separate process from the database, 
+which allows the page cache to survive independently of the database. 
+(The page cache is also called the InnoDB buffer pool on Aurora MySQL and the buffer cache on Aurora PostgreSQL.)
+
+In the unlikely event of a database failure, the page cache remains in memory, 
+which keeps current data pages "warm" in the page cache when the database restarts. 
+This provides a performance gain by bypassing the need 
+for the initial queries to execute read I/O operations to "warm up" the page cache
+
+- Crash recovery
+Aurora is designed to recover from a crash almost instantaneously 
+and continue to serve your application data without the binary log. 
+Aurora performs crash recovery asynchronously on parallel threads, 
+so that your database is open and available immediately after a crash.
+
+
+
+
+
+
+

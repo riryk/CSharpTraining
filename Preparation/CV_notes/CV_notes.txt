@@ -141,7 +141,16 @@ Responsibilities
 7. Add Docker containerization to experience
 8. Add CI/CD examples. Azure Devops, git hub, TeamCity, Sonar Qube
 9. Check experience with GraphQL 
-10. 
+10. Examples of AWS VPCs on Investor Access program 
+11. Microservices and SOA examples. 
+12. DDD approach
+13. Check AWS Event Bridge
+14. Check AWS Aurora.
+15. Read about low level network for distributed systems.
+16. Check WebSocket gateway project and IpreoAlerts project. If no, check AWS solution.  
+17. Net Core syncronization context in async await.
+
+
 
 
 
