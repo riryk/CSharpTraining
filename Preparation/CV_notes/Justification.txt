@@ -3,7 +3,9 @@
  "Complex distributed applications"
 ---------------------------------------
 
+------------------------------------
 1. What are distributed systems? 
+------------------------------------
 
 A distributed system is simply any environment where multiple computers or devices 
 are working on a variety of tasks and components, all spread across a network. 
@@ -94,10 +96,15 @@ Risks:
    Pricing for cloud-based distributed computing systems are based on usage 
    (such as the number of memory resources and CPU power consumed over time). 
    If demand suddenly spikes, you might face a massive bill.
-   
+
+-----------------------------------------------   
 2. Describe DB Cluester. 
+-----------------------------------------------
   This currently uses a forked version of the OCTO Aurora Terraform module.
-  
+
+------------------------------------------  
+3. Architecture diagrams of projects.
+-----------------------------------------
    
  
  

@@ -33,6 +33,23 @@ and continue to serve your application data without the binary log.
 Aurora performs crash recovery asynchronously on parallel threads, 
 so that your database is open and available immediately after a crash.
 
+3. Code to setup Aurora cluster 
+
+resource "aws_rds_global_cluster" "aurora" 
+resource "aws_rds_cluster" "primary" 
+resource "aws_rds_cluster" "secondary"
+resource "aws_rds_cluster_instance" "primary" 
+resource "aws_rds_cluster_instance" "secondary"
+resource "aws_instance" "pgbadger-primary" 
+
+Lambda function to stop the cluster 
+resource "aws_lambda_function" "stop_cluster-primary" 
+  
+Created lambda function for starting the cluster
+resource "aws_lambda_function" "start_cluster-primary"
+
+Created lambda function for auto minor version upgrade
+resource "aws_lambda_function" "lambda_auto_minor_version_upgrade-primary" 
 
 
 

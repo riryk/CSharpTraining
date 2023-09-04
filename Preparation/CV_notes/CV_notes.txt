@@ -149,6 +149,10 @@ Responsibilities
 15. Read about low level network for distributed systems.
 16. Check WebSocket gateway project and IpreoAlerts project. If no, check AWS solution.  
 17. Net Core syncronization context in async await.
+18. Local setup and run for Lambdas.
+19. Задача літкод. визначити цикл більш цікава - визначити цей цикл за мінімум ітерацій
+20. ПМБУК. 
+
 
 
 

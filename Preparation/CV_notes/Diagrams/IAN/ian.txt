@@ -1,0 +1,9 @@
+
+1. IAN Solution Architecture Overview - 
+   The main business goal that IAN (Investor Access Net) is created to achieve 
+   is to enable buy side investors to participate directly in the new issue process, 
+   placing electronic orders directly to syndicate banks, 
+   and receiving allocations.
+
+ 
+ 

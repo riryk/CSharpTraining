@@ -1,0 +1,35 @@
+
+IA-Deal - When a deal published from IssueLaunch (Sell Side) 
+          the payload will be send to Kafka. 
+		  IA Deal will be picking the deal payload from Kafka and store the data in its own DB. 
+		  It will be furnishing those details on demand basis to the BuySide Portal (UI). 
+		  In the UI the first page which comes in 
+		  is the deal monitor and it will make a get call to IA Deal DB 
+		  and shows all the deals available in the system in the UI. 
+		  If any attribute of the deal updated after publishing to BuySide, 
+		  the particular record would turn into blue & highlighted for few seconds in BuySide end.
+		  
+IA-community - IA-Community is an API which stores the connections between the SellSide company and BuySide company. 
+               These connections are maintained in the BSP Admin.
+			   
+Doc Portal - It comes into picture whenever a document (Contains Deal terms & conditions) 
+             is sent from SellSide while publishing the deal to BuySide. 
+			 Doc Portal maintains its own DB and the data will be stored based on the Deal ID which comes from SellSide.  
+			 BuySide fetches the deal details from both the IA-Deal & Doc Portal.
+			 
+IA-compliance - Conforming to a rule, such as a specification, policy, standard or law.
+
+BuySide Monolith - It stores the BuySide user data and the information about the orders.
+                   Currently the BuySide Monolith infrastructure migrated to AWS.
+				   
+POM BFF - It handles all the order details and the hedges associated with it. 
+
+CAS - It stores the deal allocation details.
+
+IAN (External API) - When the investor places an order in BuySide, I
+                     AN will fetch the order details and will deliver it to Order books (IssueNet).
+					 
+					 
+
+
+

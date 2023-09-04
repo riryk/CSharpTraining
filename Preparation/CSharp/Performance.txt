@@ -11,6 +11,7 @@
 
 
 1. Why Should You Choose Managed Code
+----------------------------------------------------
     - Safety—The compiler and runtime can enforce type safety
 	- Automatic memory management
     - Higher level of abstraction
@@ -23,7 +24,7 @@
 	  and stack analysis in a debugger, often without the need for PDBs (symbol files)
 	  
 2. Is Managed Code Slower Than Native Code.
-
+----------------------------------------------------
     - That is, the first time a method is executed, the CLR will invoke the compiler on your IL 
 	  to convert it to assembly code (e.g., x86, x64, ARM). 
 	  Most code optimization happens at this stage. 
@@ -43,6 +44,7 @@
 	  its location in memory can be more optimal than that of native code. 
 	  
 3. Measurement Tools.
+----------------------------------------------------
 
     - Visual Studio Professional performance wizard
 	- Visual Studio Standalone Profiler
@@ -54,6 +56,7 @@
 	
 	
 4. Windows memory.
+----------------------------------------------------
 
    Physical Memory
      The actual physical memory chips in a computer. 
@@ -123,8 +126,90 @@
  }
 
  5. Garbage Collection
+ ----------------------------------------------------
+ 
+ The native heap in Windows maintains free lists to know where to put new allocations. 
+ Despite the use of low fragmentation heaps, many long-running native 
+ code applications struggle with fragmentation. 
+ 
+ Time spent in memory allocation gradually increases as the allocator spends more 
+ and more time traversing the free lists looking for an open spot. Memory use continues to grow  
+ and, inevitably, the process will need to be restarted to begin the cycle anew. Some native 
+ programs deal with this by replacing the default implementation of malloc with custom 
+ allocation schemes that work hard to reduce this fragmentation
+ 
+ In .NET, memory allocation is trivial because it usually happens at the end of a memory segment 
+ and is not much more than a few additions, decrements, and a comparison in the normal case. In 
+ these simple cases, there are no free lists to traverse and little possibility of fragmentation. GC 
+ heaps can actually be more efficient because objects allocated together in time tend to be near 
+ one another on the heap, improving locality. 
+ 
+  - Basic Operation
+    The managed heap is further divided into two types of heaps: 
+	the small object heap and the large object heap (LOH).
+	
+ There are three generations, referenced casually as gen 0, gen 1, and gen 2. 
+ Gen 0 and gen 1 are always in the same segment, but gen 2 can span multiple segments, as can the large object heap
+ 
+ The CLR allocates all objects that are less than 85,000 bytes in size on the small object heap. 
+ They are always allocated in gen 0, usually at the end of the current used space
+ 
+ When Gen0 is full, no new memory can be allocated and it may trigger GC
+ Objects always begin their life in gen 0. As long as they are still alive, 
+ the GC will promote them to subsequent generations each time a collection happens.
+ 
+ When a garbage collection occurs, a compaction may occur, 
+ in which case the GC physically moves the objects to a new location to free space in the segment.
+ 
+ Compaction may occur in the collection of any generation and this is a relatively expensive 
+ process because the GC must fix up all of the references to those objects so they point to the new 
+ location, which may require pausing all managed threads. Because of this expense, the garbage 
+ collector will only do compaction when it is productive to do so, based on some internal metrics
+
+ GC roots: 
+ 
+ A root can be the static variables in your program, the threads which have the stacks 
+ (which will point to local variables) from all running methods, 
+ strong GC handles (such as pinned handles), and the finalizer queue
+ 
+ Note that you may have objects that no longer have roots to them, 
+ but if the objects are in gen 2, then a gen 0 collection will not clean them up. 
+ They will have to wait for a full collection
+ 
+ There are four phases to a garbage collection:
+  1. Suspension—All managed threads in the application 
+     are forced to pause before a collection can occur. 
+  2. Mark—Starting from each root, the garbage collector follows every object reference 
+     and marks those objects as seen. 
+  3. Compact—Reduce memory fragmentation by relocating objects to be next to each other 
+     and update all references to point to the new locations. 
+	 This happens on the small object heap when needed and there is no way to control it. 
+	 On the large object heap, compaction does not happen automatically at all, 
+	 but you can instruct the garbage collector to compact it on-demand.
+  4. Resume—The managed threads are allowed to resume
+  
+ Another trigger for GCs is the total available memory on a machine, independent of your application. 
+ If available memory drops below a certain threshold, garbage collection may happen more frequently 
+ in an attempt to reduce the overall heap size
+
+ Workstation vs. Server GC
  
  
+  
+  
+
+
+
+
+
+
+
+ 
+
+
+
+
+
  
  
  
