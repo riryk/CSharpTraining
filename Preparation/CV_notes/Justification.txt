@@ -105,7 +105,53 @@ Risks:
 ------------------------------------------  
 3. Architecture diagrams of projects.
 -----------------------------------------
-   
+
+-------------------------------------------
+4. Distributed system challenges 
+-------------------------------------------
+  - The complexity of algorithms such as Paxos
+  - Independent failures and nondeterminism
+
+ Types of distributed systems 
+  - offline distributed systems get almost all of the benefits of distributed computing 
+    (scalability and fault tolerance) and almost none of the downsides 
+	(complex failure modes and non-determinism)
+  - Hard real-time distributed systems. These are often called request/reply services.
+  
+  What makes hard real-time distributed systems difficult is that the network enables sending messages 
+  from one fault domain to another.
+  Worse, as noted above, CLIENT, SERVER, and NETWORK can fail independently from each other
+  
+  Challenges:
+    - Engineers can’t combine error conditions. Instead, they must consider many permutations of failures. 
+	  Most errors can happen at any time, independently of (and therefore, potentially, in combination with) 
+	  any other error condition.
+    - The result of any network operation can be UNKNOWN, in which case the request may have succeeded, 
+	  failed, or received but not processed.
+    - Distributed problems occur at all logical levels of a distributed system, 
+	  not just low-level physical machines.
+    - Distributed problems get worse at higher levels of the system, due to recursion.
+    - Distributed bugs often show up long after they are deployed to a system.
+    - Distributed bugs can spread across an entire system.
+    - Many of the above problems derive from the laws of physics of networking, which can’t be changed.
+
+-------------------------------------------------
+5. Red flags in system design interview 
+------------------------------------------------- 
+  
+A good interviewer also looks for red flags. Over-engineering is a real disease of many
+engineers as they delight in design purity and ignore tradeoffs. They are often unaware of the
+compounding costs of over-engineered systems, and many companies pay a high price for
+that ignorance. You certainly do not want to demonstrate this tendency in a system design
+interview. Other red flags include narrow mindedness, stubbornness, etc.
+
+
+  
+  
+  
+  
+  
+  
  
  
  

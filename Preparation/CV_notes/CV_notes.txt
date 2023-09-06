@@ -152,6 +152,22 @@ Responsibilities
 18. Local setup and run for Lambdas.
 19. Задача літкод. визначити цикл більш цікава - визначити цей цикл за мінімум ітерацій
 20. ПМБУК. 
+21. Back-End for Frontend plus microservices architecture Draw Muni-Bff or POM-Bff diagrams 
+22. Software leadership skills. Amazon leadership questions. Check Epam trainings
+23. Write Dispose pattern 
+24. Write Singleton pattern 
+25. SafeHandle. 
+26. Check IaDocuments and virus scanner project 
+27. How RabbitMQ is deployed to AWS 
+28. Check MemoryStream polling in C# to avoid LOH allocation. MemoryStream from network.
+29. ASP.NET Core Cache. ETag header.
+30. weak reference
+31. list.RemoveAll(x => isPair(x));  Enumerable. Understand why O(n)
+32. distinct vs HashSet add to remove duplicates
+33. Check Redis for user claims and user session. Fault tolerance if redis not accessible
+34. AWS Api gateway rate limiting
+35.
+
 
 
 

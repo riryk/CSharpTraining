@@ -216,7 +216,7 @@ Basics
 	 At the same time, some of the non-relational functionalities 
 	 are moved to a NoSQL data store to reduce the database load
 	 
- 9. Millions of users and beyond	 
+9. Millions of users and beyond	 
  
 • Keep web tier stateles
 • Build redundancy at every tier
@@ -226,6 +226,101 @@ Basics
 • Scale your data tier by sharding
 • Split tiers into individual services
 • Monitor your system and use automation tools
+
+10. BACK-OF-THE-ENVELOPE ESTIMATION
+
+Example: Estimate Twitter QPS and storage requirements
+
+Assumptions:
+• 300 million monthly active users.
+• 50% of users use Twitter daily.
+• Users post 2 tweets per day on average.
+• 10% of tweets contain media.
+• Data is stored for 5 years.
+
+Estimations:
+Query per second (QPS) estimate:
+• Daily active users (DAU) = 300 million * 50% = 150 million
+• Tweets QPS = 150 million * 2 tweets / 24 hour / 3600 seconds = ~3500
+• Peek QPS = 2 * QPS = ~7000
+
+
+11. A 4-step process for effective system design interview
+
+ Answering without a thorough understanding of the requirements 
+ is a huge red flag as the interview is not a trivia contest. 
+ There is no right answer.
+ 
+  - What specific features are we going to build?
+  - How many users does the product have?
+  - How fast does the company anticipate to scale up? 
+    What are the anticipated scales in 3 months, 6 months, and a year?
+  - What is the company’s technology stack? 
+    What existing services you might leverage to simplify the design?
+	
+• Feed publishing: 
+    when a user publishes a post, 
+    corresponding data is written into cache/database, 
+	and the post will be populated into friends’ news feed.
+	
+• Newsfeed building: 
+    the news feed is built by aggregating friends’ posts in a reverse
+    chronological order.
+	
+Sometimes, for a senior candidate interview, the discussion 
+could be on the system performance characteristics, 
+likely focusing on the bottlenecks and resource estimations. 
+In most cases, the interviewer may want you to dig into details of some system components. 
+For URL shortener, it is interesting to dive into the hash function design 
+that converts a long URL to a short one. 
+For a chat system, how to reduce latency and how to support online/offline status are two interesting topics.
+Error cases (server failure, network loss, etc.) are interesting to talk about.
+
+12. DESIGN A RATE LIMITER
+
+• A user can write no more than 2 posts per second.
+• You can create a maximum of 10 accounts per day from the same IP address.
+• You can claim rewards no more than 5 times per week from the same devic
+
+Rate limiting is extremely important for companies that use paid third party APIs. 
+For example, you are charged on a per-call basis for the following external APIs: 
+check credit, make a payment, retrieve health records, etc.
+Limiting the number of calls is essential to reduce costs
+Prevent servers from being overloaded
+
+• High fault tolerance. If there are any problems with the rate limiter 
+ (for example, a cache server goes offline), 
+ it does not affect the entire system
+ 
+It is usually necessary to have different buckets for different API endpoints. 
+For instance, if a user is allowed to make 1 post per second, 
+add 150 friends per day, and like 5 posts per second, 3 buckets are required for each user.
+
+If we need to throttle requests based on IP addresses, each IP address requires a bucket
+If the system allows a maximum of 10,000 requests per second, 
+it makes sense to have a global bucket shared by all requests.
+
+
+
+
+
+ 
+ 
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
 
 
 	 

@@ -1,2 +1,82 @@
 
-1. 
+1. Dictionary<TKey,TValue>, Hashtable,
+    ConcurrentDictionary<TKey,TValue>
+    ReadOnlyDictionary<TKey,TValue>
+    ImmutableDictionary<TKey,TValue>
+2. List<T>, Array, ArrayList, ImmutableList<T> (add,[] - O(logn) ), 
+   ImmutableArray
+3. Queue<T>, Concurrent, Immutable.
+4. LinkedList<T>, ObservableCollection<T>, SortedList<TKey,TValue>,
+   ImmutableSortedDictionary<TKey,TValue> (logn), ImmutableSortedSet<T> (logn),
+   SortedDictionary (logn) 
+5. HashSet<T>, SortedSet<T> (logn), ImmutableHashSet<T> (logn), ImmutableSortedSet<T> (logn)
+
+-------------------------------------------------
+
+1. List 
+
+An operation to add an element to a List can be costly because it can cause memory relocations, 
+which makes the operation possibly slow. 
+Usually, the List is allocated with enough space, but attention should be given to this 
+for a list where large datasets are being inserted.
+
+Example of an O(n) operation using RemoveAt(0) with a List
+
+Do not perform O(n) operations inside a loop!
+
+for(int i = lst.Count-1; i ≥ 0; i--){
+   if(isPair(anotherList[i])){
+      lst.RemoveAt(i);
+   }
+}
+
+The RemoveAt() is O(n), and the entire loop could be in the worst case also O(n), 
+which creates a complexity of O(n²)
+An alternative: 
+
+list.RemoveAll(x => isPair(x));
+
+2. SortedList 
+
+ Functionally a dictionary
+ Internally uses a list
+ Uses less memory than SortedDictionary
+ 
+3. LinkedList
+
+Because of its optimization for changes, a LinkedList could be used 
+as a temporary working set for operations that are performing a large number of changes to it; 
+it can then be copied to another collection when done with editing the List.
+
+4. SortedDictionary
+
+Keyed access to items
+Sorts items only by key
+Guaranteed sort order when enumerating
+Modifications scale better
+
+5. HashSet
+
+Useful to enforce uniqueness out of the box.
+Allows for set operations (unions and intersections).
+Similar to dictionaries (But lack keys and don't support lookups).
+HashSet for dealing with duplicates
+There are two ways to deal with unwanted duplicates: 
+the native way and the better away (just kidding, kind of).
+
+var uniqueListOfNumbers = listOfNumbers.Distinct().ToList();
+
+Another strategy is to use a HashSet; 
+this way, when we are adding elements to the HashSet, 
+it will ignore duplicate values when adding them to the set! 
+It's very scalable and efficient at enforcing uniqueness.
+
+
+
+
+
+
+
+
+
+

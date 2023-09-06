@@ -52,7 +52,3 @@ Created lambda function for auto minor version upgrade
 resource "aws_lambda_function" "lambda_auto_minor_version_upgrade-primary" 
 
 
-
-
-
-

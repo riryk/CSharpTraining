@@ -194,6 +194,170 @@
 
  Workstation vs. Server GC
  
+   Workstation GC is the default. In this mode, all GCs happen on the same thread 
+   that triggered the collection and run at the same priority
+   
+   Garbage collection happens in parallel. Each GC thread collects one of the heaps. 
+   This can make garbage collection significantly faster than in workstation GC. 
+   
+ Background GC
+   Background GC works by having a dedicated thread for garbage collecting generation 2
+ 
+ Low Latency Mode
+   LowLatency—For workstation GC only, it will suppress gen 2 collections.
+   
+ A good example is stock trading: 
+ during market hours, you do not want full garbage collections happening. 
+ When the market closes, you turn this mode off and perform full GCs until the market reopens
+  
+ The Most Important Rule
+   Garbage collections get more expensive in each generation. 
+   You want to ensure there are many gen 0/1 collections and very few gen 2 collections.  
+   
+ Reduce Object Lifetime
+ Reduce Depth of Tree
+ Reduce References between Objects
+ 
+ Avoid Finalizers
+ 
+ Never implement a finalizer unless it is required. 
+ Finalizers are code, triggered by the garbage collector to cleanup unmanaged resources. 
+ They are called from a single thread, one after the other, 
+ and only after the garbage collector declares the object dead after a collection. 
+ 
+ This means that if your class implements a finalizer, 
+ you are guaranteeing that it will stay in memory even after the collection that should have killed it. 
+ This decreases overall GC efficiency and ensures that your program 
+ will dedicate CPU resources to cleaning up your object. 
+ 
+ If you do implement a finalizer, you must also implement the IDisposable interface 
+ to enable explicit cleanup, and call GC.SuppressFinalize(this) in the Dispose method 
+ to remove the object from the finalization queue. 
+ 
+ As long as you call Dispose before the next collection, 
+ then it will clean up the object properly without the need for the finalizer to run.
+  
+class Foo : IDisposable
+{
+  ~Foo()
+  {
+    Dispose(false);
+  }
+  
+  public void Dispose()
+  {
+    Dispose(true);
+    GC.SuppressFinalize(this);
+  }
+  
+  protected virtual void Dispose(bool disposing)
+  {
+    if (disposing)
+    {
+       this.managedResource.Dispose();
+    }
+	
+    // Cleanup unmanaged resourced
+    UnsafeClose(this.handle);
+    // If the base class is IDisposable object 
+    // make sure you call: 
+    //base.Dispose(disposing);
+  } 
+}
+
+Drawbacks of fimalizers: 
+
+ - The finalizer is called when the GC detects that an object is eligible for collection. 
+   This happens at some undetermined period of time after the resource is not needed anymore. 
+   
+ - It also provides the GC.SuppressFinalize method that can tell the GC 
+   that an object was manually disposed of and does not need to be finalized anymore, 
+   in which case the object’s memory can be reclaimed earlier.
+   
+ - Some people think that finalizers are guaranteed to run. 
+   This is generally true, but not absolutely so. 
+   If a program is force-terminated then no more code runs 
+   and the process dies immediately. 
+   
+ - Moreover, because finalizers execute sequentially, 
+   if another finalizer has an infinite loop bug in it, 
+   then no finalizers after it will ever run. 
+   
+ Avoid Copying Buffers
+
+ var memoryStream = new MemoryStream();
+ var segment = new ArraySegment<byte>(memoryStream.GetBuffer(), 100, 1024);
+ ...
+ var blockStream = new MemoryStream(segment.Array, 
+    segment.Offset, 
+    segment.Count);
+	
+ The biggest problem with copying memory is not the CPU necessarily, but the GC. 
+ If you find yourself needing to copy a buffer, then try to copy 
+ it into another pooled or existing buffer to avoid any new memory allocations
+ 
+ Pool Long-Lived and Large Objects
+ 
+ Remember the cardinal rule from earlier: 
+   Objects live very briefly or forever. 
+   They either go away in gen 0 collections or last forever in gen 2.
+   Another strong candidate for pooling is any object 
+   that you allocate on the LOH heap, typically collections. 
+   
+ This was MemoryStream, which we used for serialization and transmitting bits over the network. 
+ The actual implementation is more complex than just keeping a queue of MemoryStream objects 
+ because of the need to avoid fragmentation, but conceptually, that is exactly what it is. 
+ Every time a MemoryStream object was disposed, it was put back in the pool for reuse.
+ 
+ Use Weak References for Caching
+ 
+ Weak references are references to an object that still allow the garbage collector 
+ to clean up the object.
+ 
+ WeakReference weakRef = new WeakReference(myExpensiveObject);
+ …
+ // Create a strong reference to the object, 
+ // now no longer eligible for GC
+ var myObject = weakRef.Target;
+ 
+ if (myObject != null)
+ {
+    myObject.DoSomethingAwesome();
+ }
+ 
+6. JIT
+---------------------------------------------- 
+Reducing JIT and Startup Time 
+
+
+
+
+
+
+  
+
+
+   
+
+
+ 
+  
+
+ 
+
+ 
+
+
+
+
+  
+
+
+  
+    
+   
+
+ 
  
   
   

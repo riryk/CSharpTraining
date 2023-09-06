@@ -1,0 +1,102 @@
+
+1. Amazon RDS Proxy is a fully managed, highly available database proxy for Amazon Relational Database Service (RDS) 
+  that makes applications more scalable, more resilient to database failures, and more secure.
+  
+  Many applications, including those built on modern serverless architectures, 
+  can have a large number of open connections to the database server 
+  and may open and close database connections at a high rate, 
+  exhausting database memory and compute resources. 
+  Amazon RDS Proxy allows applications to pool and share connections established with the database, 
+  improving database efficiency and application scalability. 
+  With RDS Proxy, failover times for Aurora and RDS databases 
+  are reduced by up to 66% and database credentials, authentication, 
+  and access can be managed through integration with AWS Secrets Manager and AWS Identity and Access Management (IAM).
+
+2. RDS Proxy benefits. 
+
+  Improved application performance
+    This connection pooling enables your database to efficiently support a large number and frequency 
+	of application connections so that your application can scale without compromising performance.
+	
+  Increase application availability
+    RDS Proxy minimizes application disruption from outages affecting the availability 
+	of your database by automatically connecting to a new database instance while preserving application connections.  
+
+  Manage application security
+    Amazon RDS Proxy gives you additional control over data security by giving 
+	you the choice to enforce IAM authentication for database access 
+	and avoid hard coding database credentials into application code.
+
+  Fully managed
+    RDS Proxy is completely serverless and scales automatically to accommodate your workload.
+	
+  Fully compatible with your database
+    Amazon RDS Proxy is fully compatible with the protocols of supported database engines, 
+	so you can deploy RDS Proxy for your application without making changes to your application code.
+	
+  Available and durable
+    Amazon RDS Proxy is highly available and deployed over multiple Availability Zones (AZs) 
+	to protect you from infrastructure failure
+
+3. Use cases: 
+
+  Serverless application development:
+    Modern serverless applications support highly variable workloads 
+	and may attempt to open a burst of new database connections or keep many connections open but idle.
+    A surge of connections or a large number of open connections could strain your database server, 
+	leading to slower queries and limited application scalability. 
+    By pooling and sharing already established database connections, 
+	RDS Proxy allows you to efficiently scale to many more connections from your serverless application.
+	Finally, RDS Proxy preserves the availability of your serverless application 
+	by denying unserviceable application connections that may degrade the performance of your database.
+   
+  Applications that keep connections open but idle:
+    Applications in industries such as SaaS or eCommerce may keep database connections 
+	idling to minimize the response time when a customer reengages.  
+    Instead of overprovisioning databases to support mostly idling connections, 
+	customers can use RDS Proxy to hold idling connections 
+	while only establishing database connections as required to optimally serve active requests.
+	
+  Applications requiring availability through transient failures:
+    With RDS Proxy, customers can build applications that can transparently tolerate database failures 
+	without needing to write complex failure handling code. 
+	RDS Proxy automatically routes traffic to a new database instance while preserving application connections. 
+	RDS Proxy also bypasses DNS (Domain Name System) caches to reduce failover times 
+	by up to 66% for Amazon RDS and Aurora Multi-AZ databases.
+
+4. How will serverless applications benefit from RDS Proxy?
+
+  First, RDS Proxy enables serverless applications to scale efficiently by pooling and reusing database connections.
+  Second, with RDS Proxy, you no longer need to handle database credentials in your Lambda code. 
+  You can use the IAM execution role associated with your Lambda function 
+  to authenticate with RDS Proxy and your database. 
+  Third, you don’t need to manage any new infrastructure or code to utilize the full potential 
+  of serverless applications backed by relational databases.
+  RDS Proxy is fully managed and scales its capacity automatically based on your application demands.
+
+5. How do I authenticate with RDS Proxy?
+
+  RDS Proxy supports IAM-based authentication to offload credential management from applications. 
+  Instead of specifying a username and password while establishing connections, 
+  you can use an IAM execution role associated with your Lambda function or EC2 instance to authenticate with RDS Proxy. 
+  RDS Proxy also allows you to enforce IAM authentication to help improve the security posture of your applications.   
+
+  https://github.com/terraform-aws-modules/terraform-aws-rds-proxy/blob/master/examples/postgresql-iam-cluster/main.tf	
+	
+  resource "aws_db_proxy" "proxy"
+  resource "aws_db_proxy_default_target_group" "proxy"  
+  resource "aws_db_proxy_target" "db_cluster" 
+  resource "aws_db_proxy_endpoint" "read_only"
+  
+6. What is RDS?
+
+  
+   
+	
+
+	
+	 
+	 
+  
+    
+  

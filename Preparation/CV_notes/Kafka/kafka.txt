@@ -1,0 +1,65 @@
+
+1. Kafka batches and partitions. 
+
+For efficiency, messages are written into Kafka in batches. 
+A batch is just a collection of messages, 
+all of which are being produced to the same topic and partition. 
+An individual roundtrip across the network for each message 
+would result in excessive over head, 
+and collecting messages together into a batch reduces this. 
+Of course, this is a tradeoff between latency and throughput
+
+Partitions are also the way that Kafka provides redundancy and scalability. 
+Each partition can be hosted on a different server, 
+which means that a single topic can be scaled horizontally across multiple servers 
+to provide performance far beyond the ability of a single server
+
+The offset is another bit of metadata
+—an integer value that continually increases
+—that Kafka adds to each message as it is produced. 
+Each message in a given partition has a unique offset. 
+By storing the offset of the last consumed message for each partition, 
+either in Zookeeper or in Kafka itself, 
+a consumer can stop and restart without losing its place
+
+Consumers work as part of a consumer group, 
+which is one or more consumers that work together to consume a topic.
+The group assures that each partition is only consumed by one member.
+The mapping of a consumer to a partition is often called 
+ownership of the partition by the consumer.
+
+In this way, consumers can horizontally scale to consume topics 
+with a large number of messages. 
+Additionally, if a single consumer fails, 
+the remaining members of the group will rebalance the partitions 
+being consumed to take over for the missing member. 
+
+2. Brokers and Clusters
+
+A single Kafka server is called a broker. 
+The broker receives messages from producers, assigns offsets to them, 
+and commits the messages to storage on disk.
+
+A partition may be assigned to multiple brokers, 
+which will result in the partition being replicated (as seen in Figure 1-7). 
+This provides redundancy of messages in the partition, 
+such that another broker can take over leadership if there is a broker failure. 
+However, all consumers and producers operating 
+on that partition must connect to the leader.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
