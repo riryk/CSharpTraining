@@ -166,7 +166,18 @@ Responsibilities
 32. distinct vs HashSet add to remove duplicates
 33. Check Redis for user claims and user session. Fault tolerance if redis not accessible
 34. AWS Api gateway rate limiting
-35.
+35. What is SSO? 
+------
+36. Architecture. 
+    Read Software architecture is practise, Documenting software architectures 
+	Release it. Patterms for fault tolerace 
+	NoSql distilled, Continuous delivery 
+	Devops. Software architect perspective 
+37. Review Powershell gallery 
+38. Phases of software  development. Inception. 
+39. 
+	
+	
 
 
 

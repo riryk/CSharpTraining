@@ -300,6 +300,12 @@ If we need to throttle requests based on IP addresses, each IP address requires 
 If the system allows a maximum of 10,000 requests per second, 
 it makes sense to have a global bucket shared by all requests.
 
+Disk-Based Retention
+
+Consumers can be stopped, and the messages will be retained in Kafka. 
+This allows them to restart and pick up processing messages 
+where they left off with no data loss.
+
 
 
 

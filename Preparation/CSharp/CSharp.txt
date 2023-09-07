@@ -1,4 +1,8 @@
 
+  https://pvs-studio.com/en/blog/posts/csharp/0995/
+  https://ridikk12.medium.com/the-thing-that-you-didnt-know-about-c-list-41d61a2d8010
+  https://dev.to/samfieldscc/things-you-need-to-know-as-a-c-developer-collections-md6
+
 1. Dictionary<TKey,TValue>, Hashtable,
     ConcurrentDictionary<TKey,TValue>
     ReadOnlyDictionary<TKey,TValue>

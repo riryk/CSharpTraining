@@ -47,6 +47,44 @@ such that another broker can take over leadership if there is a broker failure.
 However, all consumers and producers operating 
 on that partition must connect to the leader.
 
+3. Cross region replication. 
+
+The Kafka project includes a tool called MirrorMaker, used for this purpose. 
+At its core, MirrorMaker is simply a Kafka consumer and producer, 
+linked together with a queue. 
+Messages are consumed from one Kafka cluster and produced for another.
+
+4. Benefits.
+
+Multiple Producers
+
+This makes the system ideal for aggregating data from
+many frontend systems and making it consistent. 
+For example, a site that serves content to users via a number of microservices 
+can have a single topic for page views that
+all services can write to using a common format
+
+Multiple Consumers
+
+Kafka is designed for multiple consumers to read
+any single stream of messages without interfering with each other. 
+This is in contrast to many queuing systems where 
+once a message is consumed by one client, 
+it is not available to any other.
+
+When coupled with a system to provide message schemas, 
+producers and consumers no longer require tight coupling 
+or direct connections of any sort. 
+
+
+
+
+
+
+
+
+
+
 
 
 

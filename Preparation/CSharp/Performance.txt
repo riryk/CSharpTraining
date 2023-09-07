@@ -329,7 +329,10 @@ Drawbacks of fimalizers:
 ---------------------------------------------- 
 Reducing JIT and Startup Time 
 
-
+ - LINQ 
+ - The dynamic keyword
+ - Regular expressions
+ - Code generation
 
 
 
