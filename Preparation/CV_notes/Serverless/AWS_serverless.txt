@@ -1,0 +1,176 @@
+
+https://pages.awscloud.com/acq_NAMER_Partner-GSC-Serverless-eBook-Download-Page.html
+
+It promises developers the ability to iterate as
+fast as possible while maintaining business critical latency, availability, security, and
+performance guarantees, with minimal effort on the developers’ part.
+
+The “software as a service” consumption model is
+well understood. It means that anyone using the software uses a prescribed
+application programming interface (API) or web interface to use the software
+and customize it
+
+Incurs cost only when used—This means there’s zero cost for having the software
+deployed and ready to use. 
+
+We define microservices as small, standalone, fully independent services 
+built around a particular business purpose or capability. 
+Ideally, microservices should be easy to replace, 
+with each service written in an appropriate framework and language.
+
+Each microservice can maintain state and store data. 
+And if microservices are correctly decoupled, 
+development teams can work and deploy microservices independently from one another. 
+This approach of building and deploying applications as a collection of loosely coupled services 
+is considered the default approach to development in the cloud today.
+
+ 1. Developing your desired services traditionally requires servers running in data centers 
+    or in the cloud that need to be managed, maintained, patched, and backed up.
+ 2. Directly build on VMs - 
+    Provisioning, managing, and patching of these servers is a time-consuming task 
+	that often requires dedicated operations people.
+ 3. Infrastructure as a service. 
+    Rent VM in the Cloud. It will be managed by AWS team. Patches, maintenance, 
+	back-ups. 
+ 4. Platform as a service
+    and containers have appeared as potential solutions to the headache of 
+	inconsistent infrastructure environments, conflicts, and server management overhead. 
+	PaaS is a form of cloud computing that provides a platform for users
+    to run their software while hiding some of the underlying infrastructure. 
+ 5. Use containers
+    Containerization is considered ideal for microservices architectures
+	because it is a way of isolating an application with its own environment.
+    It’s a lightweight alternative to full-blown virtualization that traditional cloud servers use. 
+
+Drawbacks of all these approaches: 
+
+While each of these models are perfectly valid and offer varying degrees 
+of simplicity and speed of development for your service, 
+your costs are still driven by the lifecycle of the infrastructure or servers you own, 
+not to your application usage.
+
+If you purchase a rack at the data center, you pay for it 24/7. 
+If you purchase a cloud instance 
+(wrapped in a PaaS or running containers or otherwise), 
+you pay for it when it runs, independent of whether it is serving traffic for your web app or not. 
+
+Serverless - pay only when you use it. 
+
+For example, to build the API, we would use a service that does not cost us anything if there are no API calls.
+Serverless architecture uses existing services from cloud providers 
+like AWS to implement its architectural components
+
+  AWS offers services to build our application primitives like APIs (Amazon API Gateway), 
+  workflows (AWS Step Functions), 
+  queues (Amazon Simple Queue Service), 
+  databases (Amazon DynamoDB and Amazon Aurora)
+ 
+Function as a service - 
+  This ability to run arbitrary code without having to provision infrastructure 
+  to run it as a service or to pay for the infrastructure
+  is referred to as functions as a service 
+  
+You pay only for the time your code runs. 
+A function is not a lightweight instance; 
+instead, think of it as akin to processes in an OS, 
+where you can spawn as many as needed by your application 
+and then spin them down when your application isn’t running.
+
+A function is not a lightweight instance; 
+instead, think of it as akin to processes in an OS, 
+where you can spawn as many as needed by your application 
+and then spin them down when your application isn’t running. 
+
+By making use of various powerful single-purpose APIs and web services, 
+developers can build loosely coupled, scalable, and efficient architectures quickly. 
+
+He once tweeted, “serverless != functions, 
+FaaS == functions, serverless == on-demand scaling 
+and pricing characteristics (not limited to functions)
+
+An emerging trend is that of serverless containers; 
+that is, leveraging containers instead of functions 
+to implement the custom logic and using the container as a utility service 
+and incurring costs only when the container runs. 
+
+Services like AWS Fargate or Google Cloud Run offer this capability. 
+The difference between the two (functions vs. containers) 
+is just the degree to which developers want 
+to shift the boundaries of shared responsibilities.
+
+ Serverless technologies feature automatic scaling, built-in high availability, 
+ and a pay-for-use billing model to increase agility and optimize costs.
+ 
+  - Eliminate operational overhead
+  - Lower your costs. 
+      With a pay-for-value billing model, resource utilization is automatically optimized 
+	  and you never pay for over-provisioning
+  - Adapt at scale
+  - Serverless applications have built-in service integrations, 
+    so you can focus on building your application instead of configuring it.  
+
+AWS Lambda
+   Compute service that runs your code in response to events and automatically manages the compute resources.
+
+AWS Step Functions
+   Coordinate components of distributed applications.
+
+Amazon SQS
+   Scalable queue for storing messages as they travel between computers.
+
+Amazon SNS
+   Fast, flexible, fully managed push messaging service.
+
+Amazon API Gateway
+   Publish, maintain, monitor, and secure APIs at any scale.
+
+Lambda functions are stateless and scalable, 
+which makes them perfect for implementing any logic that benefits from parallel processing. 
+The most flexible and powerful serverless designs are event-driven, 
+which means each component in the architecture reacts to a state change 
+or notification of some kind rather than responding to a request or polling for information
+
+Recommendations for AWS Serverless: 
+1. 
+
+
+   
+	  
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

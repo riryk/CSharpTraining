@@ -175,7 +175,10 @@ Responsibilities
 	Devops. Software architect perspective 
 37. Review Powershell gallery 
 38. Phases of software  development. Inception. 
-39. 
+39. Tiers versus layers
+40. Microservices vs SOA 
+41. AWS Step Functions? 
+
 	
 	
 
