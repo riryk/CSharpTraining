@@ -131,7 +131,43 @@ which means each component in the architecture reacts to a state change
 or notification of some kind rather than responding to a request or polling for information
 
 Recommendations for AWS Serverless: 
-1. 
+
+1. Avoid lift-and-shift—In practice, serverless architectures are more suited for new
+applications rather than porting existing applications over. 
+This is because existing application code bases have a lot of code
+that is made redundant by the serverless services.
+
+2. Adopt a serverless first approach, not a serverless only approach
+ build as much as possible using third-party services, 
+ fall back to custom services built using AWS serverless primitives like AWS Lambda, 
+ and finally, fall back to custom services built 
+ using custom software running on infrastructure like EC2.
+ 
+3. the strangler pattern 
+
+4. Pick applications suited for a service-oriented architecture
+Keep in mind that the serverless approach is all about reducing 
+the amount of code you have to own and maintain, 
+so you can iterate and innovate faster.
+in-process calls and the need to handle failures and latency across a network
+In more complex cases, developers can set up more elaborate pipelines
+and orchestrate invocations of multiple functions.
+
+5. Serverless pros and cons
+
+Pros:
+  High scale and reliability without server management
+  Competitive pricing
+  Less code
+  
+Cons:   
+  Your application and business needs more control or you need to customize the infrastructure
+  Your application and business needs require you to stay vendor agnostic
+  
+  
+ 
+
+
 
 
    

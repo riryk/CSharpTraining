@@ -178,7 +178,14 @@ Responsibilities
 39. Tiers versus layers
 40. Microservices vs SOA 
 41. AWS Step Functions? 
-
+42. IAN get orders optimization.
+43. Strangler pattern for splitting monolith
+44. Lambdas vs Fargate docker containers.
+45. Architecture governance 
+46. CI vs CDelivery deployment 
+47. Zero downtime solutions 
+48. Lua script/ sorted sets in Redis to solve Race condition is redis for performance counter
+49. 
 	
 	
 

@@ -333,6 +333,22 @@ Reducing JIT and Startup Time
  - The dynamic keyword
  - Regular expressions
  - Code generation
+ 
+7. Asynchronous Programming
+  - Avoid Blocking
+  - Use Tasks for Non-Blocking I/O
+  - Adapt the Asynchronous Programming Model (APM) to Task
+
+8.When to use tasks instead of async / await? 
+
+Unfortunately, async/await will not handle this nondeterministic situation of arbitrarily 
+choosing from multiple child Tasks that you are waiting on. 
+One way to resolve this is to use the ContinueOnAny method described earlier. 
+Alternatively, you could use TaskCompletionSource to manually control when the top level Task is complete.
+
+
+  
+
 
 
 

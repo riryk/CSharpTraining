@@ -227,6 +227,7 @@ Basics
 • Split tiers into individual services
 • Monitor your system and use automation tools
 
+---------------------------------------
 10. BACK-OF-THE-ENVELOPE ESTIMATION
 
 Example: Estimate Twitter QPS and storage requirements
@@ -244,7 +245,7 @@ Query per second (QPS) estimate:
 • Tweets QPS = 150 million * 2 tweets / 24 hour / 3600 seconds = ~3500
 • Peek QPS = 2 * QPS = ~7000
 
-
+-------------------------------------------------------------
 11. A 4-step process for effective system design interview
 
  Answering without a thorough understanding of the requirements 
@@ -276,6 +277,7 @@ that converts a long URL to a short one.
 For a chat system, how to reduce latency and how to support online/offline status are two interesting topics.
 Error cases (server failure, network loss, etc.) are interesting to talk about.
 
+------------------------------------------------------
 12. DESIGN A RATE LIMITER
 
 • A user can write no more than 2 posts per second.
@@ -306,6 +308,23 @@ Consumers can be stopped, and the messages will be retained in Kafka.
 This allows them to restart and pick up processing messages 
 where they left off with no data loss.
 
+---------------------------------------------------
+13. Rate limiter in a distributed environment
+   - Race condition
+   - Synchronization issue
+   
+As discussed earlier, rate limiter works as follows at the high-level:
+• Read the counter value from Redis.
+• Check if ( counter + 1 ) exceeds the threshold.
+• If not, increment the counter value by 1 in Redis.
+
+Two strategies are commonly used to solve the problem:
+  Lua script [13] and sorted sets data structure in Redis [8]
+  
+Scale Rate Limit instances and save values into Redis cache 
+  
+--------------------------------------------------   
+CHAPTER 5: DESIGN CONSISTENT HASHING
 
 
 
