@@ -1,0 +1,141 @@
+
+1. English. 
+-----------------------------
+
+1. CLR
+------------------------------
+
+1. Assembly?                     Unit of modules and resource files. 
+2. How CLR excutes the code?     It compiles on fly on demand 
+3. IL and verification
+4. Casting between types.        Cast only to base type. 
+5. Difference between is/as.     
+6. Closure. 
+
+
+2. Types. 
+-------------------------------------
+
+1. Reference vs Value types.     Both inherit interfaces. 
+2. Why Value Types are sealed?   
+3. Boxing/unboxing. 
+4. What will happen if value type is converted to interface.
+5. Encapsulation, Inheritance and polimorphism?
+6. Can polimorphism be implemenetd via interfaces? 
+7. override vs new?
+8. constants vs field? 
+9. what is Property in C#? how is encapsulation implememted?
+10. what is event? How we subscribe? How we raise an event? 
+11. event vs delegate?
+12. what are generics? 
+13. what is Lambda expression? 
+14. Interface vs Abstarct class?
+15. Base calss vs Interface? Is-A vs Can-Do 
+16. String vs StringBuilder
+17. throw vs throw new Excpetion?
+18. What is finally? 
+
+
+3. Memory management.
+---------------------------------
+1. What is managed heap?
+2. How GC works and when it occurs? 
+3. What triggers GC? 
+4. How CLR knows which object can be deleted? 
+5. What is compacting phase?
+6. What are generations?
+7. What is IDisposable? using
+
+
+4. CLR Hosting. 
+-----------------------------------
+1. AppDomain, Processes, Threads. 
+2. Whats is serialization?
+
+
+5. Multithreading. 
+--------------------------------
+1. What is Thread? Thread vs Process
+2. How to start thread?
+3. What is Thread pool? Thread poll queue.  ThreadPool.QueueUserWorkItem(ComputeBoundOp, 5);
+4. What is thread execution context? Thread logical call context. 
+5. What are tasks?  Task has ability to return result and we know when task is finished. 
+6. How to start a new task after previous task has completed? 
+7. What are async functions. Async/Await? 
+8. Thread syncronization. SpinLock, 
+
+
+6. Data Structures
+---------------------------------
+1. Stack/Queue/Linked List/ Hashtable
+
+
+7. Patterns
+------------------------
+1. What Patterns do you know? 
+2. Singleton, 
+3. Abstract Factory. 
+
+
+8. SOLID.
+-----------------------
+
+
+9. Web Api
+------------------------
+1. Whats is REST?
+2. Difference betwenn RPC and REST?
+3. Maturity Model 
+   0 - RPC, SOAP, one http method, one uri. 
+   1 - Many Uris, resources, one http method. 
+   2 - use http verbs. 
+   3 - hypermedia.
+4. Http Request structure.
+5. HttpMessage lifecycle in Web Api? 
+     Delegating handlers
+     Routing Dispatcher
+     Controllers 
+	 Authorization filter. 
+	 Model Binding.
+	 Formatter binfing.
+	 parameter binding. 
+     Result Conversion. 
+6. What is routing? 
+7. How to secure Web.Api? 
+8. Token-based authentication.
+9. Content negotiation. 
+10. Media formatter. 
+
+
+
+10. Database
+---------------------
+1. ACID.
+2. Transaction. 
+3.    
+
+
+11. Java Script
+-----------------------
+1. Closure. 
+2. Is JavaScript multithreaded. 
+3. How does Ecma Script implement multithreading. 
+4. Hoisting. 
+
+12. Angular
+----------------------
+
+
+13. Functional programming
+----------------------------
+
+14. TypeScript.
+-----------------------
+1. Difference between React and Angular. 
+2. Pattern MVC.
+3. Is React full MVC? 
+4. Bubbling events. 
+5.  
+
+
+

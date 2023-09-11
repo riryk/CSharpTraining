@@ -346,6 +346,203 @@ choosing from multiple child Tasks that you are waiting on.
 One way to resolve this is to use the ContinueOnAny method described earlier. 
 Alternatively, you could use TaskCompletionSource to manually control when the top level Task is complete.
 
+----------------------------------------------
+9. Do not create an excessive number of timers.
+
+All Timers are serviced from a single thread in the thread pool. 
+A huge number of Timers will cause delays in executing their callbacks.
+Ensure Good Startup Thread Pool Size
+
+Thread Synchronization and Locks
+Thread synchronization is usually accomplished with synchronization objects 
+such as Monitor, Semaphore, ManualResetEvent, and others.  
+Locking never improves performance.
+
+Inefficiant code:
+
+object syncObj = new object();
+var masterList = new List<long>();
+const int NumTasks = 8;
+Task[] tasks = new Task[NumTasks];
+
+for (int i = 0; i < NumTasks; i++)
+{ 
+   tasks[i] = Task.Run(()=>
+   {
+        for (int j = 0; j < 5000000; j++)
+        {
+            lock (syncObj)
+            {
+                masterList.Add(j);
+            }
+        }
+    });
+}
+Task.WaitAll(tasks);
+
+Efficient code: 
+
+object syncObj = new object();
+var masterList = new List<long>();
+const int NumTasks = 8;
+Task[] tasks = new Task[NumTasks];
+
+for (int i = 0; i < NumTasks; i++)
+{ 
+    tasks[i] = Task.Run(()=>
+    {
+        var localList = new List<long>();
+        for (int j = 0; j < 5000000; j++)
+        {
+            localList.Add(j);
+        }
+		
+        lock (syncObj)
+        {
+            masterList.AddRange(localList);
+        }
+    });
+}
+Task.WaitAll(tasks);
+
+Synchronization Preference Order: 
+1. No synchronization at all
+2. Simple Interlocked methods
+3. lock/Monitor class
+4. Asynchronous locks (see later in this chapter)
+5. Everything else
+
+Memory Models
+Use volatile When Necessary
+
+private bool isComplete = false;
+private object syncObj= new object();
+
+// Incorrect implementation!
+private void Complete()
+{
+    if (!isComplete)
+    {
+        lock (syncObj)
+        {
+            if (!isComplete)
+            {
+                DoCompletionWork();
+                isComplete = true;
+            }
+        }
+    }
+}
+
+leading to multiple threads seeing a false value even after another thread has set it to true. 
+
+Use Interlocked Method
+
+private bool isComplete = false;
+private object completeLock = new object();
+
+private void Complete()
+{
+   lock(completeLock)
+   {
+      if (isComplete)
+      {
+         return;
+      }
+      isComplete = true;
+   }
+   ...
+}
+
+private int isComplete = 0;
+private void Complete()
+{
+   if (Interlocked.Increment(ref isComplete) == 1)
+   {
+      ...
+   }
+}
+
+CompareAndExchange—
+  Accepts values A, B, and C. 
+  Compares values A and C, and, if equal, replaces A with B, and returns original value. 
+  
+  if (A == C) 
+  {
+     var original = A;
+     A = B;
+	 return original;
+  }  
+
+class LockFreeStack<T>
+{
+   private class Node
+   {  
+      public T Value;
+      public Node Next;
+   }
+   
+   private Node head;
+   
+   public void Push(T value)
+   {
+      var newNode = new Node() { Value = value }; 
+	  
+	  while (true)
+      {
+         newNode.Next = this.head;
+		 
+         if (Interlocked.CompareExchange(ref this.head, newNode, newNode.Next) == newNode.Next)
+         {
+            return;
+         }
+      }
+   }
+
+// if (this.head == newNode.Next)
+   {
+      var prev = this.head; 
+      this.head = newnode;
+	  return prev;
+   }
+   
+   public T Pop()
+   {
+      while (true)
+      {
+         Node node = this.head;
+         if (node == null)
+         {
+            return default(T);
+         }
+         if (Interlocked.CompareExchange(ref this.head, node.Next, node) == node)
+         {
+            return node.Value;
+         }
+      }
+   } 
+}
+   
+10. Asynchronous Lock
+
+The SemaphoreSlim class has a WaitAsync method that returns a Task. 
+Instead of blocking on a wait, you can schedule a continuation on the Task 
+that will execute once the semaphore permits it to run.
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
 
   
 

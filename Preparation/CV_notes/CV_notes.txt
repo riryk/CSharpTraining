@@ -131,8 +131,7 @@ Responsibilities
 -----------------------------------
  Ideas 
 -----------------------------------
-1. Add a note for Disater recovery testing scripts. 
-   Ia-Infrastructure and BuySide infrastructure projects 
+1. Add a note for Disater recovery testing scripts. Ia-Infrastructure and BuySide infrastructure projects 
 2. Add AWS SNS/SQS experience
 3. Add solved .NET performace and memory leak issues. 
 4. Add solved Slow Db queries optimization
@@ -185,7 +184,9 @@ Responsibilities
 46. CI vs CDelivery deployment 
 47. Zero downtime solutions 
 48. Lua script/ sorted sets in Redis to solve Race condition is redis for performance counter
-49. 
+49. clean architecture. https://habr.com/ru/articles/653421/
+50. EngX Self-Evaluation.
+51. 
 	
 	
 

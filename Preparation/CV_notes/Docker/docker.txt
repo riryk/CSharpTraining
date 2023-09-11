@@ -1,0 +1,107 @@
+
+----------------------------------------------------------------------
+1. Containerization?
+
+Containerization is an approach to software development in which an application or service, its 
+dependencies, and its configuration (abstracted as deployment manifest files) are packaged together 
+as a container image. 
+Containers also isolate applications from each other on a shared OS. 
+Containerized applications run on top of a container host 
+that in turn runs on the OS (Linux or Windows).
+
+Another benefit of containerization is scalability. 
+You can scale out quickly by creating new containers for short-term tasks. 
+From an application point of view, instantiating an image (creating a container) 
+is similar to instantiating a process like a service or web app
+
+The most important benefit is the isolation provided between Dev and Ops.
+Docker is an open-source project for automating the deployment of applications as portable, 
+self-sufficient containers that can run on the cloud or on-premises.
+
+--------------------------------------------------------------------
+2. Choose .NET Core vs .NET Framework? 
+
+You should use .NET Core for your containerized Docker server application when:
+  • You have cross-platform needs. For example, 
+    you want to use both Linux and Windows Containers.
+  • Your application architecture is based on microservices.
+  • You need to start containers fast and want a small footprint per container 
+    to achieve better density or more containers per hardware unit in order to lower your costs
+	
+You should use .NET Framework for your containerized Docker server application when:
+  • Your application currently uses .NET Framework and has strong dependencies on Windows.
+  • You need to use Windows APIs that are not supported by .NET Core.
+  • You need to use third-party .NET libraries or NuGet packages that are not available for .NET Core.
+
+In contrast, to use .NET Framework for a container, you must base your image on the Windows Server Core image, 
+which is a lot heavier than the Windows Nano Server or Linux images that you use for .NET Core. 
+
+Additionally, .NET Core is cross-platform, so you can deploy server apps 
+with Linux or Windows container images. 
+However, if you are using the full .NET Framework, 
+you can only deploy images based on Windows Server Core
+
+A microservice is meant to be as small as possible: 
+ to be light when spinning up, to have a small footprint, to have a small Bounded Context, 
+ to represent a small area of concerns, and to be able to start and stop fast
+
+You can run your system with a much lower number of servers or VMs, 
+ultimately saving costs in infrastructure and hosting.
+
+Improve your DevOps workflow with Docker—containers can give you better isolated test environments 
+and can also eliminate deployment issues caused by missing dependencies 
+when you move to a production environment. 
+In cases like these, even if you are deploying a monolithic application, 
+it makes sense to use Docker and Windows Containers for your current .NET Framework applications.
+
+With the .NET Standard Library 2.0, this will be even easier, 
+because the .NET Core API surface will become significantly bigger. 
+Your .NET Core applications will be able to directly use existing .NET Framework libraries.
+
+these versions of Windows provide different characteristics 
+(like IIS versus a self-hosted web server like Kestrel) 
+
+When building Docker images for developers, Microsoft focused on the following main scenarios:
+• Images used to develop and build .NET Core apps.
+• Images used to run .NET Core apps.
+
+----------------------------------------------------------
+3. Containerizing monolithic applications
+
+This monolithic pattern might conflict with the container principle 
+“a container does one thing, and does it in one process”.
+
+However, in most cases, just a few parts of the 
+application are the choke points that requiring scaling, 
+while other components are used less. 
+
+But, in addition to the problem of scaling all components, 
+changes to a single component require complete retesting of the entire application, 
+and a complete redeployment of all the instances.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+  
+  
+	

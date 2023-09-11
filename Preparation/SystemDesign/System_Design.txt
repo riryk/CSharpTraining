@@ -326,6 +326,9 @@ Scale Rate Limit instances and save values into Redis cache
 --------------------------------------------------   
 CHAPTER 5: DESIGN CONSISTENT HASHING
 
+If you have n cache servers,
+serverIndex = hash(key) % N, where N is the size of the server pool.
+
 
 
 

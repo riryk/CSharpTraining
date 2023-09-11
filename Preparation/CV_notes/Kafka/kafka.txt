@@ -76,6 +76,24 @@ When coupled with a system to provide message schemas,
 producers and consumers no longer require tight coupling 
 or direct connections of any sort. 
 
+Goals for Kafka: 
+
+ - Decouple producers and consumers by using a push-pull model
+ - Provide persistence for message data within the messaging system to allow multiple consumers
+ - Optimize for high throughput of messages
+ - Allow for horizontal scaling of the system to grow as the data streams grew
+
+Many users will have the partition count for a topic be equal to, 
+or a multiple of, the number of brokers in the cluster.
+This allows the partitions to be evenly distributed to the brokers, 
+which will evenly distribute the message load.
+
+
+
+
+
+
+
 
 
 
