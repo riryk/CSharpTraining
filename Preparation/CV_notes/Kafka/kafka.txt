@@ -88,6 +88,36 @@ or a multiple of, the number of brokers in the cluster.
 This allows the partitions to be evenly distributed to the brokers, 
 which will evenly distribute the message load.
 
+5. Producers. 
+can we tolerate loss of messages? 
+Are we OK with accidentally duplicating messages?
+Are there any strict latency or throughput requirements we need to support?
+
+we can see that it is critical to never lose a single message nor duplicate any messages. 
+Latency should be low but latencies up to 500ms can be tolerated, 
+and throughput should be very high—
+we expect to process up to a million messages a second.
+
+ - Send Record to partitiner 
+ - Calculate partition based on Key 
+ - add message to a batch of records for partion
+ - separate thread sends batches to brokers 
+ - if fails producer may retry this message 
+ 
+Ways to send messages: 
+ 1. Fire-and-forget
+ 2. Synchronous send
+ 3. Asynchronous send
+ 
+While all the examples in this chapter are single threaded, 
+a producer object can be used by multiple threads to send messages. 
+
+You will probably want to start with one producer and one thread. 
+If you need better throughput, you can add more threads that use the same producer. 
+Once this ceases to increase throughput, 
+you can add more producers to the application to achieve even higher throughput.
+
+
 
 
 

@@ -328,6 +328,14 @@ CHAPTER 5: DESIGN CONSISTENT HASHING
 
 If you have n cache servers,
 serverIndex = hash(key) % N, where N is the size of the server pool.
+A virtual node refers to the real node, and each server is represented 
+by multiple virtual nodes on the ring. 
+In Figure 5-12, both server 0 and server 1 have 3 virtual nodes.
+
+---------------------------------------------------
+CHAPTER 6: DESIGN A KEY-VALUE STORE
+
+
 
 
 

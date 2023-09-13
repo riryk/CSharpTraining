@@ -79,6 +79,42 @@ But, in addition to the problem of scaling all components,
 changes to a single component require complete retesting of the entire application, 
 and a complete redeployment of all the instances.
 
+------------------------------------------------------------
+4. SOA
+
+SOA means that you structure your application by decomposing it into multiple services 
+(most commonly as HTTP services) 
+that can be classified as different types like subsystems or tiers.
+
+Features like big central brokers, central orchestrators at the organization level, 
+and the Enterprise Service Bus (ESB) are typical in SOA
+
+Each microservice implements a specific end-to-end domain or business capability 
+within a certain context boundary, and each must be 
+developed autonomously and be deployable independently. 
+Finally, each microservice should own its related domain data model and domain logic.
+
+Create loosely coupled services so you have autonomy of development, deployment, and scale, for each service.
+More important than the size of the 
+microservice is the internal cohesion it must have 
+and its independence from other services.
+
+Microservices enable better maintainability in complex, large, 
+and highly-scalable systems by letting you create applications based 
+on many independently deployable services that each have granular and autonomous lifecycles.
+
+As an additional benefit, microservices can scale out independently. 
+Instead of having a single monolithic application that you must scale out as a unit, 
+you can instead scale out specific microservices.
+
+
+
+
+
+
+
+
+
 
 
 

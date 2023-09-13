@@ -1,0 +1,123 @@
+
+1. The high level of coupling plagues our current system and prevents agility and team scaling. 
+   The desire to break the monolith and to achieve a greater level of functional/team independence, 
+   has led to SOA being selected as a top-level architecture.
+   
+   SOA promotes the goal of separating users (consumers) from the service implementations. 
+   Service consumers are only dependent on published service contracts 
+   but completely unaware of any service implementation details.
+   
+This level of implementation independence, combined with interoperable communication protocols (like SOAP/REST), 
+allows to develop services with whatever architectural style or technology stack 
+is appropriate for the implementation of a particular business function   
+
+So, first and foremost, a “service” is just a logical component - 
+a unit of solution logic, completely independent of hosting infrastructure and communication protocol. 
+It provides a technical interface comparable to a traditional application programming interface (API) 
+through which it exposes public capabilities, 
+thereby allowing it to be explicitly invoked by other programs.
+
+In an object-oriented API, each public method exposes a certain service capability, 
+i.e. corresponds to a particular business function, 
+while in a message-oriented API each public method corresponds to a particular Message, 
+and each Message corresponds to a particular business function.
+
+The formal contract of a service is then defined as a set of messages it is able to process. 
+For each such Message a special Message Handler is implemented within a service. 
+It could be said that an implementation of a service 
+is comprised from a set of corresponding Message Handlers,
+one for a particular Message defined in a service contract.
+
+After the Message Handlers are registered, the functionality of the service 
+could be easily invoked by constructing the appropriate Message objects, 
+filling them with data and using the Message Bus to route them to the particular Message Handlers.
+
+--------------------------------------------------
+Event-driven architecture
+--------------------------------------------------
+
+They allow seamless service integration, with a great degree of decoupling. 
+They decouple services both in time and space, 
+thus helping achieving greater service autonomy.
+
+Events could be observed externally, by other services, as in the former example, 
+where the Invoicing service could subscribe to certain Events coming from the Bookkeeping service 
+in order to complete his part of job.
+
+And Events could also be observed within a service, internally. 
+This enables some interesting use-cases. 
+In particular, by reacting to internal Events, 
+services could implement background processing tasks 
+or participate in long-running transactions (see next section), 
+which could span multiple services. 
+This is possible due to the asynchronous nature of event handling.
+
+When Events fully describe all changes happened to the business state of the service, 
+then the Events could be used as a form of a persistence mechanism.
+
+------------------------------------------------
+Background operations
+------------------------------------------------
+
+Background operations are a vital part of any serious enterprise software. 
+Repeated jobs, communication between services, asynchronous interaction with 3rd party services, 
+notifications, handling timeouts, etc. 
+- all those tasks are present almost in any large system.
+
+Use-case:
+   After a user finalized an invoice, 
+   no further modifications of it are possible. 
+   Also, when an invoice is finalized a corresponding posting 
+   should be made into the general ledger.
+   
+Here, creation and finalization of an invoice are implemented by the Sales Invoicing service 
+and the postings are part of the Bookkeeping service. 
+
+The key thing here is to recognize that many things are not immediately consistent, but rather consistent eventually.
+
+Implementation: 
+
+  1. On FinalizeInvoice command, we just mark an invoice as “final” 
+     so that it will be possible to reject any future UpdateInvoice commands. 
+	 Along with that an InvoiceFinalized event is published
+	 
+  2. Create a special Event Handler (inside the Sales Invoicing service) 
+     which will be subscribed to the InvoiceFinalized event.
+  
+  3. Upon arrival of an InvoiceFinalized event, this event handler 
+     will generate a MakePosting command to be sent to the Bookkeeping service 
+	 and then persist this command into a Command Store (which is a durable storage for Commands)  
+	 
+  4. Then a Poller hosted in a Windows Service, which is running in a background, 
+     will pick-up the MakePosting command and execute it, 
+	 marking it as “dispatched” upon a successful execution
+	 
+That reduces latency for user-initiated actions and doesn’t require a distributed transaction. 
+It’s easy to program and verify. 
+The only nuance here is that Commands are not executed immediately 
+from within the Event Handler but rather put into a durable store, to be executed later, asynchronously. 
+This is to prevent a never-ending chain of events and to make the system more predictable and consistent.
+
+Supporting immediate execution of Commands from within Event Handlers 
+will also make the infrastructure code murkier 
+and will create additional problems with idempotent execution.
+
+
+
+ 
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+

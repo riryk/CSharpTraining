@@ -164,6 +164,47 @@ Cons:
   Your application and business needs more control or you need to customize the infrastructure
   Your application and business needs require you to stay vendor agnostic
   
+---------------------------------------------------------------------------
+6. Use Cases.
+
+A serverless application backend is appealing because it removes a lot of infrastructure management, 
+has granular and predictable billing 
+(especially when a serverless compute service such as Lambda is used), 
+and can scale well to meet uneven demands.
+
+1. Lambda and AWS services are well suited for building event-driven pipelines for data-processing tasks.
+2. Real-time analytics
+     Kinesis Data Streams and Lambda functions are a good fit for applications 
+     that generate a lot of data that needs to be analyzed, aggregated, and stored.
+3. Legacy API proxy
+4. Scheduled service
+5. Hybrids
+6. Command pattern
+     ApiGateway -> CommandLambda -> calls to other Lambdas -> call to db, file system
+7. Messaging pattern
+     The reliability comes from the fact that if the consuming service goes offline, 
+	 the queue retains messages (for some period), which can still be processed at a later time.
+	 
+     Datasource -> Kinesis/SQS -> Lambda function/dispatcher -> call other Lambdas -> SQS -> Lambda dispatcher -> ...
+	 
+	 If you need to have multiple consumers, a straightforward way to do it is 
+	 to introduce multiple queues into the system.
+	 SQS queues can subscribe to an SNS topic so that 
+	 pushing a message to the topic would automatically push 
+	 the message to all of the subscribed queues.
+	 
+8. Priority queue pattern
+     
+
+	 
+
+
+
+
+ 
+
+
+  
   
  
 

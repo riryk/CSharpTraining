@@ -8,6 +8,7 @@
 5  ECMA C# and CLI Standards: http://www.writinghighperf.net/go/17, Microsoft, 
    retrieved 7 May 2014
 
+http://www.writinghighperf.net/go/21
 
 
 1. Why Should You Choose Managed Code
@@ -528,6 +529,218 @@ class LockFreeStack<T>
 The SemaphoreSlim class has a WaitAsync method that returns a Task. 
 Instead of blocking on a wait, you can schedule a continuation on the Task 
 that will execute once the semaphore permits it to run.
+
+const int Size = 256;
+static int[] array = new int[Size];
+static int length = 0;
+static SemaphoreSlim semaphore = new SemaphoreSlim(1);
+
+static void Main(string[] args)
+{
+   var writerTask = Task.Run((Action)WriterFunc);
+   var readerTask = Task.Run((Action)ReaderFunc);
+   Console.WriteLine("Press any key to exit");
+   Console.ReadKey();
+}
+
+static void WriterFunc()
+{
+   while (true)
+   {
+      semaphore.Wait();
+        Console.WriteLine("Writer: Obtain");
+        for (int i = length; i < array.Length; i++)
+        {
+           array[i] = i * 2;
+        }
+        Console.WriteLine("Writer: Release");
+      semaphore.Release();
+   }
+}
+
+static void ReaderFunc()
+{
+   while (true)
+   {
+      semaphore.Wait();
+        Console.WriteLine("Reader: Obtain");
+        for (int i = length; i >= 0; i--)
+        {
+           array[i] = 0;
+        }
+        length = 0;
+        Console.WriteLine("Reader: Release");
+      semaphore.Release();
+    }
+}
+
+----------------------------
+async locks: 
+
+static void WriterFuncAsync()
+{ 
+    semaphore.WaitAsync().ContinueWith(_ =>
+    {
+       Console.WriteLine("Writer: Obtain");
+       for (int i = length; i < array.Length; i++)
+       {
+          array[i] = i * 2;
+       }
+       Console.WriteLine("Writer: Release");
+       semaphore.Release();
+    })
+	.ContinueWith(_=>WriterFuncAsync()); 
+}
+
+static void ReaderFuncAsync()
+{ 
+    semaphore.WaitAsync().ContinueWith(_ =>
+    {
+       Console.WriteLine("Reader: Obtain");
+       for (int i = length; i >= 0; i--)
+       {
+          array[i] = 0;
+       }
+       length = 0;
+       Console.WriteLine("Reader: Release");
+       semaphore.Release();
+    }).ContinueWith(_=>ReaderFuncAsync()); 
+}
+
+In many cases, making batch updates under a single lock is better 
+than taking a lock for every single small update. 
+In my own informal testing, I found that inserting 
+an item into a ConcurrentDictionary is about 2x slower than with a standard Dictionary
+
+1. Replace an Entire Collection
+
+If your data is mostly read-only then you can safely use a non-concurrent collection 
+when accessing it. When it is time to update the collection, 
+you can generate a new collection object entirely and just replace the original.
+
+private volatile Dictionary<string, MyComplexObject> data = new Dictionary<string, MyComplexObject>();
+
+public Dictionary<string, MyComplexObject> Data { get { return data; } }
+
+private void UpdateData()
+{
+    var newData = new Dictionary<string, MyComplexObject>();
+    newData["Foo"] = new MyComplexObject();
+    ...
+    data = newData;
+}
+
+2. Copy Your Resource Per-Thread
+
+----------------------------------------------------------------
+General Coding and Class Design
+Why this code will not compile: 
+
+struct Point
+{
+   public int x;
+   public int y;
+}
+
+public static void Main()
+{
+   List<Point> points = new List<Point>();
+   points.Add(new Point() { x = 1, y = 2 });
+   points[0].x = 3;
+}
+
+points[0] returns a copy of the original value,
+
+ Point p = points[0];
+ p.x = 3;
+ points[0] = p;
+
+class Order
+{
+  public OrderTimes Times;
+}
+OrderTimes is struct 
+
+-------------------------------------------------
+Override Equals and GetHashCode for Struct
+
+If you just override Equals(object other) - 
+then method will involve casting and boxing on value types.
+Instead, implement Equals(T other), where T is the type of your struct.
+During compilation, the compiler 
+will prefer the more strongly typed version whenever possible.
+
+struct Vector : IEquatable<Vector>
+{
+   public int X { get; set; }
+   public int Y { get; set; }
+   public int Z { get; set; }
+   public int Magnitude { get; set; }
+   
+   public override bool Equals(object obj)
+   {
+     if (obj == null)
+     {
+        return false;
+     }
+	 
+     if (obj.GetType() != this.GetType())
+     {
+        return false;
+     }
+	 
+     return this.Equals((Vector)obj);
+   }
+   
+   public bool Equals(Vector other)
+   {
+     return this.X == other.X
+         && this.Y == other.Y
+         && this.Z == other.Z
+         && this.Magnitude == other.Magnitude;
+   }
+   
+   public override int GetHashCode()
+   {
+     return X ^ Y ^ Z ^ Magnitude;
+   }
+}
+
+Virtual Methods and Sealed Classe
+ Making methods virtual prevents certain optimizations by the JIT compiler, 
+ notably the ability to inline them.
+ 
+Interface Dispatch
+ Pick your common base interface and replace it with an abstract base class instead
+ The performance of an abstract class is fast. 
+ The performance of interface is slow because it requires time 
+ to search actual method in the corresponding class 
+ 
+--------------------------------------------------------
+Avoid Boxing
+
+int x = 32;
+object o = x
+
+ 
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
 
 
 

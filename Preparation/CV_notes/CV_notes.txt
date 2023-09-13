@@ -184,9 +184,24 @@ Responsibilities
 46. CI vs CDelivery deployment 
 47. Zero downtime solutions 
 48. Lua script/ sorted sets in Redis to solve Race condition is redis for performance counter
-49. clean architecture. https://habr.com/ru/articles/653421/
+49. clean architecture. https://habr.com/ru/articles/653421/ 
+    oop vs functional programming
 50. EngX Self-Evaluation.
-51. 
+51. Check internals 
+      ConcurrentBag<T>—unordered collection
+      ConcurrentDictionary<TKey, TValue>—key/value pairs
+      ConcurrentQueue<T>—first-in/first-out queue
+      ConcurrentStack<T>—last-in/first-out stac
+52. Fallacies of Distributed Computing
+53. Microservices. Distributed transaction. 
+    TransactionScope. Distributed Transaction Coordinator. 
+54. Read book Clean architecture
+55. Learn patterns: 
+    data management (e.g.,CQRS, event sourcing, materialized views), and error handling (e.g., Retry Pattern)
+	
+	
+	
+
 	
 	
 
