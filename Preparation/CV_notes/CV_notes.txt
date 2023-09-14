@@ -1,4 +1,6 @@
 
+https://careers.google.com/how-we-hire/#step-your-resume
+
 ------------------------------------------------------------------
 
  Title
@@ -198,6 +200,11 @@ Responsibilities
 54. Read book Clean architecture
 55. Learn patterns: 
     data management (e.g.,CQRS, event sourcing, materialized views), and error handling (e.g., Retry Pattern)
+56. https://udidahan.com/2011/10/02/why-you-should-be-using-cqrs-almost-everywhere/
+57. Strangler pattern 
+    https://www.redhat.com/architect/pros-and-cons-strangler-architecture-pattern#:~:text=The%20Strangler%20pattern%20is%20one,system%20pass%20through%20the%20facade.
+58. IEnumerable vs IQueryable 
+59. 
 	
 	
 	

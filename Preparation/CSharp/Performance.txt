@@ -722,7 +722,123 @@ Avoid Boxing
 int x = 32;
 object o = x
 
- 
+Avoid String.Format 
+Boxing can also occur when assigning a struct to an interface
+
+interface INameable
+{
+   string Name { get; set; }
+}
+
+struct Foo : INameable
+{
+   public string Name { get; set; } 
+}
+
+void TestBoxing()
+{ 
+   Foo foo = new Foo() { Name = "Bar" };
+   // This boxes!
+   INameable nameable = foo;
+   ...
+}
+
+int val = 13;
+object boxedVal = val;
+val = 14;
+
+Finally, note that passing a value type by reference is not boxing. 
+Examine the IL and you will see that no boxing occurs. 
+The address of the value type is sent to the method.
+
+-----------------------------------
+for vs. foreach
+Casting
+Casting to an interface is more expensive than casting to a concrete type
+Never have this pattern, which performs two casts:
+
+if (a is Foo)
+{
+   Foo f = (Foo)a;
+}
+
+Foo f = a as Foo;
+if (f != null)
+{
+   ...
+}
+
+---------------------------------
+Delegates
+
+There are two costs associated with use of delegates: construction and invocation. 
+Invocation, thankfully, is comparable to a normal method call in nearly all circumstances, 
+but delegates are objects and constructing them can be quite expensive.
+
+-------------------------------
+Exceptions
+
+In .NET, putting a try block around code is cheap, 
+but exceptions are very expensive to throw. 
+This is largely because of the rich state that .NET exceptions contain.
+
+-----------------------------------------------------------------------
+Dynamic
+Code Generation
+
+Not only does Activator.CreateInstance use significant CPU, 
+but it can cause unnecessary allocations, 
+which put extra pressure on the garbage collector.
+
+-----------------------------------------------------------
+Collections 
+
+SortedDictionary is implemented as a binary search tree and has O(log n) insertion and retrieval times.
+SortedList is implemented as a sorted array. 
+It has O(log n) retrieval times, but can have O(n) insertion times in the worst case.
+
+List, Stack, and Queue all use arrays internally 
+and thus have good locality of reference for efficient operations on many values, 
+however when adding a lot of values, 
+they will resize these internal arrays as needed.
+
+List has O(1) insertion, but O(n) removal and searching.
+LinkedList has O(1) insertion and removal characteristics, 
+but it should be avoided for primitive types because it will allocate a new LinkedListNode object 
+for every item you add, which can be wasteful overhead.
+
+----------------------------------------------
+Strings 
+
+Avoid calling methods like ToLower and ToUpper, 
+especially if you are doing this for string comparison purposes. 
+Instead, use one of the IgnoreCase options for the String.Compare method.
+
+string result = a + b + c + d + e + f;
+
+Do not consider StringBuilder until the number of strings 
+is variable and likely larger than a few dozen.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

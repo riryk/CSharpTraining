@@ -1,5 +1,7 @@
 
 https://pages.awscloud.com/acq_NAMER_Partner-GSC-Serverless-eBook-Download-Page.html
+https://www.redhat.com/architect/pros-and-cons-strangler-architecture-pattern#:~:text=The%20Strangler%20pattern%20is%20one,system%20pass%20through%20the%20facade.
+
 
 It promises developers the ability to iterate as
 fast as possible while maintaining business critical latency, availability, security, and
@@ -194,7 +196,214 @@ and can scale well to meet uneven demands.
 	 the message to all of the subscribed queues.
 	 
 8. Priority queue pattern
-     
+     A great benefit of using a platform such as AWS and serverless architectures 
+	 is that capacity planning and scalability 
+	 are more of a concern for Amazon’s engineers than for you
+	 
+9. Fan-out pattern
+     Fan-out pattern pushes a message to all listening/subscribed clients 
+	 of a particular queue or a message pipeline. 
+	 In AWS, this pattern is usually implemented using SNS topics 
+	 that allow multiple subscribers to be invoked when a new message is added to a topic. 
+	 
+	 Take S3 as an example. When a new file is added to a bucket, 
+	 S3 can invoke a single Lambda function with information about the file. 
+	 
+	 But what if you need to invoke two, three, or more Lambda functions at the same time? 
+	 The original function could be modified to invoke other functions (like the command pattern), 
+	 but that’s a lot of work if all you need is to run functions in parallel. 
+	 The solution is to use the fan-out pattern with SNS
+	 
+	 This pattern is useful if you need to invoke multiple Lambda functions at the same time. 
+	 An SNS topic will retry, invoking your Lambda functions, 
+	 if it fails to deliver the message or if the function fails to execute
+      
+     SNS topics support other subscribers such as email and SQS queues. 
+	 Adding a new message to a topic can invoke Lambda functions, 
+	 send an email, or push a message on to an SQS queue, all at the same time. 
+	 
+10. Compute as glue
+11. Pipes and filters pattern
+
+------------------------------------------------------------------------
+Yubl social network 
+-----------------------------------------
+1. Previous architecture 
+ - A monolithic REST API written in Node.js and running on EC2
+ - A WebSockets API written in Node.js and running on EC2
+ - A monolithic MongoDB database hosted in MongoLab
+ - A CloudAMQP message queue
+ - A cluster of background workers written in Node.js and running on EC2 
+
+Issues: 
+
+ Scalability problems:
+   These traffic spikes were usually short-lived, 
+   which was problematic for the EC2-based system because EC2 autoscaling couldn’t react fast enough. 
+   It typically takes EC2 instances a few minutes to spin up. 
+   By the time they are ready to serve user requests, it’s too late.
+   
+   As a workaround, we ran a much larger EC2 cluster, 
+   scaling up much earlier than we wanted. 
+   This resulted in a lot of wasted cost because 
+   we had to pay for lots of EC2 resources that we were not using. 
+   Our cluster of API web servers had an average utilization of from 2% to 5%.
+   
+ Performance problems:
+   One example of this is a user search, which is a frequently used API call 
+   and executes a complex regex query against MongoDB. 
+   Another example included user recommendations, which executed a complex query to find second
+   - and third-degree connections to the current user
+     those who follow your followers or those followed by users you follow
+   	 
+ Long feature delivery cycles:
+   To make matters worse, every deployment required taking the whole system down for 30 minutes or more, 
+   during which time users received no feedback and the app just appeared broken. 
+   Features used to take months to go to production. 
+   Even simple changes often took weeks to complete, 
+   which was frustrating to everyone involved.
+   
+Why serverless?
+  
+  1. AWS Lambda autoscales the number of concurrent executions based on load. 
+     This happens instantly and handles those unpredictable spikes we experience effortlessly.
+	 
+  2. AWS Lambda deploys functions to three availability zones by default, 
+     which provides significant redundancy without incurring extra costs. 
+	 We pay only when a function runs, whereas with EC2, 
+	 we paid for the redundancy in a multi-AZ setup, which also dilutes the traffic 
+	 and reduces the resource utilization even further.
+  
+  3. AWS manages the underlying physical infrastructure as well as the operating system 
+     that our code runs on. 
+	 AWS applies patches and security updates regularly 
+	 and does a much better job of keeping the operating system secure than we could. 
+	 This removes a whole class of vulnerabilities that plague 
+	 so many software systems around the world.
+	 
+  4. With tools such as the Serverless framework, 
+     the deployment pipeline for our application is drastically simplified. 
+	 A typical deployment takes less than a minute 
+	 and has no downtime because AWS Lambda automatically routes requests to the new code.
+
+  5. When using serverless technologies such as API Gateway, Lambda, and DynamoDB, 
+     we don’t have to worry about the underlying infrastructure. 
+	 This lets us focus on addressing core business needs. 
+	 Almost every line of our code is business logic! 
+	 And it allows the development team to move quickly, 
+	 knowing that what we build is scalable and resilient by default.
+	 
+  6. The number of production deployments went from four to six per month to averaging more
+     than 80 per month with the same sized team. 
+	 We didn’t have to hire more people to go faster, we allowed each developer to be more productive instead.
+
+  7. As we migrated more and more of the system to serverless, scalability, 
+     cost and reliability all improved. 
+	 There were far fewer production issues, and we were spending a fraction of what we spent on EC2 previously.
+	 
+The new serverless Yubl architecture
+
+Overall, the system’s reliability increased drastically. 
+We experienced only one minor outage to our production environment 
+because of a brief Simple Storage Service (S3) outage. 
+The following points are some key highlights of the new serverless architecture on AWS:
+
+-  The monolith was broken up into many microservices.
+-  Every microservice has its own GitHub repository and one Continuous Integration/
+   Continuous Delivery (CI/CD) pipeline. All the components that make up this
+   microservice (API Gateway, Lambda functions, DynamoDB tables, etc.) are
+   deployed together as one CloudFormation stack using the Serverless Framework.
+-  Most microservices have an API Gateway REST API running under its own subdomain,
+   such as search.yubl.com.
+-  Every microservice has its own database for the data it needs. 
+   Most use DynamoDB, but it’s not universal because different microservices have different data needs.
+-  Every state change in the system is captured as an event and published to a Kinesis Data Stream 
+   (for example, a user created new content, a user posted new content, and so on).
+-  Most of the time, we prefer to synchronize data between microservices through
+   events rather than synchronous API calls at run time. 
+   This helps prevent cascade failures when one microservice experiences an outage in production.
+   Instead, microservices subscribe to the relevant Kinesis Data Stream and copy needed data from the appropriate event
+   
+The goal was to deliver a better user experience with less downtime, 
+more responsiveness, and more scalability. 
+
+Rearchitecting and rewriting
+
+The Strangler pattern is one in which an “old” system is put behind an intermediary facade. 
+Then, over time external replacement services for the old system are added behind the facade.
+The facade represents the functional entry points to the existing system. 
+Calls to the old system pass through the facade. 
+
+Behind the scenes, services within the old system are refactored into a new set of services. 
+Once a new service is operational, the intermediary facade 
+is modified to route calls that used to go to the service on the old system to the new service. 
+Eventually, the services in the old system get "strangled" in favor of the new services.
+
+Requires making sure that you have a rollback plan in play for each refactored instance. 
+Things will go wrong. 
+You need to be able to roll back to the old way of doing things quickly and safely.
+
+Re-architecting user search feature: 
+ In the Yubl app, you could search other users by first name, last name, and username. 
+ This was a simple feature, but it caused crippling performance issues with the monolith as the number of users grew.
+ This was because a search was implemented with regex queries against MongoDB. 
+ The old implementation also didn’t allow for more sophisticated ranking, 
+ so users often couldn’t find who they were looking for.
+ 
+The new search API: 
+ 1. The legacy monolith publishes all user-related events to a Kinesis Data Stream called users. 
+    These include the user-created and user-profile-updated events 
+	that tell us when a new user joins or a user has updated their profile.
+ 2. A Lambda function subscribes to the users stream.
+ 3. The Lambda function uses these events to insert, update, or delete user documents 
+    in the users index in Amazon CloudSearch.
+ 4. A new API in API Gateway with a POST /?query={string} endpoint proxies 
+    to another Lambda function to handle the HTTP request.
+ 5. The Lambda function translates a user’s query string into 
+    a search request against the users index in Amazon CloudSearch.
+ 6. To create a user-friendly subdomain for the new REST API, 
+    a custom domain name in API Gateway for search.yubl.com is registered in Route53.
+	
+To do this, we ran a one-off task to copy all existing user data (~800,000 users) from MongoDB to CloudSearch, 
+while tracking the most recent user profile update.	
+
+
+ 
+
+
+
+
+
+
+   
+
+
+
+
+ 
+	 
+
+
+	 
+
+
+  
+	 
+
+
+ 
+   
+ 
+ 
+ 
+   
+ 
+
+    
+	
+
+
+
 
 	 
 

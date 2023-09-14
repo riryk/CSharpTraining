@@ -107,7 +107,7 @@ we expect to process up to a million messages a second.
 Ways to send messages: 
  1. Fire-and-forget
  2. Synchronous send
- 3. Asynchronous send
+ 3. Asynchronous send - send 100 messages and results will be received in callback.
  
 While all the examples in this chapter are single threaded, 
 a producer object can be used by multiple threads to send messages. 
@@ -116,6 +116,71 @@ You will probably want to start with one producer and one thread.
 If you need better throughput, you can add more threads that use the same producer. 
 Once this ceases to increase throughput, 
 you can add more producers to the application to achieve even higher throughput.
+
+acks - The acks parameter controls how many partition replicas 
+must receive the record before the producer can consider the write successful.
+
+  acks=0  
+    no ack from partition. Message can be lost. High throughput
+	
+  acks=1
+    the producer will receive a success response from the broker 
+	the moment the leader replica received the message. 
+	If the message can’t be written to the leader 
+	(e.g., if the leader crashed and a new leader was not elected yet), 
+	the producer will receive an error response and can retry sending the message, avoiding potential loss of data. 
+	
+	The message can still get lost if the leader crashes and a replica without this message 
+	gets elected as the new leader (via unclean leader election). 
+	
+	In this case, throughput depends on whether we send messages synchronously or asynchronously. 
+	If our client code waits for a reply from the server 
+	(by calling the get() method of the Future object returned when sending a message)
+	it will obviously increase latency significantly (at least by a network roundtrip). 
+	
+	If the client uses callbacks, latency will be hidden, 
+	but throughput will be limited by the number of in-flight messages 
+	(i.e., how many messages the pro-ducer will send before receiving replies from the server)
+	
+  acks=all 
+    the producer will receive a success response from the broker once all in-sync replicas received the message. 
+	This is the safest mode since you can make sure more than one broker 
+	has the message and that the message will survive even in the case of crash	
+	
+  batch.size
+    When multiple records are sent to the same partition, 
+	the producer will batch them together. 
+	This parameter controls the amount of memory in bytes (not messages!) that will be used for each batch.  
+
+6. Partitions.
+  All messages with the same key will go to the same partition. 
+  This means that if a process is reading only a subset of the partitions in a topic, 
+  all the records for a single key will be read by the same process.
+  
+  Custom partition strategy.
+  
+  Suppose that you do so much business with customer “Banana” 
+  that over 10% of your daily transactions are with this customer. 
+  If you use default hash partitioning, the Banana records will get allocated to the same
+  partition as other accounts, resulting in one partition being about 
+  twice as large as the rest. 
+  
+  This can cause servers to run out of space, processing to slow down, etc. 
+  What we really want is to give Banana its own partition 
+  and then use hash partitioning to map the rest of the accounts to partitions.
+  
+  
+  
+  
+
+
+
+	
+	
+	
+
+
+ 
 
 
 

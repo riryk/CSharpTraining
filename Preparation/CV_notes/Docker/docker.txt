@@ -1,4 +1,6 @@
 
+https://udidahan.com/2011/10/02/why-you-should-be-using-cqrs-almost-everywhere/
+
 ----------------------------------------------------------------------
 1. Containerization?
 
@@ -106,6 +108,102 @@ on many independently deployable services that each have granular and autonomous
 As an additional benefit, microservices can scale out independently. 
 Instead of having a single monolithic application that you must scale out as a unit, 
 you can instead scale out specific microservices.
+
+----------------------------------------------
+ACID 
+
+But distributed data structures mean that you cannot make a single ACID transaction across microservices. 
+This in turn means you must use eventual consistency when a business process spans multiple microservices. 
+This is much harder to implement than simple SQL joins; 
+similarly, many other relational database features are not available across multiple microservices.
+
+Atomicity guarantees that each transaction is treated as a single "unit", 
+          which either succeeds completely or fails completely:
+          An atomic system must guarantee atomicity in each and every situation, 
+		  including power failures, errors, and crashes.		  
+
+Consistency ensures that a transaction can only bring the database from one consistent state to another, 
+            preserving database invariants: any data written to the database 
+			must be valid according to all defined rules, including constraints, cascades, triggers, 
+			and any combination thereof
+			
+Isolation Transactions 
+          are often executed concurrently (e.g., multiple transactions reading and writing to a table at the same time). 
+		  Isolation ensures that concurrent execution of transactions leaves the database 
+		  in the same state that would have been obtained if the transactions were executed sequentially. 
+		  Isolation is the main goal of concurrency control; 
+		  depending on the isolation level used, the effects of an incomplete transaction 
+		  might not be visible to other transactions.
+
+Durability guarantees that once a transaction has been committed, it will remain committed 
+           even in the case of a system failure (e.g., power outage or crash). 
+		   This usually means that completed transactions (or their effects) are recorded in non-volatile memory.
+
+A microservice is therefore like a Bounded Context, 
+but it also specifies that it is a distributed service. 
+It is built as a separate process for each Bounded Context.
+
+-------------------------------------------------------
+Logical architecture versus physical architecture
+
+Challenge #1: How to define the boundaries of each microservice
+  For instance, a user can be referred as a user in the identity or membership context, 
+  as a customer in a CRM context, as a buyer in an ordering context, and so forth. 
+  
+Challenge #2: How to create queries that retrieve data from several microservices  
+  An example could be a single screen from a mobile app that needs 
+  to show user information that is owned by the basket, catalog, and user identity microservices.
+  Another example would be a complex report involving many tables located in multiple microservices.
+  
+  API Gateway.
+    For simple data aggregation from multiple microservices that own different databases, 
+    the recommended approach is an aggregation microservice referred to as an API Gateway  
+
+  Materialized View pattern
+    When the source data for the view changes, 
+	the view must be updated to include the new information. 
+	You can schedule this to happen automatically, 
+	or when the system detects a change to the original data. 
+	In some cases it might be necessary to regenerate the view manually
+	
+  CQRS with query/reads tables.
+    In this approach, you generate, in advance 
+	(prepare denormalized data before the actual queries happen)
+	You can address the requirement using a CQRS approach—
+	you create a denormalized table in a different database that is used just for queries.
+	it also improves performance considerably when compared with a complex join, 
+	because you already have the data that the application needs in the query table. 
+	
+  “Cold data” in central databases.
+    A common approach is to export your “hot data” (transactional data from the microservices) 
+	as “cold data” into large databases that are used only for reporting.
+	That central database system can be a Big Data-based system, like Hadoop, 
+	a data warehouse like one based on Azure SQL Data Warehouse
+	
+	However, if your application design involves constantly aggregating information 
+	from multiple microservices for complex queries, it might be a symptom of a bad design—
+	a microservice should be Architecting Container- 
+	and Microservice-Based Applications as isolated as possible from other microservices. 
+	(This excludes reports/analytics that always should use cold-data central databases.) 
+	
+	Having this problem often might be a reason to merge microservices. 
+	You need to balance the autonomy of evolution and deployment 
+	of each microservice with strong dependencies, cohesion, and data aggregation.
+	
+	
+
+
+
+
+	
+	
+  
+  
+  
+		  
+
+
+ 
 
 
 

@@ -335,6 +335,57 @@ In Figure 5-12, both server 0 and server 1 have 3 virtual nodes.
 ---------------------------------------------------
 CHAPTER 6: DESIGN A KEY-VALUE STORE
 
+• The size of a key-value pair is small: less than 10 KB.
+• Ability to store big data.
+• High availability: The system responds quickly, even during failures.
+• High scalability: The system can be scaled to support large data set.
+• Automatic scaling: The addition/deletion of servers should be automatic based on traffic.
+• Tunable consistency.
+• Low latency
+
+Single server key-value store
+  • Store only frequently used data in memory and the rest on disk
+
+Distributed key-value store
+
+CAP theorem
+  CAP theorem states it is impossible for a distributed system to simultaneously provide 
+  more than two of these three guarantees: consistency, availability, and partition tolerance.
+  
+Consistency: 
+  consistency means all clients see the same data at the same time 
+  no matter which node they connect to.
+  
+Availability: 
+  availability means any client which requests data gets a response 
+  even if some of the nodes are down.
+  
+Partition Tolerance: 
+  a partition indicates a communication break between two nodes.
+  Partition tolerance means the system continues to operate despite network partitions.
+  
+Since network failure is unavoidable, a distributed system must tolerate network partition. 
+Thus, a CA system cannot exist in real-world applications.
+
+Example with 3 nodes: 
+ - If we choose consistency over availability (CP system), 
+   we must block all write operations to n1 and n2 to avoid data inconsistency among these three servers, 
+   which makes the system unavailable.
+ - If we choose availability over consistency (AP system), 
+   the system keeps accepting reads, even though it might return stale data. 
+   For writes, n1 and n2 will keep accepting writes,
+   and data will be synced to n3 when the network partition is resolved
+   
+   
+
+
+
+
+
+
+
+  
+  
 
 
 
