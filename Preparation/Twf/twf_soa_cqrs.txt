@@ -168,9 +168,22 @@ For pipeline message handler chaining there 2 possible options.
 	 PerformLogging(log,
 		CollectStatistics(stats,
 			...		
-			
-			
+		
+Sending a command is a synchronous operation with no return value 
+but exception can be raised upon unsuccessful execution. 
+Commands are serializable so they can be potentially stored 
+in a durable medium and executed later (delayed execution).			
 	 
+In terms of code, an event is simply a data holding structure, similar to Command.
+The main differences exist in terms of significance and intent. 
+Commands have an intent of asking the system to perform an operation 
+where Events are a recording of the action that occurred:
+
+Envelope
+
+
+
+
 	 
 	 
 

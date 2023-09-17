@@ -219,7 +219,9 @@ Responsibilities
 59. Describe how migration to microservices was done in Twinfield.
 60. Lamdbas provisioned concurrency 
 61. Functional Programming. 
-62. 
+62. Fowler. Optimistic/Pessimistic locks. 
+    Undo/Redo in Event Sourcing. 
+	
 	
 	
 	

@@ -1,0 +1,88 @@
+
+https://microservices.io/patterns/data/transaction-log-tailing.html
+https://learn.microsoft.com/en-us/previous-versions/msp-n-p/dn589792(v=pandp.10)?redirectedfrom=MSDN
+
+1. The CRUD approach has some limitations:
+
+The fact that CRUD systems perform update operations directly against a data 
+store may hinder performance and responsiveness, and limit scalability, 
+due to the processing overhead it requires.
+
+In a collaborative domain with many concurrent users, 
+data update conflicts are more likely to occur 
+because the update operations take place on a single item of data.
+Unless there is an additional auditing mechanism, 
+which records the details of each operation in a separate log, history is lost.
+
+The events are persisted in an event store that acts as the source of truth or system of record 
+(the authoritative data source for a given data element or piece of information) 
+about the current state of the data.
+
+The event store typically publishes these events so that consumers can be notified and can handle them if needed. 
+Consumers could, for example, initiate tasks that apply the operations 
+in the events to other systems, 
+or perform any other associated action that is required to complete the operation. 
+
+For example, a system may maintain a materialized view 
+of all customer orders that is used to populate parts of the UI.
+The events that describe these changes can be handled and used to update the materialized view.
+
+In addition, at any point in time it is possible for applications to read the history of events, 
+and use it to materialize the current state of an entity by effectively “playing back” 
+and consuming all the events related to that entity. 
+
+This, combined with the fact that there is no contention during the execution of transactions, 
+can vastly improve performance and scalability for applications, 
+especially for the presentation level or user interface.
+
+Event sourcing can help to prevent concurrent updates from causing conflicts 
+because it avoids the requirement to directly update objects in the data store. 
+However, the domain model must still be designed to protect itself 
+from requests that might result in an inconsistent state.
+
+In addition, the requirement to use compensating events to cancel changes provides a history 
+of changes that were reversed, which would not be 
+the case if the model simply stored the current state. 
+
+If the format (rather than the data) of the persisted events needs to change, perhaps during a migration,
+it can be difficult to combine existing events in the store with the new version. 
+It may be necessary to iterate through all the events making changes 
+so that they are compliant with the new format, or add new events that use the new format. 
+Consider using a version stamp on each version of the event 
+schema in order to maintain both the old and the new event formats.
+
+ If two actions attempt to add events for the same entity at the same time, 
+ the event store can reject an event 
+ that matches an existing entity identifier and event identifier.
+ 
+ For example, an event that indicates a reduction in stock inventory
+ might arrive in the data store while an order for that item is being placed, 
+ resulting in a requirement to reconcile the two operations; 
+ probably by advising the customer or creating a back order.
+ 
+ Event publication may be “at least once,” and so consumers of the events must be idempotent.
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

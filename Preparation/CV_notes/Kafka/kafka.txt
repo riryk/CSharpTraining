@@ -1,4 +1,8 @@
 
+https://levelup.gitconnected.com/implementing-the-transactional-outbox-pattern-with-debezium-in-quarkus-f2680306951
+https://medium.com/contino-engineering/publishing-events-to-kafka-using-a-outbox-pattern-867a48e29d35
+https://pradeepl.com/blog/transactional-outbox-pattern/
+
 1. Kafka batches and partitions. 
 
 For efficiency, messages are written into Kafka in batches. 

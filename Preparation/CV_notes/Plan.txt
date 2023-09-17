@@ -1,20 +1,28 @@
 
 1. C#, .NET 
+2. PostgreSQL (Strong data skills a plus)
 2. NoSql, Mongo
 3. Microservice architecture 
 4. GraphQL
 5. Azure, Storage, ServciceBus, ApplicationGateway, API management.
+5. AWS.
 6. Docker, Kubernetes
 7. OOP Design Patterns, SOLID, Coupling, Cohesion.
+7. Event Driven Development
 8. Cloud basics. AWS, Azure. 
+9. Kafka with MSK or Confluent
+10. DevOps Pipelines and CI/CD principles
+11. 
 
 
 ----------
 JS:
 1. Vie.Js
+2. ReactNative for iOS and Android
 
 --------------
 Test automation: 
+1. BDD/TDD/ATDD
 
 -----
 Epam.
@@ -29,3 +37,15 @@ Processes:
 ---------------------
 Soft skills: 
 1. Flexible and adaptable
+2. Great Communication Skills
+3. Pragmatic Problem Solver
+4. Curiosity and Mental Agility
+5. Ability to Learn Business Domain
+6. Enthusiastic Learner
+
+---------------------------
+AI
+
+1. Messaging between client and Advisor
+2. AI-Advisor and integrations with Generative AI tools
+
