@@ -189,7 +189,76 @@ Challenge #2: How to create queries that retrieve data from several microservice
 	Having this problem often might be a reason to merge microservices. 
 	You need to balance the autonomy of evolution and deployment 
 	of each microservice with strong dependencies, cohesion, and data aggregation.
+
+Challenge #3: How to achieve consistency across multiple microservice
+    Use Case. ECommerce web site. 
+     Price is changed in Catalog Microservice. 
+	 In Basket microservice we need to update price and show user a new price. 
+	 Catalog puts message to queue for Basket. Eventual Consistency. 
+
+Challenge #4: How to design communication across microservice boundaries
+     But if create long chains of synchronous HTTP calls across microservices, 
+     communicating across their boundaries as if the microservices were objects in a monolithic 
+     application, your application will eventually run into problems
+	 
+	 - Imagine if the number of these calls increases significantly 
+	   and at the same time one of the intermediate HTTP calls to a microservice is blocked.
+	 - Business microservices should not be coupled with other business microservices. 
+	   Ideally, they should not “know” about the existence of other microservices
+	 - Failure in any one microservice. 
+	   If you implemented a chain of microservices linked by HTTP calls, 
+	   when any of the microservices fails (and eventually they will fail) 
+	   the whole chain of microservices will fail. 
+	   A microservice-based system should be designed to continue to work as well as possible during partial failures
+	   
+	It could be argued that you have a monolithic application, 
+	but one based on HTTP between processes instead of intraprocess communication mechanisms.    
 	
+Identifying domain-model boundaries for each microservice
+Direct client-to-microservice communication   
+Using an API Gateway  
+ Drawbacks of the API Gateway pattern: 
+   1. The most important drawback is that when you implement an API Gateway, you are coupling 
+      that tier with the internal microservices. New ESB. 
+   2. Using a microservices API Gateway creates an additional possible point of failure.
+   3. An API Gateway can introduce increased response time due to the additional network call. 
+      However, this extra call usually has less impact than having a client interface that is too chatty 
+      directly calling the internal microservices.
+   4. The API Gateway can represent a possible bottleneck if it is not scaled out properly
+   5. An API Gateway requires additional development cost and future maintenance 
+      if it includes  custom logic and data aggregation.
+   6. If the API Gateway is developed by a single team, there can be a development bottleneck. 
+      This is another reason why a better approach is to have several fined-grained API Gateways 
+	  that respond to different client needs.
+
+Communication between microservices
+ 1. A direct conversion from in-process method calls into RPC calls to services 
+    will cause a chatty and not efficient communication 
+	that will not perform well in distributed environments.
+	
+Multiple-receivers message-based communication
+ Thus, it helps you to follow the open/closed principle in the sending service. 
+ That way, additional subscribers can be added in the future without the need to modify the sender service.
+ 
+Resiliently publishing to the event bus: 
+  1. Using a transactional (DTC-based) queue like MSMQ. (However, this is a legacy approach.)
+  2. Using transaction log mining
+      https://pradeepl.com/blog/transactional-outbox-pattern/
+      https://microservices.io/patterns/data/transaction-log-tailing.html 	  
+	
+
+   
+
+
+
+
+ 
+ 
+
+
+
+	 
+	 
 	
 
 

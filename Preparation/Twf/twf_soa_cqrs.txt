@@ -102,6 +102,88 @@ Supporting immediate execution of Commands from within Event Handlers
 will also make the infrastructure code murkier 
 and will create additional problems with idempotent execution.
 
+----------------------------------------------------------------------------
+
+1. Generally speaking, messages could be thought of as serializable method calls. 
+
+Despite being slightly more verbose and requiring an additional routing infrastructure, 
+message passing on a service boundary, 
+provides many advantages over conventional object-oriented style of interaction, because messages are:
+
+ - Easy to version and evolve since you're freely able to add/remove functionality and properties without error
+ - Easy to route, chain and decorate through to different handlers and pipelines
+ - Easy to serialize and proxy through to remote services
+ - Easy to record, defer and replay
+ - Easy to log and trace
+ - Ideal for concurrency - as immutable messages are thread-safe 
+   and can be easily multiplexed with their handlers over multiple threads.
+   
+All these properties make message-oriented APIs a better choice for distributed systems, 
+where all this functionality can be achieved with generic solutions, 
+since it's much easier to pass around and serialize messages than method signature invocations.
+
+Also, message-oriented APIs are naturally batchful and promote the development of coarse-grained service interfaces.
+This encourages fewer, more reusable services,
+which are better positioned for extensibility and reuse.
+
+A pipeline is a set of message handlers that are executed in sequence. 
+The monadic nature of message handlers makes composition easy. 
+A very narrow interface (signature) of message handlers 
+is a perfect fit for applying the Decorator pattern [GoF]
+which makes implementation of cross-cutting concerns very straightforward. 
+This chaining of message handlers is also known as Pipes and Filters ([EIP]) messaging pattern.
+
+For pipeline message handler chaining there 2 possible options. 
+  1. An object oriented way (pure Decorator pattern)
+  
+     // chain them into a pipeline
+     var chain = new LoggingHandler(new StatisticsHandler(new CreateInvoiceHandler()))
+     chain.Handle(msg);
+	 
+  2. functional composition.
+      But for cross-cutting handlers, we found that functional composition is easier 
+	  and doesn't require to create separate class for every minor concern or step in the processing 
+	  (class explosion) nor forces to group otherwise non-cohesive things into a single class.
+	 
+	 public static Action<Message> CollectStatistics(Logger stats, Action<Message> next)
+     {
+	    return msg =>
+	    {
+		   // start sampling
+		   next(msg); // call next function in chain
+		   // end sampling, log results
+	    }; 
+     }
+
+     public static Action<Message> PerformLogging(Logger log, Action<Message> next)
+     {
+	    return msg =>
+	    {
+		   // logging of incoming message
+		   next(msg); // call next function in chain
+	    }; 
+     } 
+	 
+     // chain them together
+	 PerformLogging(log,
+		CollectStatistics(stats,
+			...		
+			
+			
+	 
+	 
+	 
+
+
+
+
+
+
+
+
+   
+
+
 
 
  

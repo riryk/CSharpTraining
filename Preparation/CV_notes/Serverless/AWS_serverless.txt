@@ -367,6 +367,88 @@ The new search API:
 To do this, we ran a one-off task to copy all existing user data (~800,000 users) from MongoDB to CloudSearch, 
 while tracking the most recent user profile update.	
 
+Migrating to new microservices gracefully
+  The challenge here is that it’s risky to do a big-bang migration 
+  because it usually requires downtime.
+
+Steps to extract a service from Monolith:   
+  1. Move the business logic for a particular feature into a separate service and create its own API. 
+     The new service will still use the monolith database until it has authority over the data
+  2. Find the places where the monolith accesses this feature’s data directly and
+     redirect those access points to go through the new service’s API instead. 
+	 Start with the least critical component first to minimize the blast radius 
+	 of any unforeseen problems or impacts.
+  3. Move all other direct access points to 
+     the new service’s data to go through its API (probably, one at a time).
+  4. Now that the new service is the authority over its data, 
+     you can plan a course to migrate the data out of the monolith database into its own database. 
+	 You might use a different database, 
+	 based on your requirements for this new service. 
+	 If your access pattern is simple and mostly key lookups, 
+	 then DynamoDB is probably a good choice.
+  5. Once you have created the new database, 
+     you need to migrate data from the monolith database. 
+	 To do so without downtime, you can treat the new database
+     as a read-through and write-through cache: 
+	   any updates and inserts are written
+       to the monolith database and then copied to the new database (figure 4.6). 
+     When attempting to read, you will read from the new database first. 
+	 If the data is not found, then read from the monolith database 
+	 and save the data in the new database.
+  6. Run a one-off task in the background to copy over all existing data (figure 4.6).
+     Take care to ensure that you don’t overwrite newer updates. 
+	 (With DynamoDB, this can be done using conditional writes.)
+	 
+-------------------------------------------------
+
+GraphQL attempted to solve these problems by providing a hierarchical,
+declarative way of performing queries from a single endpoint.
+
+Sputnik consists of a database with API/URI definitions and
+database schemas. The microservices know when to update Sputnik. Additionally, the
+GraphQL Lambda function knows when to query Sputnik to get schemas for each
+microservice and figure out where to route requests. 
+
+--------------------------------------------------
+
+Lambdas limits when max concurrency is reached:
+
+For example, if an API request takes an average of 100 ms to process, 
+then a single instance of a Lambda function can process up to 10 requests per second. 
+If this API needs to handle 100 RPS at peak, 
+then you will likely need around 10 Lambda concurrent executions at peak to handle this throughput.
+
+Eventually Lambda would be able to scale
+enough instances of your API functions to handle this peak load, but in the meantime, 
+many API requests would have been throttled.
+
+Another caveat to consider is that because live events are scheduled ahead of time,
+the Yle team can use a broadcast schedule to prescale their infrastructure in advance.
+There is no easy way to do this with Lambda except for using provisioned concurrency (https://amzn.to/3faBkCU). 
+But you’d need to allocate provisioned concurrency to every Lambda function that needs to be prescaled; 
+that would consume the available concurrencies in the region. 
+
+AWS API Gateway and Lambda are not a good fit for APIs with extremely spiky traffic.
+It’s the main reason why the Yle team opted to build their API with Fargate.
+
+
+
+
+
+
+
+
+
+
+
+
+
+	 
+	 
+
+
+	  
+  
 
  
 

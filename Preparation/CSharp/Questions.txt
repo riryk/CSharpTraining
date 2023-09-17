@@ -1,5 +1,7 @@
 
 https://habr.com/ru/companies/clrium/articles/439486/
+https://habr.com/ru/companies/clrium/articles/439490/
+
 
 1. English. 
 -----------------------------
@@ -172,8 +174,140 @@ Answers
 
 7. Reference vs Value types.
 -------------------------------------------
-  Both subclasses can inherit the object type and become its representatives.
+Difference1: 
+  - Each variable, class or structure fields or method parameters 
+    that take a reference type store a reference to a value;
+  - But each variable, class or structure fields or method parameters 
+    that take a value type store a value exactly, i.e. an entire structure.
+  - Both subclasses can inherit the object type and become its representatives.
   
+Difference2:
+  Overridable methods and inheritance
+  
+The next big difference between the two types is the lack of virtual
+methods table in structures. This means that:
+
+ - You cannot describe and override virtual methods in structures.
+ - A structure cannot inherit another one. 
+   The only way to emulate inheritance is to put a base type structure in the first field. 
+   The fields of an “inherited” structure will go after the fields of a “base” structure 
+   and it will create logical inheritance. 
+   The fields of both structures will coincide based on the offset.
+   You can pass structures to unmanaged code. 
+   However, you will lose the information about methods. 
+   This is because a structure is just space in memory, 
+   filled with data without the information about a type. 
+   You can pass it to unmanaged methods, 
+   for example, written in C++, without changes.  
+   
+You cannot do this with classes as they have two inaccessible fields. 
+These are SyncBlockIndex and a virtual methods table address.
+
+public void ChangeTo(ref FooStruct strukt, int val)
+{
+    strukt.x = val;
+}
+
+The capability to point to the position of elements:
+
+Difference3:
+  The difference in allocation.
+  When one declares a variable in the body of a method, 
+  the time of memory allocation for a structure is close to zero.
+  
+When to use: 
+  A structure is your choice if a type passes the data in method calls (as returned values or as a method parameter) 
+  and there is no need to refer to the same value from different places. 
+  The perfect example is tuples. 
+  If a method returns several values using tuples, it will return a ValueTuple, declared as a structure. 
+  The method won’t allocate space on the heap, but will use the stack of the thread, 
+  where memory allocation costs nothing.
+
+  If you design a system that creates big traffic of instances that have small size and lifetime,
+  using reference types will lead either to a pool of objects.
+  
+  Sometimes you use a big size structure as a source of data and place it as a field in a class, 
+  while having one copy replicated to produce a thousand of instances.  
+  
+  For the same reason you should avoid passing big structures through a series of method calls. 
+  If all elements call each other, these calls will take more space on the stack 
+  and bring your application to death by StackOverflowException. 
+  The next reason is performance. The more copies there are the more slowly everything works.
+  
+The Object base type and implementation of interfaces. Boxing
+    
+  when calling an instance method for a value type, 
+  the method gets another structure that is a copy of an original. 
+  That means calling an instance method is like calling a static method:
+    Method(ref structInstance, newInternalFieldValue). 
+	
+  Indeed, this call passes this, with one exception, however. 
+  A JIT should compile the body of a method, so it would be unnecessary to offset structure fields, 
+  jumping over the pointer to a virtual methods table, which doesn’t exist in the structure. 
+  It exists for value types in another place.
+  
+When boxing happens:
+
+  - the CLR allocates space on the heap for a structure + SyncBlockIndex + VMT of a value type 
+    (to call ToString, GetHashCode, Equals);
+  - it copies an instance of a value type there
+  
+Just look at what happens if you use a structure which implements an interface using the same interface.
+ 
+ struct Foo : IBoo
+ {
+    int x;
+    void Boo()
+    {
+        x = 666;
+    }
+ }
+
+ IBoo boo = new Foo();
+ boo.Boo();
+ 
+ The main problem of boxing is creating traffic in memory. 
+ The traffic of unknown number of objects, 
+ the part of which can survive up to generation one,
+ where we get problems with garbage collection
+ 
+ The main problem of boxing is creating traffic in memory. 
+ The traffic of unknown number of objects, the part of which can survive up to generation one, 
+ where we get problems with garbage collection.
+ 
+ Why it is not possible to do boxing on stack instead of the heap, 
+ when you call a method that takes an object type, which is a value type in fact?
+ 
+   If the value type boxing is done on the stack and the reference will go to the heap, 
+   the reference inside the method can go somewhere else, 
+   for example a method can put the reference in the field of a class. 
+   The method will then stop, and the method that made boxing will also stop. 
+   As a result, the reference will point to a dead space on the stack.
+   
+   
+
+
+
+ 
+ 
+
+ 
+
+
+
+ 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
 
 
 

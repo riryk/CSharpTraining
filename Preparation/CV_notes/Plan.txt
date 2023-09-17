@@ -1,0 +1,31 @@
+
+1. C#, .NET 
+2. NoSql, Mongo
+3. Microservice architecture 
+4. GraphQL
+5. Azure, Storage, ServciceBus, ApplicationGateway, API management.
+6. Docker, Kubernetes
+7. OOP Design Patterns, SOLID, Coupling, Cohesion.
+8. Cloud basics. AWS, Azure. 
+
+
+----------
+JS:
+1. Vie.Js
+
+--------------
+Test automation: 
+
+-----
+Epam.
+1. DNA and EngX
+2. 
+
+-----------------
+Processes:
+1. Ability to abstract subject matter
+2. Agile Methodologies
+
+---------------------
+Soft skills: 
+1. Flexible and adaptable

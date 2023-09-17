@@ -1,6 +1,18 @@
 
 https://careers.google.com/how-we-hire/#step-your-resume
 
+----------------------------------------------------
+
+ What to repeat
+ 
+----------------------------------------------------
+
+1. NoSQL databases, particularly MongoDB
+2. Hands-on experience with GraphQL.
+3. MS Azure Services including Storage, ServiceBus
+3. Microservices Architecture.
+4. Docker and Kubernetes.
+
 ------------------------------------------------------------------
 
  Title
@@ -204,7 +216,10 @@ Responsibilities
 57. Strangler pattern 
     https://www.redhat.com/architect/pros-and-cons-strangler-architecture-pattern#:~:text=The%20Strangler%20pattern%20is%20one,system%20pass%20through%20the%20facade.
 58. IEnumerable vs IQueryable 
-59. 
+59. Describe how migration to microservices was done in Twinfield.
+60. Lamdbas provisioned concurrency 
+61. Functional Programming. 
+62. 
 	
 	
 	
