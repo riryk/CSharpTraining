@@ -221,7 +221,9 @@ Responsibilities
 61. Functional Programming. 
 62. Fowler. Optimistic/Pessimistic locks. 
     Undo/Redo in Event Sourcing. 
-	
+63. Enterprise integration patterms. Messaging. 
+64. Visual Studio support for Lambdas. 
+
 	
 	
 	

@@ -283,8 +283,46 @@ Just look at what happens if you use a structure which implements an interface u
    for example a method can put the reference in the field of a class. 
    The method will then stop, and the method that made boxing will also stop. 
    As a result, the reference will point to a dead space on the stack.
-   
-   
+
+---------------------------------------------   
+8. Why Value Types are sealed?   
+
+Because each instance of value-type hase different size and stored on the stack. 
+So, if you write "Base = Derived" where "Base" and "Derived" 
+are value-types you will corrupt stack.
+
+The reason is that most inheritance techniques relate to runtime polymorphism (virtual functions) 
+and those don’t work on value types: 
+for runtime polymorphism to have any meaning, 
+objects need to be treated as references 
+– this isn’t specific to .NET either, 
+it’s simply a technical detail of how virtual functions are implemented.
+
+Value types form an exception to .NET’s rule, 
+precisely to allow lightweight objects 
+that don’t require indirection via references.
+
+You could cast from a derived struct to the base, since they would overlap the same memory.
+No, this would not be possible – casting a value type would copy its value. 
+We’re not dealing with references here, so no overlap in memory. 
+
+In C++, you can actually cause this behaviour. 
+For that reason, OOP in C++ only works on pointers and references, not on value types directly. 
+And for that same reason, .NET only allows inheritance of reference types
+because you couldn’t use it for value types anyway.
+
+Now, .NET could theoretically allow you to inherit a struct from a class
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -16,6 +16,10 @@ Cache:
   https://youtu.be/PE4gwstWhmc
   Tridgell, A., & Mackerras, P. (1996). The rsync algorithm
 
+Consistent hashing: 
+  https://medium.com/@adityashete009/consistent-hashing-amazon-dynamodb-part-1-f5719aff7681
+  
+
 ---------------------------------------------------------
   
 1. SCALE FROM ZERO TO MILLIONS OF USERS

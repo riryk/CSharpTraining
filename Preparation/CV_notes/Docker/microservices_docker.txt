@@ -251,6 +251,28 @@ Resiliently publishing to the event bus:
 	  EventSourcing: 
 	    https://learn.microsoft.com/en-us/previous-versions/msp-n-p/dn589792(v=pandp.10)?redirectedfrom=MSDN
 		
+------------------------------------------------------
+Docker 
+
+1. docker-compose up --build     command to build all the related images
+2. docker images                 list images 
+3. docker-compose up             deploy a multi-container application
+
+Build and run your Docker application
+1. Running a single-container with Docker CLI
+  docker run -t -d -p 80:5000 cesardl/netcore-webapi-microservice-docker:first
+
+Using PowerShell commands in a Dockerfile to set up Windows Containers
+
+Windows Containers allow you to convert your existing Windows applications into Docker images and 
+deploy them with the same tools as the rest of the Docker ecosystem. To use Windows Containers, 
+you run PowerShell commands in the Dockerfile, as shown in the following example:
+
+
+
+
+  
+
 
 
    

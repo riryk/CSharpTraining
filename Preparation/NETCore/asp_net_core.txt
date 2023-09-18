@@ -2,6 +2,45 @@
 https://learn.epam.com/detailsPage?id=a88905b0-fc64-4a32-9b61-424e632407f9&source=PROGRAM
 https://code-maze.com/asynchronous-programming-with-async-and-await-in-asp-net-core/
 
+1. REST 
+
+Some of the most important concerns that a RESTful architecture affects include 
+performance, scalability, simplicity, interoperability, communication visibility, 
+component portability, and reliability. These properties are encapsulated by six principles, 
+which are defined by Fielding as the constraints guiding a RESTful system design.
+
+  - The Client-Server constraint enforces the proper separation of concerns between 
+    the UI/consumer and the back-end, which mostly contains the business-logic and 
+    data-storage implementations.
+  - Building on the Client-Server style is the Stateless constraint. 
+    Communication between the client and the server needs to be stateless, 
+	meaning that a request should contain all the information necessary 
+	for the server to understand and to create context. 
+	
+  Uniform Interface: 
+    The key feature that associates a system with REST is a Uniform Interface. 
+	This constraint consists of four essential parts, which are 
+	    resource identification, 
+		resource manipulation, 
+		self-describing responses, 
+		and state management
+		
+    These architectural elements are implemented directly through 
+	   URIs, HTTP verbs, media types, and Hypermedia 
+	   as the Engine of Application State (HATEOAS), respectively.
+
+  The Cache constraint derives from the Stateless constraint and requires 
+  that responses coming from the server are explicitly labeled as cacheable or non-cacheable, 
+  regardless if they are explicitly or implicitly defined.
+  
+  
+	   
+
+
+
+
+
+
 
 
 

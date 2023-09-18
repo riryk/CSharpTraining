@@ -1,5 +1,6 @@
 
-1. C#, .NET 
+1. C#, 
+1. .NET .NET 5/ .NET Framework (v4.7+) and .Net Core (v2.1+) 
 2. PostgreSQL (Strong data skills a plus)
 2. NoSql, Mongo
 3. Microservice architecture 
@@ -9,11 +10,19 @@
 6. Docker, Kubernetes
 7. OOP Design Patterns, SOLID, Coupling, Cohesion.
 7. Event Driven Development
-8. Cloud basics. AWS, Azure. 
+8. Cloud basics fundamentals. AWS, Azure. 
 9. Kafka with MSK or Confluent
-10. DevOps Pipelines and CI/CD principles
-11. 
+10. DevOps Pipelines and CI/CD principles. Continuous deployment. 
+11. Angular(RxJS)
+12. Entity framework.
+13. REST APIs using Web API
+14. Multithreading and parallelization
+15. High performance/scalable API
 
+------------------------------------
+Architecture:
+1. software architecture principles.
+2. software design principles
 
 ----------
 JS:
@@ -33,9 +42,11 @@ Epam.
 Processes:
 1. Ability to abstract subject matter
 2. Agile Methodologies
+3. Development processes
 
 ---------------------
 Soft skills: 
+1. Leadership.
 1. Flexible and adaptable
 2. Great Communication Skills
 3. Pragmatic Problem Solver
@@ -49,3 +60,9 @@ AI
 1. Messaging between client and Advisor
 2. AI-Advisor and integrations with Generative AI tools
 
+
+
+---------------------------------------------------
+----------------------------------------------------
+
+8. Quick Start into Azure for AWS developer

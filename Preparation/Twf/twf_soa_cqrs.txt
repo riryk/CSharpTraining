@@ -180,6 +180,32 @@ Commands have an intent of asking the system to perform an operation
 where Events are a recording of the action that occurred:
 
 Envelope
+Message Bus
+
+It's also a Singleton [GoF] object - there is only one instance of Message Bus per process. 
+The routing of messages is done within a boundaries of single process, 
+that's why for example Queries routing is working without queries being serializable. 
+That's also means that subscriptions are not durable 
+and need to be registered every time an application is restarted. 
+The registration is of message handlers should be done only once, on process (application) startup.
+
+Bus Gateway
+The bus gateway combines the responsibilities of Envelope Wrapper and Content Enricher [EIP] messaging patterns. 
+It is typical for wrappers to add information to the raw message.
+
+Component
+Components are serving as containers for the group of related message handlers. 
+They're the only visible elements outside of service implementation assembly. 
+They also provide a good place to encapsulate chaining of cross-cutting concerns into a pipeline, 
+providing simplified helper methods for registration of message handlers in the message bus.
+
+
+
+
+
+
+
+
 
 
 

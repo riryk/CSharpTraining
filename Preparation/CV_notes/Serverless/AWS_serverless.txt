@@ -431,6 +431,30 @@ that would consume the available concurrencies in the region.
 AWS API Gateway and Lambda are not a good fit for APIs with extremely spiky traffic.
 It’s the main reason why the Yle team opted to build their API with Fargate.
 
+---------------------------------------------------------
+
+Step Functions
+
+Step Functions is an orchestration service that lets you model complex workflows as state machines. 
+It can invoke Lambda functions or integrate directly with other AWS services 
+such as DynamoDB, SNS, and SQS when the state machine transitions to a new state.
+
+Normally, idle waiting is difficult to do with Lambda. 
+But with Step Functions, it’s as easy as a few lines of JSON:
+
+To schedule an ad hoc task, you can start a state machine execution and use a Wait
+state to pause the workflow until the specified date and time. This solution is precise.
+Based on the data we have collected, tasks are run within 0.01 second of the scheduled
+time in the 90th percentile. 
+
+
+
+
+
+
+
+
+
 
 
 
