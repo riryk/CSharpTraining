@@ -1,0 +1,74 @@
+
+1. Why NoSQL?
+
+The Value of Relational Databases
+  - Getting at Persistent Data
+  - Concurrency
+  - Integration
+  - A (Mostly) Standard Model
+
+Issues:   
+  Impedance mismatch: 
+    the difference between the relational model and the in-memory data structures.
+    The relational data model organizes data into a structure of tables and rows, 
+	or more properly, relations and tuples.
+  
+  In particular, the values in a relational tuple have to be simple—they 
+  cannot contain any structure, such as a nested record or a list.  
+  
+  This limitation isn’t true for in-memory data structures, which can take on much richer structures than relations. 
+  As a result, if you want to use a richer in-memory data structure, 
+  you have to translate it to a relational representation to store it on disk.
+
+Why still alive: 
+  Integration database—with multiple applications, usually developed by separate teams, 
+  storing their data in a common database. 
+  This improves communication because all the applications 
+  are operating on a consistent set of persistent data.
+
+Attacks of clusters:   
+  This increase in scale was happening along many dimensions. 
+  Websites started tracking activity and structure in a very detailed way. 
+  Large sets of data appeared: 
+    links, social networks, activity in logs, mapping data. 
+  With this growth in data came a growth in users—as the biggest websites 
+  grew to be vast estates regularly serving huge numbers of visitors.
+  
+The alternative is to use lots of small machines in a cluster. 
+A cluster of small machines can use commodity hardware 
+and ends up being cheaper at these kinds of scales. 
+It can also be more resilient—while individual machine failures are common, 
+the overall cluster can be built to keep going despite such failures, providing high reliability.
+
+Relational databases are not designed to be run on clusters. 
+Clustered relational databases, such as the Oracle RAC 
+or Microsoft SQL Server, work on the concept of a shared disk subsystem.
+Relational databases could also be run as separate servers for different sets of data, effectively sharding.
+
+Commercial relational databases are usually priced on a single-server assumption, 
+so running on a cluster raised prices and led 
+to frustrating negotiations with purchasing departments.
+
+Relational databases use ACID transactions to handle consistency across the whole database. 
+NoSQL databases operate without a schema, 
+allowing you to freely add fields to database records 
+without having to define any changes in structure first.
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+  
+

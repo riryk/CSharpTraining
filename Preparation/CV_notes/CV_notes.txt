@@ -223,6 +223,7 @@ Responsibilities
     Undo/Redo in Event Sourcing. 
 63. Enterprise integration patterms. Messaging. 
 64. Visual Studio support for Lambdas. 
+65. Application Architecture.
 
 	
 	

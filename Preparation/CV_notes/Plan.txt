@@ -1,6 +1,6 @@
 
 1. C#, 
-1. .NET .NET 5/ .NET Framework (v4.7+) and .Net Core (v2.1+) 
+1. .NET .NET 5/ .NET Framework (v4.7+) and .Net Core (v2.1+), .Net framework internals.
 2. PostgreSQL (Strong data skills a plus)
 2. NoSql, Mongo
 3. Microservice architecture 
@@ -13,21 +13,24 @@
 8. Cloud basics fundamentals. AWS, Azure. 
 9. Kafka with MSK or Confluent
 10. DevOps Pipelines and CI/CD principles. Continuous deployment. 
-11. Angular(RxJS)
 12. Entity framework.
 13. REST APIs using Web API
 14. Multithreading and parallelization
 15. High performance/scalable API
+16. up-to-date with the latest changes in the framework, development tools, and libraries
 
 ------------------------------------
 Architecture:
 1. software architecture principles.
 2. software design principles
+3. software architecture patterns
 
 ----------
 JS:
-1. Vie.Js
-2. ReactNative for iOS and Android
+1. Knockout, AngularJS, Mobile App, Ionic 
+2. Angular(RxJS)
+3. Vie.Js
+4. ReactNative for iOS and Android
 
 --------------
 Test automation: 
@@ -43,6 +46,7 @@ Processes:
 1. Ability to abstract subject matter
 2. Agile Methodologies
 3. Development processes
+4. SDLC
 
 ---------------------
 Soft skills: 
@@ -66,3 +70,53 @@ AI
 ----------------------------------------------------
 
 8. Quick Start into Azure for AWS developer
+
+
+
+
+
+Backend:
+
+Net 6, 
+
+EF Core, 
+
+MS SQL, 
+
+REST, 
+
+Azure Service Bus, 
+
+AutoMapper, 
+
+Swagger, 
+
+Hangfire,
+
+MailHog/Plivo
+
+Azure Blob Storage,
+
+MailKit, 
+
+RazorLight for templates
+
+Docker, Kubernetes
+
+CertiSign, DocuSign!!!
+
+
+
+Frontend: 
+
+Angular 14, AG Grid
+
+For legacy
+
+Knockout 
+
+AngularJS
+
+Mobile App
+
+Ionic - SDK for hybrid mobile app development

@@ -257,6 +257,7 @@ Docker
 1. docker-compose up --build     command to build all the related images
 2. docker images                 list images 
 3. docker-compose up             deploy a multi-container application
+4. docker ps                       
 
 Build and run your Docker application
 1. Running a single-container with Docker CLI
@@ -267,6 +268,30 @@ Using PowerShell commands in a Dockerfile to set up Windows Containers
 Windows Containers allow you to convert your existing Windows applications into Docker images and 
 deploy them with the same tools as the rest of the Docker ecosystem. To use Windows Containers, 
 you run PowerShell commands in the Dockerfile, as shown in the following example:
+
+ docker ps 
+
+--------------------------------------------------------------------------------
+Migrating Legacy Monolithic .NET Framework Applications to Windows Containers
+
+For all these reasons, consider running legacy monolithic apps in a Docker container using a “lift-and shift” operation. 
+The phrase “lift and shift” describes the scope of the task: 
+  you lift the entire application from a physical or virtual machine, and shift it into a container. 
+  In ideal situations, you do not need to make any changes to the application code to run it in a container.
+  
+Possible migration paths:
+  - This demonstrates the simplest migration path, where you move existing assets to run in a container 
+    without any code changes at all. This path is appropriate for applications that are complete and that
+    have minimal interaction with functionality that you are moving to microservices.
+  - Leading is about building the culture to maximize engagement, 
+    inspiring various stakeholders with a compelling vision, fostering collaboration, 
+	and cultivating the next generation of leaders. 
+	All of this is in service to achieving the future potential 
+	of the organization by maximizing the most important asset, its talented people.
+	
+	
+  
+  
 
 
 

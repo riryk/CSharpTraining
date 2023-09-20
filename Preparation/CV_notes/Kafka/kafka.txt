@@ -172,8 +172,49 @@ must receive the record before the producer can consider the write successful.
   This can cause servers to run out of space, processing to slow down, etc. 
   What we really want is to give Banana its own partition 
   and then use hash partitioning to map the rest of the accounts to partitions.
-  
-  
+
+----------------------------------------------  
+7. Kafka Consumers: Reading Data from Kafka  
+
+Suppose you have an application that needs to read messages from a Kafka topic, 
+run some validations against them, and write the results to another data store.
+
+If you are limited to a single consumer reading and processing the data, 
+your application may fall farther and farther behind, 
+unable to keep up with the rate of incoming messages.
+
+This is a good reason to create topics with a large number of partitions—
+it allows adding more consumers when the load increases. 
+Keep in mind that there is no point in adding more consumers 
+than you have partitions in a topic—some of the consumers will just be idle.
+Create another consumer group to consume all messages from topic by other applications.
+
+--------------------------------------------------
+8. Consumer Groups and Partition Rebalance
+
+Moving partition ownership from one consumer to another is called a rebalance.
+Rebalances are important because they provide the consumer group with high availability and scalability
+
+During a rebalance, consumers can’t consume messages, 
+so a rebalance is basically a short window of unavailability of the entire consumer group.
+Sending heartbeats to a Kafka broker designated as the group coordinator
+
+Heartbeats are sent when the consumer polls (i.e., retrieves records) 
+and when it commits records it has consumed.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
   
 

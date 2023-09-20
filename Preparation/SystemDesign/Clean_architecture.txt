@@ -1,0 +1,48 @@
+-------------------------------------------
+SOLID
+
+1. Single responsibility principle. 
+  A module should have only one reason to change. 
+  
+2. Open closed prinsible
+  Software artifact should be open for extension but closed for modification 
+  Software entities should not depend on things they do not directly use. 
+  
+3. Liskov substitution principle. 
+  S is a subtype of T olny when program P which is dependent on T 
+  does not change when T is replaced with S.
+  Behaviour of program P should not change and there should not be any side effects. 
+  
+  Violation of LSP on architecture level: 
+  Interfaces of REST services are not all substitutable. 
+  
+  DI inverts the typical object-oriented strategy of writing classes that allocate all needed resources. 
+  Instead, classes request their dependencies from a service container. 
+  The advantage of DI is that you can replace external services with fakes (mocks) 
+  to support testing or other environments.  
+
+4. Interface segregation principle. 
+  Module should not depend on modules that it does not need. 
+  Or implement interface methods which are not needed. 
+  When these unneeded methods change, we need to rebuild our modules. 
+  
+5. Dependency inversion principle.
+  Source code should reference only abstractions and not implementations. 
+  
+----------------------------------------------------------
+Components 
+
+Components - are units of deployment 
+Component cohesion 
+ 1. Classes and modules that are grouped together and should be released together. 
+ 2. Common closure principle. 
+     Separate into different compoments when classes change at different times 
+	 and for different reasons. 
+	 If too classes chnage together, put them into one component.
+	 
+	 
+
+
+  
+  
+  

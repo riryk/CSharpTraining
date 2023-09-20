@@ -1,1 +1,69 @@
-1. 
+
+ 1. Nonclustered Indexes
+
+When you need to find a term in the book, you can look it up in the index. 
+It is a fast and efficient operation, because terms are sorted in alphabetical order. 
+Next, you can quickly find the pages on which the terms 
+are mentioned using the page numbers specified there. 
+
+The leaf level of the nonclustered index is sorted based on the value of the index key— Name in our case.
+Every row on the leaf level includes the key value and row-id. 
+For heap tables, 
+  row-id is the physical location of the row, 
+  defined as file:page:slot, 
+  and has the size of eight bytes.
+  
+Another reason why SQL Server uses forwarding pointers in heap tables 
+is to prevent the updating of nonclustered index rows when the original row 
+in the heap table has been moved to another data page after the update. 
+Nonclustered indexes keep the old row-id, 
+which references the forwarding pointer row. 
+
+For tables with a clustered index, row-id represents the value of the clustered index key of the row.
+It is important to define a nonclustered index as unique when the data is unique.
+
+Nonclustered indexes defined on heap tables reference the actual location of the rows in the data file. 
+SQL Server uses the RID lookup operation to obtain the data row from the heap. 
+In theory, RID lookup seems to be more efficient than key lookup, 
+because it can read the row directly without traversing the root 
+and intermediate levels of the clustered inde
+
+Statistics
+SQL Server statistics are system objects that contain information 
+about data distribution in the index key values and, sometimes, in regular column values.
+
+When necessary, consistency between databases from different microservices 
+is achieved using application-level events (through a logical event bus), 
+as handled in Command and Query Responsibility Segregation (CQRS). 
+Because of that, the business constraints 
+must embrace eventual consistency between the multiple microservices and related databases.
+
+Communication architecture
+  1. Direct client-to-microservice communication. 
+     This is used for queries and when accepting 
+     update or transactional commands from the client apps. 
+  2. Asynchronous event-based communication. 
+     This occurs through an event bus to propagate updates 
+	 across microservices or to integrate with external applications. 
+	 
+However, if you are going to design a large microservice-based application 
+with dozens of microservices, we strongly recommend that you consider the API Gateway pattern, 
+as we explained in the architecture section.
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+ 

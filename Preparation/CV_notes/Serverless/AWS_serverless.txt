@@ -447,6 +447,76 @@ state to pause the workflow until the specified date and time. This solution is 
 Based on the data we have collected, tasks are run within 0.01 second of the scheduled
 time in the 90th percentile. 
 
+----------------------------------------------------------
+SQS 
+
+When you send a message to SQS, you can also 
+use the DelaySeconds attribute to make the message become visible at the right time.
+However, the maximum DelaySeconds is a measly 15 minutes, 
+and the maximum visibility timeout is only 12 hours.
+
+When the execute function receives the message after the initial DelaySeconds, 
+it can inspect the message and see if it’s time to run the task (see figure 7.17). 
+If not, it can call ChangeMessageVisibility on the message to hide the message 
+for up to another 12 hours.
+
+The Lambda service uses long polling to poll SQS queues 
+and only invokes our function when there are messages. 
+These pollers are an invisible layer between SQS and our function, and we do not pay for them. 
+But we do pay for the SQS ReceiveMessage requests they make.
+
+----------------------------------------------------------
+Where to optimize?
+   Endpoints - API Gateway
+   Compute layer
+     It contains the run-time environment that deploys and runs 
+	 your business logic embodied as Lambda functions 
+   Data layer
+
+How a Lambda function handles requests?
+  The substrate is invisible to you; 
+  the execution environment is instantiated on demand for scale events (like a burst of requests); 
+  the function code is instantiated for every request.
+  
+Once the environment exists, Lambda runs the code inside your function handler.   
+ 1. Downloads your Lambda function Node.js code onto the part of the compute substrate where your code will run.
+ 2. Instantiates a new execution environment (size is based on your function allocation) with a Node.js runtime.
+ 3. Instantiates your nonfunction dependencies (in this case, ImageMagick).
+ 4. Runs the parts of your function written outside the handler 
+   (we don’t have any in this example).
+   
+When the request is complete, however, AWS Lambda does not discard the execution environment 
+(with the run time and code initialized). 
+Instead, it caches the execution environment, 
+where all processes inside the execution environment are paused. 5-20 mins 
+
+When a subsequent request arrives during this time and a cached execution environment is available, 
+AWS Lambda will reuse that execution environment to service the request.
+
+On the other hand, if a cached execution environment is not available,
+AWS Lambda will repeat all the steps to serve the request. 
+This has significant implications to both the performance of your function and how you write your function.
+
+One important behavior to remember is that
+AWS Lambda always runs only one request per execution environment. 
+This means that if all execution environments are processing requests and a new one comes in,
+AWS Lambda will instantiate a new execution environment.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

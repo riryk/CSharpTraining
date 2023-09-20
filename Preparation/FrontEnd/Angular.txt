@@ -1,0 +1,40 @@
+
+1. npm install -g typescript
+2. npm install -g @angular/cli
+3. ng new angular-hello-world
+
+   </head>
+   <body>
+     <app-root></app-root>
+   </body>
+   </html>
+
+    ng serve --port 9001    run application on port 9001 
+
+Component: 
+<app-hello-world></app-hello-world>	
+
+ng generate component hello-world
+
+import { Component, OnInit } from '@angular/core';
+2
+3 @Component({
+4 selector: 'app-hello-world',
+5 templateUrl: './hello-world.component.html',
+6 styleUrls: ['./hello-world.component.css']
+7 })
+8 export class HelloWorldComponent implements OnInit {
+9
+10 constructor() { }
+11
+12 ngOnInit() {
+13 }
+14
+15 }
+
+
+
+
+
+
+
