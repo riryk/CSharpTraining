@@ -1,0 +1,34 @@
+
+1. Inheritance. 
+Joe failed to notice that not all subclasses of Duck should fly
+
+2. applying good OO software design principle
+ 
+  - Design Principle
+     Identify the aspects of your application that vary and separate them from what stays the same 
+	 Take the parts that vary and encapsulate them, 
+	 so that later you can alter or extend the parts that vary without affecting those that don’t
+	 Let some part of a system vary independently of all other parts.
+	 
+  - Design Principle
+     Program to an interface, not an implementation.	 
+	 
+  - Design Principle
+     Favor composition over inheritance.	 
+	 
+3. Strategy pattern. 
+ 
+Not only does it let you encapsulate a family of algorithms into their own set of classes, 
+but it also lets you change behavior at runtime as long as 
+the object you’re composing with implements the correct behavior interface. 
+
+The Strategy Pattern defines a family of algorithms, 
+encapsulates each one, and makes them interchangeable. 
+Strategy lets the algorithm vary independently from clients that use it.
+
+
+
+
+
+ 
+

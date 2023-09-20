@@ -1,4 +1,5 @@
 
+-------------------------------------------------------------------
 1. Why NoSQL?
 
 The Value of Relational Databases
@@ -54,6 +55,32 @@ NoSQL databases operate without a schema,
 allowing you to freely add fields to database records 
 without having to define any changes in structure first.
 
+Reasons to use NoSQL: 
+ 1. One is to handle data access with sizes and performance that demand a cluster; 
+ 2. the other is to improve the productivity of application development 
+    by using a more convenient data interaction style.
+ 3. Impedance mismatch between the relational model and the in-memory data structures.	
+ 4. Move away from using databases as integration points.
+ 5. Support large volumes of data by running on clusters. 
+    Relational databases are not designed to run efficiently on clusters.
+
+---------------------------------------------------------------------------
+Aggregate Data Models
+
+An aggregate is a collection of related objects that we wish to treat as a unit. 
+In particular, it is a unit for data manipulation and management of consistency.
+Typically, we like to update aggregates with atomic operations 
+and communicate with our data storage in terms of aggregates. 
+This definition matches really well with how key-value, document, and column-family databases work.
+
+Dealing in aggregates makes it much easier for these databases to handle operating on a cluster, 
+since the aggregate makes a natural unit for replication and sharding. 
+
+
+
+
+
+	
 
 
 
