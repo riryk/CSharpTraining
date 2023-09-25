@@ -313,6 +313,12 @@ because you couldn’t use it for value types anyway.
 
 Now, .NET could theoretically allow you to inherit a struct from a class
 
+-------------------------------------------------------------------------
+9. Changing Fields in a Boxed Value Type by Using Interfaces 
+  (and Why You Shouldn’t Do This) 
+  
+
+
 
 
 

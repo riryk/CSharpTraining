@@ -39,7 +39,12 @@ Component cohesion
      Separate into different compoments when classes change at different times 
 	 and for different reasons. 
 	 If too classes chnage together, put them into one component.
-	 
+
+--------------------------------------------------
+Architecture 
+  - Make system easy to develop.
+  - Make system easily deploployed. 
+  
 	 
 
 

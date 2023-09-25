@@ -76,6 +76,26 @@ This definition matches really well with how key-value, document, and column-fam
 Dealing in aggregates makes it much easier for these databases to handle operating on a cluster, 
 since the aggregate makes a natural unit for replication and sharding. 
 
+An aggregate-ignorant model allows you to easily look at the data in different ways, 
+so it is a better choice when you don’t have a primary structure for manipulating your data.
+
+Atomicity: 
+ Many rows spanning many tables are updated as a single operation. 
+ This operation either succeeds or fails in its entirety, 
+ and concurrent operations are isolated from each other so they cannot see a partial update.
+ 
+-----------------------------------------------------------------------
+Distribution Models
+
+Broadly, there are two paths to data distribution: replication and sharding. R
+1. Single Server
+2. Sharding
+ 
+
+ 
+ 
+
+
 
 
 

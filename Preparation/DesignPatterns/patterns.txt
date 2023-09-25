@@ -26,6 +26,36 @@ The Strategy Pattern defines a family of algorithms,
 encapsulates each one, and makes them interchangeable. 
 Strategy lets the algorithm vary independently from clients that use it.
 
+4. Observer. 
+
+The Observer Pattern defines a one-to-many 
+dependency between objects so that when one 
+object changes state, all of its dependents are 
+notified and updated automatically.
+
+When two objects are loosely coupled, they can interact, 
+but have very little knowledge of each other. 
+
+Design Principle
+Strive for loosely coupled designs 
+between objects that interact.
+
+5. Factory pattern.
+
+There is more to making objects than just using the new operator. 
+You’ll learn that instantiation is an activity that shouldn’t always 
+be done in public and can often lead to coupling problems.
+
+So, in other words, your code will not be “closed for modification.” 
+To extend it with new concrete types, you’ll have to reopen it.
+
+6. Factory method.
+
+
+
+
+
+
 
 
 
