@@ -18,6 +18,16 @@
 14. Multithreading and parallelization
 15. High performance/scalable API
 16. up-to-date with the latest changes in the framework, development tools, and libraries
+17. OData
+18. SQL. caching, and sharding.
+
+----------------------------------------
+Algorithms fundamentals: 
+
+1. object oriented design
+2. data structures
+3. algorithm design problem solving, and complexity analysis.
+
 
 ------------------------------------
 Architecture:
@@ -29,8 +39,9 @@ Architecture:
 JS:
 1. Knockout, AngularJS, Mobile App, Ionic 
 2. Angular(RxJS)
-3. Vie.Js
+3. Vue.Js
 4. ReactNative for iOS and Android
+5. HTML, CSS 
 
 --------------
 Test automation: 
@@ -120,3 +131,7 @@ AngularJS
 Mobile App
 
 Ionic - SDK for hybrid mobile app development
+
+
+https://jobs.dou.ua/companies/proxet/vacancies/246431/
+

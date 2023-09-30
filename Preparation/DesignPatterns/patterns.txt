@@ -51,6 +51,66 @@ To extend it with new concrete types, you’ll have to reopen it.
 
 6. Factory method.
 
+7. Flyweight Pattern.
+
+Flyweight is a structural design pattern that lets you fit more objects 
+into the available amount of RAM by sharing common parts of state 
+between multiple objects instead of keeping all of the data in each object.
+
+8. Adapter pattern. 
+
+The Adapter pattern enables a system to use classes 
+whose interfaces don’t quite match its requirements.
+The Adapter pattern is found wherever there is code to be wrapped up 
+and redirected to a different implementation.
+
+You have:
+ • A domain-specific interface.
+ • A class to connect to with a mismatching interface.
+You want to:
+ • Create a reusable class to cooperate with yet-to-be-built  classes.
+ • Change the names of methods as called and as implemented.
+ • Support different sets of methods for different purposes
+
+9. Façade Pattern.
+
+The role of the Façade pattern is to provide different high-level views 
+of subsystems whose details are hidden from users. 
+In general, the operations that might be desirable 
+from a user’s perspective could be made up of different selections of parts of the subsystems
+
+What makes the Façade pattern different from, say, the Decorator or Adapter patterns 
+is that the interface it builds up can be entirely new. 
+It is not coupled to existing requirements, nor must it conform to existing interfaces.
+
+A system has several identifiable subsystems and:
+ • The abstractions and implementations of a subsystem are tightly coupled.
+ • The system evolves and gets more complex, but early adopters might want to retain their simple views.
+ • You want to provide alternative novice, intermediate, and “power user” interfaces.
+ • There is a need for an entry point to each level of layered software.
+
+Creational Patterns
+10. Prototype. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

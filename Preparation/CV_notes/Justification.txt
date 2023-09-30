@@ -146,34 +146,8 @@ that ignorance. You certainly do not want to demonstrate this tendency in a syst
 interview. Other red flags include narrow mindedness, stubbornness, etc.
 
 
-  
-  
-  
-  
-  
-  
- 
- 
- 
- 
- 
-
- 
-
-	  
-	  
- 
- 
-
-
-
-
-
 1. What are complex distributed systems?
-
-
-
-1. Describe release processes. Release cycle 
+2. Describe release processes. Release cycle 
      2 sprints of the release cycle
      each sprint is 2 weeks long
      end of sprint: 

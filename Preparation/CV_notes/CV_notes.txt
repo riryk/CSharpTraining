@@ -105,6 +105,78 @@ My responsibilities:
 • Created design artifacts and documented the solutions 
 • Conducted training sessions for colleagues from India 
 
+--------------------------------------------------------------------
+
+--------------------------------------------------------------------
+
+My project description:
+
+   S&P Global 
+   
+   S&P Global Inc is a provider of financial intelligence solutions. 
+   It offers credit ratings, benchmarks, data, and digital 
+   and traditional financial research and analytical tools to the capital and commodity markets globally.
+   
+   IHS Markit became a global leader in information, analytics, 
+   and solutions for the major industries and markets that drive economies worldwide. 
+   It is now part of S&P Global.
+   
+Vlad's description:    
+
+   IHS Markit became a global leader in information, analytics, and solutions 
+   for the major industries and markets that drive economies worldwide. It is now part of S&P Global. 
+   Its six operating divisions across financial information and services, ratings, indices, commodities 
+   and energy, transportation, and engineering help customers make decisions with conviction.
+
+Oleg's description: 
+
+--------------------------------------------------------------------------
+1. Project description
+
+  Investor Access platform is suite of solution to provide electronification 
+  and automation of the Fixed Income marketplace. 
+  It allows investors and syndicate banks to exchange information in real-time electronically 
+  which increased market efficiency and reduced operational risk. 
+
+2. Responsibilities
+ 
+• Integrated BuySide Web platform with Fixed Income IssueNet information exchange system
+• Designed and developed Microservices for Primary Order Management
+• Implemented Financial Information eXchange protocol for Investors
+• Integrated Investor Access services with Bloomberg vendor
+• Integrated BuySide Web platform with Equity and Muni bookbuild systems
+• Migrated on-prem .NET 4.8 services into Cloud (AWS, .NET Core, ECS, PosgreSQL)
+• Integrated AWS Quicksight Business Intelligence into BuySide
+• Adjusted CI/CD for Microservices
+• Created design artifacts and documented the solutions 
+• Conducted training sessions for colleagues from India
+
+3. Team
+
+Worked in multiple multi-cultural Scrum teams with the following structure: 
+1 Product Owner, 1 Scrum Master, 5 Software Engineers, 2 Automation Test Engineers, 1 Manual Test Engineer.
+
+4. Database
+
+MS SQL Server 2019, PostgreSql
+Tools
+Visual Studio, SQL Server Management Studio, SQL Server Profiler, ReSharper, Postman, Git, Artifactory, Docker
+Technologies
+Backend:
+ASP.NET API, ASP.NET Core, MS SQL, EntityFramework
+
+Frontend:
+Angular 12, Redux, ag-grid
+
+Range of AWS services:
+ECS, Aurora cluster, Secret Manager, Parameter Store, ElasticCache Redis, Lambda, Cloudwatch, Cloudfront, S3, EC2, API Gateway, Route53
+
+DevOps - Teamcity, TFS, IaaS - terraform
+Message broker - Apache Kafka, RabbitMq
+
+
+   
+   
 --------------------------------------------------------------------- 
   Ukrposhta
 ---------------------------------------------------------------------  

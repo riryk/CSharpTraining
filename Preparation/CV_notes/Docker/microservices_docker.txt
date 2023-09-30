@@ -289,7 +289,50 @@ Possible migration paths:
 	All of this is in service to achieving the future potential 
 	of the organization by maximizing the most important asset, its talented people.
 	
-	
+If two microservices need to collaborate a lot with each other, they should probably be the same microservice.
+If a microservice must rely on another service to directly service a request, it is not truly autonomous.
+
+All the invariants and rules related to that group of entities (aggregate) 
+are performed through a single entry point or gate, the aggregate root.
+
+Domain Model Layer: 
+  Responsible for representing concepts of the business, 
+  information about the business situation, and business rules.
+  
+Application Layer: 
+  Defines the jobs the software is supposed to do and directs the expressive 
+  domain objects to work out problems. The tasks this layer is responsible for are meaningful to the 
+  business or necessary for interaction with the application layers of other systems. 
+  This layer is kept thin. 
+  It does not contain business rules or knowledge, 
+  but only coordinates tasks and delegates work to collaborations of domain objects in the next layer down. 
+  It does not have state reflecting the business situation, 
+  but it can have state that reflects the progress of a task for the user or the program.
+  
+  It includes queries if using a CQRS approach, 
+  commands accepted by the microservice, 
+  and even the event-driven communication between microservices (integration events)
+  
+The infrastructure layer: 
+  The infrastructure layer is how the data that is initially held in domain entities (in memory) 
+  is persisted in databases or another persistent store. 
+  An example is using Entity Framework Core code to implement the Repository pattern.
+  
+Anemic model: 
+  The catch comes when you look at the behavior, and you realize that there is hardly any behavior on these objects, 
+  making them little more than bags of getters and setters
+  
+  The anemic domain model is just a procedural style design. 
+  Anemic entity objects are not real objects because they lack behavior (methods). 
+  They only hold data properties and thus it is not object-oriented design
+  
+  
+
+  
+
+  
+
+
   
   
 

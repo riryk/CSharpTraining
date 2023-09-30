@@ -472,6 +472,35 @@ Conflict resolution use cases:
 	Assume the write is handled by Sx, which now has D5([Sx, 3], [Sy, 1], [Sz, 1]). 
 	We will explain how to detect conflict shortly.
  
+--------------------------------------------------------------------
+DESIGN A URL SHORTENER
+
+Here are the basic use cases:
+  1. URL shortening: given a long URL => return a much shorter URL
+  2. URL redirecting: given a shorter URL => redirect to the original URL
+  3. High availability, scalability, and fault tolerance considerations
+
+1.URL shortening.
+POST api/v1/data/shorten
+  • request parameter: {longUrl: longURLString}
+  • return shortURL
+
+2.URL redirecting.
+GET api/v1/shortUrl
+  • Return longURL for HTTP redirection
+  
+The most intuitive way to implement URL redirecting is to use hash tables. Assuming the
+hash table stores <shortURL, longURL> pairs, URL redirecting can be implemented by the
+following:
+• Get longURL: longURL = hashTable.get(shortURL)
+• Once you get the longURL, perform the URL redirect.
+
+--------------------------------------------------------------------------
+
+
+  
+
+
  
 
 

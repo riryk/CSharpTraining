@@ -2,6 +2,8 @@
 https://levelup.gitconnected.com/implementing-the-transactional-outbox-pattern-with-debezium-in-quarkus-f2680306951
 https://medium.com/contino-engineering/publishing-events-to-kafka-using-a-outbox-pattern-867a48e29d35
 https://pradeepl.com/blog/transactional-outbox-pattern/
+https://www.enterpriseintegrationpatterns.com/patterns/messaging/CompetingConsumers.html
+https://stackoverflow.com/questions/44587416/kafka-single-consumer-group-in-multiple-instances
 
 1. Kafka batches and partitions. 
 
@@ -202,6 +204,40 @@ Sending heartbeats to a Kafka broker designated as the group coordinator
 Heartbeats are sent when the consumer polls (i.e., retrieves records) 
 and when it commits records it has consumed.
 
+-------------------------------------------------
+9. Consumer. 
+
+try {
+ while (true) { 
+    ConsumerRecords<String, String> records = consumer.poll(100); 
+    for (ConsumerRecord<String, String> record : records) 
+    {
+        int updatedCount = 1;
+        if (custCountryMap.countainsValue(record.value())) {
+            updatedCount = custCountryMap.get(record.value()) + 1;
+        }
+        custCountryMap.put(record.value(), updatedCount)
+    }
+ }
+} finally {
+ consumer.close(); 
+}
+
+The first time you call poll() with a new consumer, 
+it is responsible for finding the GroupCoordinator, 
+joining the consumer group, and receiving a partition assignment
+And of course the heartbeats that keep consumers alive are sent from within the poll loop.
+
+fetch.min.bytes
+  This property allows a consumer to specify the minimum amount of data that it
+  wants to receive from the broker when fetching records. I
+  
+auto.offset.reset
+partition.assignment.strategy
+  Range
+  RoundRobin
+  
+  
 
 
 

@@ -317,6 +317,60 @@ Now, .NET could theoretically allow you to inherit a struct from a class
 9. Changing Fields in a Boxed Value Type by Using Interfaces 
   (and Why You Shouldn’t Do This) 
   
+-------------------------------------------------------------------------
+10. How the CLR Calls Virtual Methods, Properties, and Events
+  First, calling a virtual method is slower than calling a nonvirtual method. 
+  Second, virtual methods cannot be inlined by the JIT compiler, which further hurts performance.
+  
+---------------------------------------------------------------
+11. Constants 
+---------------------------------------------------------------
+
+------------------------------------------------------------
+12. Implicit and Explicit Interface Method Implementations
+------------------------------------------------------------
+
+Explicit interface method implementation
+The only way to call the interface method is through a variable of the interface’s type.
+
+However, when the compiler generates the metadata for the method, 
+its accessibility is set to private, preventing any code using 
+an instance of the class from simply calling the interface method
+
+This is because the EIMI method is not really part of the type’s object model; 
+it’s a way of attaching an interface (set of behaviors or methods) 
+onto a type without making the behaviors/methods obvious.
+
+Improving Compile-Time Type Safety with Explicit Interface Method Implementations.
+
+internal struct SomeValueType : IComparable { 
+   private Int32 m_x; 
+   
+   public SomeValueType(Int32 x) { m_x = x; } 
+   
+   public Int32 CompareTo(SomeValueType other) { 
+      return(m_x - other.m_x); 
+   } 
+   
+   // NOTE: No public/private used on the next line 
+   Int32 IComparable.CompareTo(Object other) { 
+      return CompareTo((SomeValueType) other);  
+   } 
+} 
+
+
+1. Check if you work for IHS Markit from 16  S&P Global 
+
+Learning .NET, Front-End, Cloud
+Deepening and broadening technical expertise 
+Teaching and mentoring other team members 
+Investigating business requirements
+
+
+  
+
+
+   
 
 
 

@@ -1,0 +1,199 @@
+
+1. 
+
+ DO try to talk as much as you can.
+ DO try to explain what you mean even if you can't remember exact words.
+ DO develop your answers.
+ DO try to use a variety of vocabulary and grammar.
+ DO ask to repeat a question if necessary.
+ DO stay on topic.
+ DO relax and enjoy using your own English. 
+
+----------------------------------------------------------------
+ 
+2. Where are you from?
+I am from Ukraine, from Kiev. Have been living here since I was 14 years old. 
+
+---------------------------------------------------------------
+
+3. What do you like most about your job?
+
+Hard:
+
+complicated, difficult, challenging, puzzling, complex, 
+tricky, sophisticated, tough, 
+problematic, cumbersome, tedious
+
+Easy:
+
+not diffecult, elementary, straightforward, simple, plain 
+
+
+My job is programming, creating business applications that are useful for people, 
+They make their live much easier. So, I like when my applications help business to develop 
+makes business more successful, allows to expand new areas in the market and overcome competitors. 
+Also, I like learning new approaches and cutting-edge tecknologies. 
+Being a developer is not boring in comparison to other proffessions, because there is always 
+something that you should learn and take more responsibility on. 
+If you have grown up software development level, you always can attends leassons how 
+to become an architect or a manager. 
+ Bullet points: 
+   - programs make people live much easier. 
+   - programs helps business develop and be successful. 
+   - progamming means constant learning something new. 
+   - allows to communicate with people and be part of strong teams 
+   - works places are geographically independent
+   - opportunity to solve complex algorithmic problems 
+
+-------------------------------------------------------
+4. What new skill would you like to learn?
+-------------------------------------------------------
+
+Since I have been working as technical software developer for more than 10 years, 
+my responsibilities have always been just to write clean code that meets business  
+requirements and works successfully in production. 
+
+Recently, I have understood that now I am in the position of loosing motivation a bit, 
+because the work that I am doing now, does not require putting a lot of mental and phycical energy, 
+because I am just repeating the same steps over and over again. 
+
+I have understood that in order to take more responsibility 
+and acquire more senior and influential role in the company, I need to lean new skills. 
+
+Since I know that my hard skills are pretty good, I would like to improve soft skills. 
+First skill that I would like to boost my experience in is technical leadership and people skills.
+In order to be a good leader I need to learn how to efficiently interact and communicate with people. 
+
+Since, leaders are the most experienced guys in the teams,
+one of the most important activity for them is to train, develop and mentor other less experienced team members, 
+
+So, I am going to attend Grow to Lead training where experince guys share their knowledge 
+Then, I would like to participate technical mentorship programs and become a mentor. 
+
+Apart from that what can be very useful for the future role is learing solution arckitecture. 
+It is need to have a high level vision of what project does 
+and what business goals and objectives our solution should fulfil. 
+
+Topic A
+ Talk about something you don’t like doing at work.
+ 
+ You should say:
+   what it is
+   why you don’t like it
+   how you deal with it 
+   
+ What it is: 
+   I do not like participating in abundance of meetings through the day. 
+   The most comfortable duration of meetings through the day is not longer than 2 hours. 
+   Recently I have conducted a lot of knowledge transfer sessions for our India colleagues, 
+   and there were days when I was explaining things to them for more than half of the day.
+ 
+ Why you don’t like it: 
+   I understand that they are important, we need to discuss things before doing, 
+   however somethings meetings can be inefficient and lats longer than needed. 
+   Sometimes, people, who I communicate with or whom I teach asks a lot of questions 
+   and need to explains same things over and over again. 
+ 
+ How you deal with it: 
+   First of all, I try to understand what meetings are important and what are not.
+   Before critical meetings I try to prepare ahead, build a plan and 
+   topics that I need to discuss. If the next day we are going to discuss business 
+   requirements, then I go through agenda, read business stories description and 
+   prepare questions with answers. Also, I apply techiques how to lead effective meetings: 
+     - Define the Meeting Objectives
+	     I need to stress out what is the purpose of this meeting, either it is 
+	     to do planning for the next week, or to solve a problem or to make a decision 
+	 - Meeting Length
+	     Plan meeting structure and time spent on each topic
+		   1. Introduction
+		   2. Review previous meeting notes 
+		   3. Present objective or problem at hand 
+		   4. Open brainstorming and group discussion 
+		   5. Collect the results and close the meeting
+		   6. Send meeting notes. 
+		   
+-------------------------------------------------------
+5. Act out a dialogue with the examiner. 
+   You will have a minute to read the instruction
+-------------------------------------------------------
+  
+  - find out the capacity of the largest conference room
+  - ask about the equipment available
+  - find out the cost of that room per day
+  - negotiate the price
+
+- Good afternoon. I am Ruslan from Epam and 
+  I am looking for booking a conference room int your hotel for tomorrow. 
+  Can you, please, help me with that? 
+
+- Let me give you more details. We expect up to 100 people to come to the conference. 
+  What is the max number of peope that can be in your conference room? 
+  How many people the largest available conference room can fit? 
+  Apart from that we need this room to be equipped with chairs, 
+  because the conference will last the whole day, and people will be tired to stand 
+  
+- Having one more question about the other equipment. 
+  Since, there going be presentations on the conference, we also need white-board and 
+  a meeting room projector or as an aternative, a big monitor pluggable to a laptop 
+  Will the room be equipped with all this? 
+   
+- Ok. Your room looks good to me. 
+  Please, tell me what will be price per day to use this room? 
+  Is payment for an additonal equipment included in you final price? 
+  
+- I'm sorry, but we are on tight budget amd I am afraid, we won't be able to afford the price. 
+  Is it possible to lower a price a bit for us, since we are regular customers? 
+  Can you offer some discount if we book this room for another conference which will occur in one month? 
+  If we pay in cash, will you lower the price a bit? 
+  
+- Thank you a lot. That's a good price for us. My manager will love it. 
+  We have made a deal. 
+
+- Thank you for your help. It's been preasure working with you.
+  See you tomorrow on the conference. 
+  Have a nice day. 
+
+-------------------------------------------------------
+6. Tell me about Epam? 
+-------------------------------------------------------  
+  
+  
+
+  
+   
+  
+  
+  
+  
+  
+  
+  
+  
+  
+	
+
+	
+   
+   
+     
+   
+  
+
+
+
+
+
+
+
+
+      
+
+
+
+
+
+   
+   
+   
+
+

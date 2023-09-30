@@ -502,8 +502,39 @@ AWS Lambda always runs only one request per execution environment.
 This means that if all execution environments are processing requests and a new one comes in,
 AWS Lambda will instantiate a new execution environment.
 
+-----------------------------------------------------
+Transcode video.
+
+Our serverless transcoder kicks off once we upload a file into an S3 bucket. 
+An S3 event invokes the Transcode Video Lambda and the process begins.
+  Runs a Step Functions workflow with two different inputs. 
+   1. The first parameter tells Step Functions to run a Lambda 
+      to extract and save the audio to EFS.
+   2. The second parameter is an array of objects that specify the start 
+      and end times of all segments that need to be created.
+
+Step Functions takes this array and applies the Map procedure. 
+It fans out and creates a Lambda function for each object in the array, 
+thus causing the original file to be split up by many Lambda functions in parallel.
+
+-------------------------------------------------------
+Step Functions
+  Step Functions is a workflow engine that is fairly customizable. 
+  It supports different states like 
+    Task 
+	  (this invokes a Lambda function or passes a parameter to the API of another service) 
+	Choice 
+	  (this adds branching logic)
+  Step Functions will create as many functions as necessary 
+  to cut the original video into segments. 
+  
 
 
+
+
+
+
+  
 
 
 
