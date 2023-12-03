@@ -351,10 +351,6 @@ Annual scan of code using industrystandard
 vendor engines and thirdparty summary report of scan results.
 
  
-  
-	
-
-
 
   
 

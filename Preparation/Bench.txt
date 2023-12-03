@@ -1,0 +1,455 @@
+
+https://kb.epam.com/display/GDOKB/Bench+Management+Policy
+
+1. https://kb.epam.com/display/GDOKB/Bench+Management+Policy
+  Pass training: https://kb.epam.com/pages/viewpage.action?pageId=1853361527
+   https://learn.epam.com/detailsPage?id=c44fbf8f-9e3d-4494-8d56-d0c0fb0c50b1
+   https://elearn.epam.com/courses/course-v1:EPAM+ETI+0623/courseware/dfcd18387b234bb9a3152fadb68b8f37/56ffb4b94a544997a63d23c8fc62bb91/?tpa_hint=oa2-prod-elearn-iam 
+   https://elearn.epam.com/courses/course-v1:EPAM+ETI+0623/courseware/8f4ab7418c5a4501815978e18ac64c2d/92ae31d232894c8c8d5f8030aefd1ea3/?child=first
+  
+2. Questions?
+ - Do you provide opportunities for proffessional development?   
+ - Have you ever had a project interview? 
+ 
+ Last time I was interviewed on a project in English was 6 years ago. It was successful and I was taken on that project. I have been working on it since than and now I am being made redundant and looking for new opportunities. So, what I remembered most about those two interviews that they were conducted by very good managers. I was being asked questions about my previous experience and obstacles that I had encountered in the past and successfully overcome. I had made and examples and proved that I had solved these challenges successfully and has learn from it. 
+ Apart from that, the developer manager asked me to write code online to check my problem-solving skills and asked a lot of follow-up questions. I answered everything, at least I thought so, and then he told me that he was going to interview other candidates and wished me good luck. 
+ After this I did not even hope that there would take me on the positions, but 3 weeks later I was very surprised when I was informed that I had been finally offered this job.     
+
+ The interviewer wanted to reduce the stress before the interview an talk a bit about something neutral. 
+ Firstly, he asked about how things have been going and the interviewee did not bother to answer anything. 
+ The interviewer could have just thought that Alex did not want to maintain the conversation and was not opened to talk. 
+ He might have confirmed his assumption after asking his second question about the weather. 
+ To me it looks like the interviewee failed to create a good first impression.
+
+
+3. Tips for the interview. 
+
+ 3.1 Get as much information as possible about the company and a project.
+     Get this information from a company web site, position or job description,
+     You should understand the position requirements very clearly,
+     Discuus how your knowledge and skills commit those requirements. 
+	 
+ 3.2 The most common interview questions.
+     - Tell me about yourself
+	 - What is your major achievement
+	 - Think about expertise, skills necessary for the job
+	 - Take care of technical side of things in advance
+	 - Do not be late 
+	 
+ 3.3 Smalltalk.
+     - How are you doing today? 
+	 - Short commnets about the weather? 	
+	 - How are you today? 
+	 - How was your day? Ask the interviewer the same. 
+	 - How war your holiday? 
+	 - What are your plans for weekend? 
+	 - How was you birthday? 
+	 
+	 Prepare typical answers for typical smalltalk questions:
+	     How has your day been so far? 
+	     So far, so good.
+		 I've been busy lately.
+		 And how is your day going? 
+		 What is the weather like in your location? 
+		 Let's kick it off.
+	
+	  How're you doing today?	●  Pretty good (informal), thank you. How're you doing?
+                                ●  Pretty well, thank you.
+                                ●  Doing good (informal). How are you?
+                                ●  Doing well. How are you?
+      How's it going?	            ●  Fine/great, thanks. Having a good week. How're you doing?
+      How's your day going?	        ●  Great, thanks for asking. I’m very excited about the interview. And how's your day?
+      How's your day been so far?	●  So far, so good. I’ve been rather busy lately. And how's your day going?        
+	  
+	  How's the weather over there? ●  Unfortunately, it's raining/snowing. What’s the weather like in [location]?
+      What's the weather like in [location] today?	
+                                    ●  It's stopped raining/snowing, luckily.
+                                    ●  It's quite hot today. It's normally much cooler in May.
+									
+      I hear the weather's been bad in [location] recently.	
+        ●  That's right. It's been raining for three days in a row. Does it often rain where you are?
+      Are you enjoying the weather today?	
+	    ●  Yes, I love summer and just hope it lasts a bit longer. How about you?
+
+      So, how was your weekend?
+        ●  Oh, you know, it was nothing special. 
+		   I just did some housework and met up with some friends. How was your weekend?
+        ●  It was a pretty quiet weekend. I can’t say that I did anything special. 
+		   How about your weekend? 
+	 
+ 3.4 Tech interview. 
+     - Describe how you use technical skills to solve business problem 
+     - Give examples. 
+ 
+ 3.5 Avoid dead air. Long silent pauses during the interview. 
+     - Ability to think on the spot 
+	 - Active listening phraises: Right, I see, Exactly, 
+	 
+ 3.6 Ask for clarification. 
+     - Ask to repeat the question. 
+
+ 3.7 Ask questions about the position. 
+     - Prepare several questions before the interview 
+
+ 3.8 Active listening. 
+     - Right. I see. Sure. 
+
+--------------------------------------
+
+4. Tell me about youself. 
+Prepare short introduction 
+Read the job description and come up with the introduction that matches with the requirements. 
+Who you are? 
+  - Current position.
+  - Important responsibilities.
+  - Relevant experience.
+  - Why you are qualified for the job.
+  - Justify why your tech and soft skills fit the position. 
+  - Provide examples. 
+  - Major accomplishments. 
+  - Tell why you are here. 
+  - Tell that you are excited about the opportunity and stress your interest in the position. 
+
+Example:
+  I'm a Software Engineer. I have been in IT industry for 16 years. 
+  I graduated Kremenchuk State Polytechnic University. 
+  I have quite good knowledge of developing Cloud Apps in Azure using .NET and Angular. 
+  I’ve managed to get a good experience of working with different projects and teams. 
+  I think my education and experience make me a good fit for position in this project.
+
+  I'm a Senior Software Engineer with 10+ years of overall experience in the IT industry. 
+  I focus primarility on .NET Back-End development for enterprise distributed systems within Financial business domain. 
+  I started as a Middle Software Engineer 10 years on Web project for Insurance company. 
+  Have worked on multiple projects since then using variety of technologies in .NET world. 
+  I graduated from Taras Shevchenko University and Applied Math faculty
+  I am pretty good at designing and developing .NET back-end services in Cloud 
+  I have gained very good experience in building Web solutions for Capital Markets.
+  I am very excited about the opportunity to work on a project using .NET tech stack in the Cloud 
+  
+Role and responsibilities	●  I’m a/an [your position].
+                            ●  I focus primarily on + noun/V-ing.
+                            ●  I’m also responsible for + noun/V-ing.
+							
+Work experience	
+  ●  I’ve been in the IT industry for [number of years/months].
+  ●  I did an internship at [name of the company].
+  ●  I started as a/an [position].
+
+Educational background	
+  ●  I’m a senior at [university/college name] studying [the main subject you study].
+  ●  I took a course in …
+  ●  I graduated from [university/college name].
+
+Skills and knowledge	
+  ●  I’m (pretty) good at + noun/V-ing.
+  ●  I have good [problem solving, communication, etc.] skills.
+  ●  I have (quite) a good knowledge of + noun/V-ing.
+  ●  I’m comfortable with + noun/V-ing.
+  
+Accomplishments	
+  ●  I’ve gained a lot of valuable experience in + noun/V-ing.
+  ●  I’ve managed to get a (pretty) good understanding of + noun/V-ing.
+  
+How the candidate feels about the position	
+  ●  I'm really excited about the opportunity to work on this project.
+  ●  I think my education and experience make me a good fit for this position.
+  ●  I think the combination of my skills and experience could be a good addition to your team.
+
+----------------------------------------------------
+typical interview questions: 
+
+1. What was the project goal?	
+  ●  On my previous project we had to + V.
+  ●  On my previous project we were tasked with + noun/V-ing.
+  ●  I was working on a project with a client, and they wanted to +V.
+  
+2. What specifically did you do?	
+  ●  I was responsible for + noun/V-ing.
+  ●  I was in charge of + noun/V-ing.
+  ●  I worked very closely with + N.
+
+3. What challenges did you face?	
+  ●  I ran into a problem with + noun/V-ing.
+  ●  We had a minor issue with...
+  ●  I faced a dilemma about whether to + V or not.  
+  
+4. What were your key achievements?	
+  ●  The project allowed me to put my knowledge of... into practice.
+  ●  I gained a lot of valuable experience in + noun/V-ing.
+  ●  My participation in the project taught me about + noun/V-ing.
+  ●  I learnt that ...
+  ●  I managed to + V.
+  
+----------------------------------------------------
+Diffecult questions. 
+1. Ask the interviewer to repeat the question.
+2. Clarify that you have understood the question. 
+3. Buy thinking time. 
+
+----------------------------------------------------
+Answering questions the right way
+
+1. Are you a team-player?
+2. What skills can you bring to the project? 
+3. What makes the project successful?
+4. What are your core skills/strengths?
+5. In your opinion, what makes a project successful?
+6. Think of your own example sentences when comparing the tools. 
+7. What’s the difference between Kanban and Scrum?
+8.  Are you good at solving problems?
+9.  Do you usually make better decisions alone or with a group?
+10. How would you deal with multiple deadlines?
+
+----------------------------------------------------
+STAR questions 
+
+1. Give me an example of a goal you met?
+2. Describe a situation when you had to learn something new?
+3. What’s your biggest achievement?
+4. Tell me about a challenge you faced recently?
+5. Can you describe a time when you had to work under pressure?
+
+----------------------------------------------------
+
+----------------------------------------------------
+
+----------------------------------
+1. Tell me about yourself?
+----------------------------------
+
+I am a senior software engineer mostly on back-end side using .NET technology stack 
+I focus primarily on developing back-end side of applications. Recently, I have gained pretty good 
+knowledge in desinging and developing microserves and deploying them to Cloud. 
+Apart from that since I have been working for my customer since 2016 and I have managed to 
+gain solid understanding of our application, last 1.5 years I have been mentoring and teaching 
+our colleagues from India 
+
+As for my experience, I have been working as an IT proffessional for more than 10 years. 
+I started my career at 4rd year at my University. I was studing at Computational Math faculty. 
+I came to Epam after having been working for 4 years on our Ukrainian companies. At Epam I have contributed 
+to multiple projects mostly from US and Europe. My faivourite customers are the most recent ones: 
+SNP and Wolters Kluter Twinfield. 
+
+As far as I have already mentioned my expertise includes mostly back-end part of things. 
+Databases, Web Api, Microservices. However, I am trying to deepen and broaden my knowlegde. 
+I am learning Angular and recently have been participating in building UI componments and fixinf issues. 
+For the last couple of years while working on SNP project I has a chance to gain pretty good 
+knowledge in  migrating .NET Framework services from on-prem Windows boxes to AWS Clould 
+
+Apart from that there have been a lot of communication within multi-cultural distributed teams recently.
+Thus my communication skills should be pretty good I am comfortable working 
+as part of multicultural distributed teams. 
+
+I think that combination of my skills and experience will be a good fit for the position. 
+
+--------------------------------------
+2. What is your major achievement?
+--------------------------------------
+
+Technical IAN. OrderService
+
+One of my major achivements so far is to build and release to production 
+one of the central and most critical service from business perspective
+It is the central service which allows BuySide investors and Sell side 
+syndicate banks to exchange information electronically. BuySide could send orders 
+and receive allocation. One of the most critical requirements was to provide 
+guarranteed message delivery between these two sides. 
+
+Releasing this service to Production was challenging because my team leader 
+who had worked on this project as a key person together with me, he has left the 
+project due to promotion to another role. Before that I had been working 
+as a middle developer and become responsible for releasing this service to production 
+
+After users started to use the apprication there were performance issues, 
+some messages were lost, so I had to fix prod issues and made this service more reliable 
+by breaking the full business flow onto small sub-systems and durable queues. 
+In this was we isolated core business functionality from suplemental infrastructural part. 
+Gurranteed deliery was achieved by sendinf ack messages back to IssueNet after saving updates. 
+and by using internal queues. In case of an error, or external system being unavailable, 
+messages were preserved in dead letter queues and were retried. Business flows were finished, 
+event when IssueNet was down for 30 mins or when job workers stopped due to dead locks. 
+
+As a result, reliability of the system was incresed. 
+
+Technical IAN. Equity Book Build intergration using Event Sorcing CQRS, ServerLess. 
+
+Leadership. Teaching indian colleagues.
+
+------------------------------------------
+3. Give me an example of a goal you met?
+------------------------------------------
+ Goal was to deliver Equity-OrderService in time whithin tight schedule 
+ Goal was to Migrate our BuySide from on-prem Windows boxes to AWS cloud. 
+ and teach 
+
+
+
+The main idea here behind the STAR method is that every answer should cover the following topics:
+
+(S) Situation - Describe the situation and the context in which the event took place.
+(T) Task - Talk about the tasks you had to complete (i.e. your challenge or responsibility).
+(A) Action - Explain the actions you took to address the above-mentioned challenges or responsibilities.
+(R) Results - Explain the kind of results you achieved. When describing the outcome, 
+              if possible, mention numbers and quantifiable facts. 
+			  E.g. “Improved cold lead response time by 20%” VS “Improved sales.”
+
+
+
+
+
+
+
+
+
+
+  - Tell me about yourself
+	 - What is your major achievement
+	 - Think about expertise, skills necessary for the job
+	 - Take care of technical side of things in advance
+	 - Do not be late 
+
+
+Vacations: 
+
+[Swiss Life Ag] https://opportunities.epam.com/positions/477775537 
+Ажур Клауд. D4 з нашого проекта ходив і не пройшов кастомер інтерв'ю по причині 
+сіньйоріті левел місматч. Там вже когось заасайнили.
+
+[PPG Industries] https://opportunities.epam.com/positions/529214324
+.NET and AWS Cloud CQRS. High competition
+
+[Core Logic] https://opportunities.epam.com/positions/530407508
+Сіньйорна позиція по дот нету.
+
+[Kantar] [Key Developer] https://opportunities.epam.com/positions/521646818  Full-stack medium competition
+         [Key Developer] https://opportunities.epam.com/positions/527885298  CQRS medium competition
+		 [Developer]     https://opportunities.epam.com/positions/521647110
+Фул стек. Клауд AWS. Може бути інтерв'ю по Js. 
+
+[Schlumberger] https://opportunities.epam.com/positions/535580890   high competition
+Фул стек. .NET + Angular 
+
+[Sompo Virtuace] https://opportunities.epam.com/positions/538466555  low competition
+Фул стек. .NET + Angular 
+
+[Sompo Virtuace] https://opportunities.epam.com/positions/538466583  low competition
+Фул стек. .NET + Angular + Azure nice to have 
+
+[Sompo Virtuace] https://opportunities.epam.com/positions/538466624 low competition 
+Фул стек. .NET + Angular + Azure nice to have 
+
+[MASS-DEV1] https://opportunities.epam.com/positions/533109036  medium competition 
+.NET, Web API no cloud 
+
+https://opportunities.epam.com/positions/533109061
+
+
+[Elips Life AG] https://opportunities.epam.com/positions/524921963  low competition
+C#, familiarity with Azure Cloud 
+
+[Minichain] https://opportunities.epam.com/positions/530421993 medium competition
+C#, JavaScript, Blazor 
+
+[Saudi Goody National Marketing] https://opportunities.epam.com/positions/527214631  medium 
+.NET, CMS, Azure 
+
+[EPAM] https://opportunities.epam.com/positions/521978226 
+
+[AGILE] https://opportunities.epam.com/positions/518771578  medium
+.NET, framework internals, design patterns 
+
+
+
+---------------------------------------
+[PPG Industries] https://opportunities.epam.com/positions/529214324    багато пропозалів
+[Core Logic] https://opportunities.epam.com/positions/530407508  он-прем, але сіньйорна позиція
+[Kantar] https://opportunities.epam.com/positions/527885298   
+[Sompo Virtuace] https://opportunities.epam.com/positions/538466555 .NET + Angular. По фронту мало скілів. читаю книжку. 
+[Deltatre] [MASS-DEV1] https://opportunities.epam.com/positions/533109036
+[AGILE] https://opportunities.epam.com/positions/518771578
+[Minichain] https://opportunities.epam.com/positions/530421993  .NET + Blazor. По Blazor треба щось читати. 
+[Elips Life AG] https://opportunities.epam.com/positions/524921963 
+
+
+
+[LOUI-DASS] https://staffing.epam.com/positions/519004702 .NET JavaScript он-прем
+[KGND-KMP] https://staffing.epam.com/positions/521646818/profile
+[LOUI-MLDC] https://staffing.epam.com/positions/500268888/profile full stack. Angular advanced
+
+
+
+
+DOT.NET 8 
+
+Client GC collection 
+New Dot.NET Record type 
+NOSQL Graph DB, RavenDb, MongoDb, 
+SQL Joins,
+
+Angular, WebPack, EventLoop,
+AWS certification developer
+JavaScript
+
+How to start angular project 
+
+-----------------------------------------------------
+
+• Designed and developed 5 large-size Web API Microservices: OrderService, BuySide Portal API, Muni, Equity, Primary Order Management which increased time to market and allowed teams to work independently
+• Designed and developed reliable and fault-tolerant integrations with external message-based APIs: IssueNet, Financial Information eXchange, Cross Asset Services, Bloomberg which increased performance and availability of Microservices 
+• Introduced Event Sourcing and CQRS patterns in EquityOrderService, which simplified complex business logic and allowed to scale read database independently
+• Built new services using AWS Lambda, SNS, SQS, Api Gateway which reduced infrastructure cost up to 5 times 
+• Improved code quality and unit test coverage by running SonarQube verification in TeamCity pipelines
+• Adjusted CI/CD for Microservices using Azure DevOps, Docker and Terraform which allowed to deploy more frequently and automatically run acceptance testing  
+• Increased front-end code maintainability by using Angular Redux
+• Designed database and wrote sql queries for AWS Quicksight Business Intelligence tool which allowed users to view data reports 
+• Created design artifacts and documented the solutions which reduced onboarding time by 2 days
+• Trained and mentored colleagues from India which allowed them to start working independently after 2 months
+
+Key Achievement: Migrated on-premise Web API services from .NET Framework to .NET Core, Docker and AWS which reduced deployment time to production and lowered infrastructure cost
+
+-----------------------------------------------------
+
+•	Implemented export of purchase orders, invoices to Universal Business Language XML file
+•	Developed Restful Web API for Value-Added Taxes
+•	Developed back-end infrastructure for Microservices using Event Sourcing and CQRS patters which decreased the time to build new services 3 times
+•	Integrated with Legacy Asp Web Site using RabbitMQ which allowed to move features out to Microservices
+•	Fixed critical bugs in Front-End AngularJS application
+•	Draw diagrams and created documentation about the solutions
+•	Onboarded newcomers, helped to debug services locally and explained application design 
+
+Key Achievement: Moved Value-Added Taxes business logic out of Legacy Monolithic Visual Basic program to a Message Oriented Microservice which increased code maintainability and reduced UI load time for Value-Added Taxes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+	  
+ 
+    
+
+	 
+  

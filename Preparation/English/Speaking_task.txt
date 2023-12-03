@@ -156,6 +156,37 @@ Topic A
 -------------------------------------------------------
 6. Tell me about Epam? 
 -------------------------------------------------------  
+  Epam history started in 1993. There were nly 3 developers one client and a small office
+  Since that time Epam has grown tremendously, has created solutions for a lot of big clients.
+  Epam started in one county and since then has expanded geographically and opened offices 
+  in many countries accross the globe. 
+  
+  From the very beginning Epam's service included only providing develper who wrote code for the clients. 
+  Epam was only a mediator between a client and progammers, clients asked for developers with exspertize in 
+  the set of technologies that clients needed. 
+  After that Epams started to be in charge of the whole digital stransformations for clients and 
+  also, do business consulting and design products from scratch 
+  
+  In 2004 Epam merged with Fathom technology which specialized in advanced Java and .NET technologies services 
+  By that time Epam's had count had grown up from 3 to 1000 people
+  
+  On Febulary 8 Epam become public on New York Stock Exchange
+  By that time Epam's had count had increased from 1000 to 10000 employees. 
+  
+  For the period from 2013 to 2015 Epam had increased head count twice. 
+  Started to participate in programs that provide customers with more value added services. 
+  
+  Mission after 2018 is to transform platforms for adaptive enterprises. 
+  In the period from 2018 to 2021 Epam had again doupled headcount 
+
+
+Senior .NET Software Engineer with 10+ years of overall experience in designing and developing distributed enterprise systems within financial business domain using wide range of technologies starting from ASP Web Forms to AWS Cloud
+
+  
+  
+  
+  
+  
   
   
 

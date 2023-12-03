@@ -1,0 +1,158 @@
+
+  https://pvs-studio.com/en/blog/posts/csharp/0995/
+  https://ridikk12.medium.com/the-thing-that-you-didnt-know-about-c-list-41d61a2d8010
+  https://dev.to/samfieldscc/things-you-need-to-know-as-a-c-developer-collections-md6
+  
+  Hashtable:
+     https://referencesource.microsoft.com/#mscorlib/system/collections/generic/dictionary.cs,3b9a0882313262cd
+     https://dev.to/tywenk/how-do-hash-tables-work-under-the-hood-4nff
+       https://blog.markvincze.com/back-to-basics-dictionary-part-1/
+	   https://blog.markvincze.com/back-to-basics-dictionary-part-2-net-implementation/
+	   https://blog.markvincze.com/back-to-basics-dictionary-part-3-built-in-gethashcode/
+  
+  Consistent hashing in Java: 
+     https://stackoverflow.com/questions/28781817/how-collections-concurrent-library-work-under-the-hood
+     https://stackoverflow.com/questions/14164298/do-any-hashtables-in-memory-non-distributed-use-consistent-hashing  
+	 
+
+1. Dictionary<TKey,TValue>, Hashtable,
+    ConcurrentDictionary<TKey,TValue>
+    ReadOnlyDictionary<TKey,TValue>
+    ImmutableDictionary<TKey,TValue>
+2. List<T>, Array, ArrayList, ImmutableList<T> (add,[] - O(logn) ), 
+   ImmutableArray
+3. Queue<T>, Concurrent, Immutable.
+4. LinkedList<T>, ObservableCollection<T>, SortedList<TKey,TValue>,
+   ImmutableSortedDictionary<TKey,TValue> (logn), ImmutableSortedSet<T> (logn),
+   SortedDictionary (logn) 
+5. HashSet<T>, SortedSet<T> (logn), ImmutableHashSet<T> (logn), ImmutableSortedSet<T> (logn)
+
+-------------------------------------------------
+
+1. List 
+
+An operation to add an element to a List can be costly because it can cause memory relocations, 
+which makes the operation possibly slow. 
+Usually, the List is allocated with enough space, but attention should be given to this 
+for a list where large datasets are being inserted.
+
+Example of an O(n) operation using RemoveAt(0) with a List
+
+Do not perform O(n) operations inside a loop!
+
+for(int i = lst.Count-1; i ≥ 0; i--){
+   if(isPair(anotherList[i])){
+      lst.RemoveAt(i);
+   }
+}
+
+The RemoveAt() is O(n), and the entire loop could be in the worst case also O(n), 
+which creates a complexity of O(n²)
+An alternative: 
+
+list.RemoveAll(x => isPair(x));
+
+2. SortedList 
+
+ Functionally a dictionary
+ Internally uses a list
+ Uses less memory than SortedDictionary
+ 
+3. LinkedList
+
+Because of its optimization for changes, a LinkedList could be used 
+as a temporary working set for operations that are performing a large number of changes to it; 
+it can then be copied to another collection when done with editing the List.
+
+4. SortedDictionary
+
+Keyed access to items
+Sorts items only by key
+Guaranteed sort order when enumerating
+Modifications scale better
+
+5. HashSet
+
+Useful to enforce uniqueness out of the box.
+Allows for set operations (unions and intersections).
+Similar to dictionaries (But lack keys and don't support lookups).
+HashSet for dealing with duplicates
+There are two ways to deal with unwanted duplicates: 
+the native way and the better away (just kidding, kind of).
+
+var uniqueListOfNumbers = listOfNumbers.Distinct().ToList();
+
+Another strategy is to use a HashSet; 
+this way, when we are adding elements to the HashSet, 
+it will ignore duplicate values when adding them to the set! 
+It's very scalable and efficient at enforcing uniqueness.
+
+6. Dictionary. 
+  HashFunction. Reference types
+    The hash code of a reference type object is calculated based on its reference, and not its value, 
+	with the RuntimeHelpers.GetHashCode method. 
+	What this means is that the value of the hash code does not depend on the values of the object’s fields at all. 
+	This can be confusing, imagine that you implement the following class to be used as a key.
+  
+   var dict = new Dictionary<TestRefKey, string>();
+   var key1 = new TestRefKey(5);
+   dict.Add(key1, "hello");
+   var key2 = new TestRefKey(5);
+   var item = dict[key2]; // This throws a KeyNotFoundException.
+
+ public class GoodTestRefKey
+ {
+    public readonly int Key;
+
+    public GoodTestRefKey(int key)
+    {
+        Key = key;
+    }
+
+    public override int GetHashCode()
+    {
+        return this.Key.GetHashCode();
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+            return false;
+
+        var other = (GoodTestRefKey) obj;
+        return this.Key == other.Key;
+    }
+ }
+ 
+ A typical example is System.String, of which the Equals and GetHashCode 
+ is based on the actual characters of the string and they don’t depend on the reference, 
+ so using strings as Dictionary keys is safe to do.
+ 
+Value types:
+ If the GetHashCode is not overridden for a value type, then the ValueType.GetHashCode method will be called, 
+ which looks up all the fields with reflection, and calculates a hash code based on their values. 
+ This implicates that value type objects with the same field values will have the same hash code by default, 
+ so they are safe to be used as Dictionary keys.
+
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+  
+   
+   
+  
+
+
+
+
+
+
+
+
+
+

@@ -1,4 +1,21 @@
 
+angular structure: components, directives, pipes, injectable, modules
+lifecycle hooks
+change detection mechanism, changeDetectorRef, OnPush
+dependency injection on module level and component level
+routing, lazy routes, guards, resolvers
+style encapsulation, shadow dom, scss basics
+forms, reactive forms, ngModel, validators
+ng-container, ng-content, ng-template, ngTemplateOutlet
+angular material components, cdk
+custom libraries, public_api.ts, forRoot pattern
+rxjs basics, observable, subject, behavior subject, combineLatest, forkJoin
+rxjs operators: tap, map, switchMap, filter, catchError, take, first, takeUntil
+handling subscriptions in rxjs
+state management (flux) pattern, ngrx basics: store, actions, reducers, selectors, effects
+
+
+
 1. npm install -g typescript
 2. npm install -g @angular/cli
 3. ng new angular-hello-world
@@ -32,7 +49,15 @@ import { Component, OnInit } from '@angular/core';
 14
 15 }
 
-4. 
+4. Angular structure: 
+ 4.1 components, 
+ 4.2 directives, 
+ 4.3 pipes, 
+ 4.4 injectable, 
+ 4.5 modules
+
+
+
 
 
 

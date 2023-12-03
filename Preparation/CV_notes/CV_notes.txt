@@ -32,6 +32,9 @@ https://careers.google.com/how-we-hire/#step-your-resume
   - Work within globally distributed and multi-cultural teams
   - Teach and develop team members 
   
+  design and develop back-end part of applications, integrate complex systems, design microservices, 
+  migrate on-prem applications to AWS Cloud, set up CI/CD and train and develop team members 
+  
  Key achivements: 
   - Designed and developed reliable event driven integration with IssueNet 
     to directly connect BuySide investors with Syndicate banks 
@@ -68,6 +71,11 @@ and automation of the Fixed Income marketplace.
 It allows investors and syndicate banks to exchange information 
 in real-time electronically which increased market efficiency and reduced operational risk.
 
+
+Investor Access Web Portal that integrates with Book Building Web Systems on Capital Markets 
+to allows investors and syndicate banks to exchange information in real-time electronically
+
+
 Responsibilities
 
 •	Designed and developed Investor Access Net, 
@@ -83,6 +91,30 @@ Responsibilities
 	and allocations across its account hierarchy. 
 •	Developed UI components using cutting edge Front-End technologies such as Angular, Redux.
 •	Developed Integration between Microservices via Kafka and RabbitMQ.
+
+----------------------------------------------------------------------
+
+• Designed and developed 5 large-size Web API services: OrderService, BuySide Portal API, Muni, Equity, Primary Order Management  
+• Integrated BuySide Web Platfrom with IssueNet information exchange system
+• Implemented Financial Information eXchange protocol
+• Migrated on-prem .NET Framework services into AWS Cloud
+• Adjusted CI/CD for Microservices
+• Created design artifacts and documented the solutions which reduced onboarding time by 2 days
+• Trained and mentored colleagues from India which allowed them to work independently within 2 months 
+
+
+
+• Integrated BuySide Web platform with Fixed Income IssueNet information exchange system
+• Designed and developed Microservices for Primary Order Management
+• Implemented Financial Information eXchange protocol for Investors
+• Integrated Investor Access services with Bloomberg vendor
+• Integrated BuySide Web platform with Equity and Muni bookbuild systems
+• Migrated on-prem .NET 4.8 services into Cloud (AWS, .NET Core, ECS, PosgreSQL)
+• Integrated AWS Quicksight Business Intelligence into BuySide
+• Adjusted CI/CD for Microservices
+• Created design artifacts and documented the solutions 
+• Conducted training sessions for colleagues from India
+
 
 Example: 
 

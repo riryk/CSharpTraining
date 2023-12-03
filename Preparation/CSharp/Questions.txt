@@ -358,13 +358,15 @@ internal struct SomeValueType : IComparable {
    } 
 } 
 
-
 1. Check if you work for IHS Markit from 16  S&P Global 
 
 Learning .NET, Front-End, Cloud
 Deepening and broadening technical expertise 
 Teaching and mentoring other team members 
 Investigating business requirements
+
+
+
 
 
   
