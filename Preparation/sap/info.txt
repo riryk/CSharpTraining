@@ -1,0 +1,392 @@
+
+ Diagrams: 
+   https://blogs.sap.com/2020/10/02/sap-eam-data-migration-part-4-functional-locations-and-equipment/
+   https://blogs.sap.com/wp-content/uploads/2015/07/pm_tables_758825.jpg   
+
+###################################################3
+
+  Useful Info
+  
+######################################################3
+
+Work order operations and relationship: 
+
+https://solutionsapproblems.com/table-relation-sap-pp-project-planning-production-planning/
+https://answers.sap.com/questions/13097347/relationship-data-for-work-orders-operation.html
+https://leanx.eu/en/sap/table/aufk.html
+
+Maintenance plan:
+https://help.sap.com/docs/SAP_ERP/bb749f3823d740cc9f66b967486958d3/f513bd534f22b44ce10000000a174cb4.html?version=6.05.latest
+
+
+
+Tables:
+https://www.leanx.eu/en/sap/table/iflot.html
+https://sapstack.com/tables/dataelements.php?field=SWERK
+https://answers.sap.com/questions/12212629/maintenance-plant-assignment-to-planning-plant.html
+https://learning.sap.com/learning-journey/explore-integrated-business-processes-in-sap-s-4hana-/defining-the-organizational-levels-used-in-eam_e191727f-2b9a-443e-958e-65d057f51177
+
+
+A single cycle plan is the simplest form of maintenance plan. 
+You create a single cycle plan and define exactly one time-based or performance-based maintenance cycle, 
+in which you specify the interval at which the maintenance plan should be executed.
+
+
+CRO_T_JCDS 753 738 024       
+
+ PlPlants: 
+   
+   https://www.tcodesearch.com/sap-tables/search?q=planning+plant&utm_content=cmp-true   Pl Plant tables in SAP 
+ 
+ [Yesterday 9:59 PM] Ruslan Iryk
+https://blogs.sap.com/wp-content/uploads/2015/07/pm_tables_758825.jpg
+[Yesterday 10:00 PM] Ruslan Iryk
+plant maintenance таблички. нарив в інеті діаграмку. їх тут дуже дофіга багато
+[Yesterday 10:01 PM] Ruslan Iryk
+https://hkrtrainings.com/sap-pm-tables  ще є стаття з важливими таблицями 
+https://blogs.sap.com/2013/07/26/faq-pmcs-tables/  - всі тіблиці на плант мейнтенансі
+SAP PM Tables | Complete List of SAP PM Tables and Overview
+In this blog, we will discuss about SAP PM Tables, Types of SAP PM tables, 
+SAP PM measurement documents and Service order tables in PM.
+
+нам ще ж треба знайти темплейти для джобів і актівіті з релейшеншіпами. 
+Вони там говорять про таск лісти 
+   PLPO -> operations
+   PLAS -> Assignment of operations to the sequences.
+   PLAB -> Task list relationships.
+
+https://answers.sap.com/questions/10446768/info-on-aufk-table.html 
+
+https://answers.sap.com/questions/11601036/difference-between-plant-location-and-plant-sectio.html
+https://www.tcodesearch.com/sap-tables/search?q=plant+section
+ 
+
+Maintenance plant: 
+https://www.se80.co.uk/sap-table-fields/?tabname=iloa&fieldname=swerk
+https://www.saptutorials.in/sap-plant-maintenance-tables/
+ 
+ 
+Logistics:
+
+SAP S/4HANA Sourcing and Procurement
+SAP S/4HANA Manufacturing
+SAP S/4HANA Supply Chain
+SAP S/4HANA Asset Management
+
+SAP Enterprise Asset Management (SAP EAM), and EHS monitoring and reporting tools are considered part of the Asset Management LoB.
+
+Book: https://www.skillsoft.com/book/configuring-plant-maintenance-in-sap-s4hana-7e464029-7da8-4aa8-a181-4804aef0f0b5
+      https://www.perlego.com/book/2811109/configuring-plant-maintenance-in-sap-s4hana-pdf?utm_source=google&utm_medium=cpc&campaignid=17287656381&adgroupid=152846624536&gclid=Cj0KCQiA67CrBhC1ARIsACKAa8RdiN7Ntr1z5wJvxm1pgqUecRtjmopzGVg6mJbGc_r7pWDv1vmptIIaAtZrEALw_wcB
+	  
+https://dokumen.tips/documents/plant-maintenance-with-sap-56719f684babe.html?page=1
+
+ Structuring Elements ......................................................................................................... 173
+4.2 Functional Locations and Reference Functional Locations .............................. 175
+4.3 Equipment .............................................................................................................................. 187
+4.4 Fleet Management ............................................................................................................. 197
+4.5 Links and Networks ............................................................................................................ 206
+4.6 Linear Asset Management .............................................................................................. 20
+
+Configuring the Work Order Cycl
+
+https://erproof.com/pm/free-training/sap-maintenance-order/
+
+-----------------------------------------------------------
+
+ Asset management 
+-----------------------------------------------------------
+
+The term “asset management” is generically defined as work that focuses around the maintenance 
+of a business’ fixed assets—things like manufacturing components, vehicles, plants, etc. 
+Examples include replacing broken infrastructure on the manufacturing floor, 
+determining a downtime schedule to inspect or completely replace components 
+when their lives have been completed, 
+and renovating or building new plants to increase production efficiency.
+
+SAP Enterprise Asset Management (commonly referred to as SAP Plant Maintenance or SAP PM)
+
+Equipment Calibration
+
+  Prior to starting up a new piece of machinery for the first time, 
+  it’s important to put it through its paces to make sure it’s ready for the task. 
+  Equipment calibration functionality allows companies such as water utilities to test pumps and pipes, 
+  and heating utilities such as gas companies to ensure pressure sensors and emergency cutoff devices are working properly.
+
+Preventive Maintenance
+  Even the best-oiled machine needs a tune up from time to time. 
+  SAP S/4HANA Asset Management’s preventive maintenance functionality provides 
+  users with the tools needed to schedule and perform preventive maintenance activities. 
+  For example, a waste removal company may have its vehicle fleet on a staggered tune up 
+  schedule so all vehicles are regularly checked for engine wear and hydraulic line issues. 
+  This helps reduce the risk of surprises down the road.
+
+-----------------------------------------------------------
+
+1. Plants from a Maintenance Perspective
+-------------------------------------------------
+https://blog.sap-press.com/sap-s4hana-asset-management-plants-from-a-maintenance-perspective
+
+Work center = vendor 
+
+It fulfills several maintenance functions as both a maintenance planning plant and as a maintenance plant.
+In addition to the topics of plant-specific maintenance and cross-plant maintenance.
+
+Location specific organisational unit 
+
+  Maintenance plant 
+       |-------------------- Location      (area, builing, coordinates)
+	   |-------------------- Plant section (production, plant engineer)
+	   |-------------------- Work center   (presses, turning shop) 
+	   
+  turning - Turning is the process of using lathes to remove material 
+            from the outer diameter of a rotating workpiece. 
+			Single-point tools shear metal from the workpiece in (ideally) short, distinct, easily recyclable chips.
+  
+Planning-Specific Organizational Units 
+
+   Planning plant 
+        |-------------------- Planner group  (foreman, work scheduling)		
+		|-------------------- Work center supervisor (mechanical engineering, electronics)
+			
+  An oil and gas production foreman is a critical member of the oil and gas production 
+  team responsible for ensuring that oil and gas operations run smoothly and efficiently.
+    
+	https://oilgasleads.com/role-of-a-oil-gas-production-foreman/
+
+Maintenance planning plant - 
+  A plant is responsible for planning maintenance activities. 
+  This type of plant is called a maintenance planning plant (or planning plant for short). 
+  You use the Maintain Maintenance Planning Plant Customizing function to convert a plant to a planning plant.
+  
+  All the technical objects to be maintained are physically present in a plant 
+  (functional location, equipment, and serial number)
+  A plant becomes a maintenance plant if you create a technical object there.
+  
+  Every plant in which maintenance processes are to be planned or executed 
+  must have an assignment from the maintenance plant to the planning plant. 
+  
+  If a plant isn’t assigned to a planning plant (e.g., plant MI00), 
+  you can’t create any technical objects there (maintenance plant), 
+  nor can you plan or execute maintenance tasks (planning plant).
+  
+  For business processes in SAP S/4HANA Asset Management, 
+  you need to differentiate between order planning 
+  and execution in only one plant and order planning and execution in different plants.
+  
+Plant-Specific Maintenance
+  Maintenance requirement is planned in the plant in which it originates, 
+  the orders are fulfilled by workshops in the same plant, 
+  and the spare parts are stored within the same plant.
+  
+  maintenance plant = planning plant = spare parts storage plant.
+
+Cross-Plant Maintenance
+
+  - here is a requirement in a plant (here, 1200) 
+    because an asset is to be maintained there (i.e., in the maintenance plant), 
+	but all other functions (planning, order execution, and spare parts storage) 
+	are the responsibility of another plant (here, 1000).
+	
+  - There is a requirement in a plant (here, 1100),
+    and additional partial functions (order execution) are also the responsibility of this plant, 
+	but other partial functions (order planning and spare parts storage) 
+	are the responsibility of other plants (here, 1000).
+  
+ Cross-plant maintenance isn’t a problem if the maintenance plant 
+ of the technical object and the plant of the executing work center are in the same company code. 
+ The same applies if the plants are in different company codes 
+ but belong to the same controlling area. 
+ This is also a standard scenario.
+
+ However, a problem occurs if the plants belong to different controlling areas. 
+ Here, there is no standard scenario but rather a customer-vendor relationship. 
+ Therefore, in this case, the maintenance plant (customer) has to trigger purchase orders, 
+ and the plant of the work center (vendor) triggers a sales order and its associated invoice. 
+ The invoice is, in turn, recorded as an incoming invoice in the maintenance plant. 
+ All in all, this is a very cumbersome procedure, but it can be simplified as described next.
+
+Plants in Different Controlling Areas
+ If you implement cross-plant maintenance and your plants are in different controlling areas, 
+ the following approach is recommended:
+  - In the work center plant, create a cost center for the actual maintenance plant.
+  - Assign all the technical objects to the work center plant 
+    (as a maintenance plant) and to this cost center.
+	
+ Process all maintenance orders in the work center plant.
+ Manually issue periodic invoices (e.g., monthly) 
+ from the work center plant whereby the customer maintenance plant is debited the amount, 
+ and the cost center is credited the same amount.  
+
+-----------------------------------------------------------------
+Lessons learned from EAM Enterprise Structure and Master Data – Planning and Maintenance Plants
+-----------------------------------------------------------------
+ https://blogs.sap.com/2021/09/10/lessons-learned-from-eam-enterprise-structure-and-master-data-planning-and-maintenance-plants/
+ 
+
+Maintenance Plant: 
+  “The maintenance plant of a technical object is the plant at which it is installed”
+
+Planning plant: 
+  “The maintenance planning plant of a technical object is the plant in which 
+   the maintenance tasks for the object are planned and prepared”  
+   
+SAP explains that there are three types of planning:
+ - Decentralized planning: 
+    Planning for all maintenance activities in the plants is done on each plant. 
+	In this case you have one maintenance plant per each planning plant.
+ - Centralized planning: 
+    This is the opposite from decentralized planning. 
+	In this case you have one planning plant associated with multiple maintenance plants.
+	
+All plants are maintenance plants. 
+   It doesn’t matter if they have any FLOCS or Equipment records installed on them. 
+   Any plant created in configuration is a maintenance plant.
+
+Not all maintenance plants are planning plants. 
+   You must manually decide which plants become planning plants in configuration.
+   Once you declare that a plant is a planning plant- 
+   you can start assigning it to your maintenance plants. 
+   
+A maintenance plant is linked to just ONE planning plant. 
+A planning plant can have multiple maintenance plants assigned to it.
+A planning plant is assigned to your planner groups and MRP Controllers
+You must assign your maintenance order types to your planning plants so that they can be used there.
+
+For example, I recently did the configuration for a project which had 5 thermal facilities 
+scattered around the city with centralized planning. 
+I could have created 5 different maintenance plants and one planning plant 
+– but  I only created one plant which worked as a maintenance plant and a planning plant. 	
+
+Regularly planning plants are “virtual” plants, not physical places. 
+The same can be true for maintenance plants. 
+There might or might not be a geographical relationship between your plants and your facilities.	
+
+A geographical relationship between your maintenance and planning plants and your facilities might or might not exist
+
+Your plant structure is much more linked to your maintenance processes 
+than it is to where your assets or planners are physically located. 
+Do not name your planning plants after your buildings. 
+
+-------------------------------------
+PM overview
+------------------------------------
+https://erproof.com/pm/free-training/sap-pm-overview/
+
+--------------------------------------
+ Functional loction
+-------------------------------------
+https://erproof.com/pm/free-training/sap-functional-location/
+
+------------
+Plant maintenance process
+------------------------------
+https://erproof.com/pm/free-training/sap-plant-maintenance-process/
+ 
+ 
+-------------------------------------------------------------------
+ Maintenance Work order
+------------------------------------------------------------------ 
+
+https://help.sap.com/saphelp_snc70/helpdata/en/48/10ed4a42f83ca0e10000000a42189c/content.htm?no_cache=true
+
+https://erproof.com/pm/free-training/sap-maintenance-order/	
+
+-------------------------------------------------------------------
+Work center 
+-------------------------------------------------------------------
+
+https://erproof.com/pm/free-training/sap-pm-work-center/
+
+---------------------------------------------------------------------
+Operation
+---------------------------------------------------------------------
+
+https://erproof.com/pm/free-training/sap-pm-task-list/
+
+-------------------------------------------
+SAP PM Order Planning
+-------------------------------------------
+https://erproof.com/pm/free-training/sap-pm-order-planning/
+
+
+SAP Task List is sequence of activities along with other details required to perform a maintenance task. 
+It is used in PP, QM, PM, and PS modules. However, the following task list types are allocated for PM purposes:
+
+E: Equipment task list
+A: General task list
+T: Task List for a functional location
+  
+https://erproof.com/pm/sap-pm-books/
+
+---------------------------------------------------------
+tables
+
+https://erproof.com/pp/sap-pp-training/sap-pp-tables/
+https://blogs.sap.com/2013/07/26/faq-pmcs-tables/   - all tables 
+https://onestopsap.com/sap-plantMaintenance/plant%20maintenance%20tables/transparentTable.asp
+
+https://blogs.sap.com/wp-content/uploads/2015/07/pm_tables_758825.jpg
+https://hkrtrainings.com/sap-pm-tables  - contains task list 
+
+  
+PLPO -> operations
+PLAS -> Assignment of operations to the sequences.
+PLMZ -> material component assignment.
+PLWP -> maintenance of package management.
+PLFH -> production resources / tools assignments
+PLMK -> Inspection plan characteristics.
+PLMW -> inspection plan characteristic values.
+PLAB -> Task list relationships.
+PLTX -> PMS texts.
+PLPH -> phases and partial operations for CAP.
+PLFT -> process instructions.
+PLFV -> process instructions characteristics and partial operation parameters.
+MLST ->: milestones
+EINA -> Purchasing info record of general data.
+EINE -> Purchasing info order details.
+ESLL -’> this table describes the lines for the service package.
+ESLH -> service package header data.
+  
+  
+  
+
+
+
+ZPM_DBV_AFAB_DW	BODS -Network - Relationships	Table	ZPM_DBV_AFAB_DW			
+AENNR		X	AENNR	Change Number	CHAR	12
+AOBAR		X	AOBAR	Type of relationship	CHAR	2
+APLZLNCH		X	APLZLNCH	Internal counter	NUMC	8
+APLZLVOR		X	APLZLVOR	Internal counter	NUMC	8
+ARBID		X	ARBID	Object ID	NUMC	8
+AUCRE		X	AUCRE	Ind.: Relationship automatically generated	CHAR	1
+AUFPLNCH		X	AUFPLNCH	No. identifying the network to which the successor belongs	NUMC	10
+AUFPLVOR		X	AUFPLVOR	No. identifying the network to which the predecessor belongs	NUMC	10
+DAUER		X	DAUER	Time Interval Between Relationships	QUAN	5
+DAUERMAX		X	DAUERMAX	Maximum time interval for relationship	QUAN	5
+DAUKZ		X	DAUKZ	Indicator for the duration of the relationship	CHAR	1
+DAUTM		X	DAUTM	Relationship duration (in seconds) as result of scheduling	INT4	10
+FEABD		X	FEABD	Earliest finish date for the relationship	DATS	8
+FEABZ		X	FEABZ	Earliest finish time for the relationship	TIMS	6
+FSABD		X	FSABD	Earliest start date for the relationship	DATS	8
+FSABZ		X	FSABZ	Earliest start time for the relationship	TIMS	6
+KALID		X	KALID	Factory Calendar	CHAR	2
+LOEKZ		X	LOEKZ	Indicates whether an object is logically deleted.	CHAR	1
+MANDT		X	MANDT	Client	CLNT	3
+MIMAX		X	MIMAX	Indicates whether maximum time interval will be considered	CHAR	1
+NCVOR		X	NCVOR	Indicates whether data after predecessor is maintained	CHAR	1
+OBJNR		X	OBJNR	Object number	CHAR	22
+PROVG		X	PROVG	Key for defining time intervals in a relationship	CHAR	1
+PRZNT		X	PRZNT	% used to calc. time interval between predecessor/successor	NUMC	3
+SEABD		X	SEABD	Latest finish date of the relationship	DATS	8
+SEABZ		X	SEABZ	Latest finish time of the relationship	TIMS	6
+SSABD		X	SSABD	Latest start date of the relationship	DATS	8
+SSABZ		X	SSABZ	Latest start time of the relationship	TIMS	6
+UDATE		X	UDATE	Creation date of the change document	DATS	8
+UTIME		X	UTIME	Time changed	TIMS	6
+VORNC		X	VORNC	Indicator: maintained after successor	CHAR	1
+WERKS		X	WERKS	Plant	CHAR	4
+ZEINH		X	ZEINH	Unit for the time interval between relationships	UNIT	3
+
+
+ 	   
+        

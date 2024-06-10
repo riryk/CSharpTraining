@@ -1,0 +1,30 @@
+
+[Friday 7:17 AM] Evgeniya Shaposhnikova
+
+По ангуляру мы обычно просим кандидатов повторить следующее:
+
+angular structure: components, directives, pipes, injectable, modules
+lifecycle hooks
+change detection mechanism, changeDetectorRef, OnPush
+dependency injection on module level and component level
+routing, lazy routes, guards, resolvers
+style encapsulation, shadow dom, scss basics
+forms, reactive forms, ngModel, validators
+ng-container, ng-content, ng-template, ngTemplateOutlet
+angular material components, cdk
+custom libraries, public_api.ts, forRoot pattern
+rxjs basics, observable, subject, behavior subject, combineLatest, forkJoin
+rxjs operators: tap, map, switchMap, filter, catchError, take, first, takeUntil
+handling subscriptions in rxjs
+state management (flux) pattern, ngrx basics: store, actions, reducers, selectors, effects
+
+і на девелопера і на архітектора я проходив курси від Cloud Guru на порталі Udemy
+зараз вони запустили свій портал і видалили усі курси з udemy (дуже шкода нажаль). їх можу сміливо рекомендувати, дуже гарно розповідають
+
+їх портал знаходиться тут - https://www.pluralsight.com/cloud-guru
+але, на скільки пам'ятаю, він досить дорогий був
+
+Олег здавав як раз на архітектора почавчора екзамен
+можеш його порозпитувати, він готувався на udemy по курсах Stephane Maarek - той самий, якого рекомендували по кафці коли починали. ось наприклад його курс на дева - https://www.udemy.com/course/aws-certified-developer-associate-dva-c01/. він мені також дуже подобається, можу рекомендувати
+
+тут головне одне - знаходиш курс, проходиш його, але в кінці тобі все одно прийдеться брати практичні питання. це як окремий курс з питаннями, такими самими як будуть на екзамені. коли їх пройдеш, будеш готовим проходити реальний екзамен. ось приклад (як раз його я проходив у свій час) - https://www.udemy.com/course/aws-certified-developer-associate-practice-tests-dva-c01/
